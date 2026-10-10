@@ -42,3 +42,9 @@ table.cmp th{font-size:.78rem;color:var(--mut);font-weight:700}
 .neg{color:#9b2335}.pos{color:var(--acc)}
 .flags{margin:8px 0 0;padding-left:18px}.flags li{margin:6px 0}
 .grid.formwide{grid-template-columns:380px 1fr}
+.grid.irform{grid-template-columns:minmax(300px,520px) 1fr}
+@media(max-width:820px){.grid.irform{grid-template-columns:1fr}}
+fieldset.cat{border:1px solid var(--br);border-radius:10px;margin:14px 0 0;padding:4px 12px 12px}
+fieldset.cat legend{font-weight:800;padding:0 6px}
+label.check{font-weight:600;margin-top:12px}
+label.check input{width:auto;margin:0 6px 0 0;padding:0}

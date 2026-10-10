@@ -1,0 +1,263 @@
+{
+  "ano": 2026,
+  "descricao": "Regras de IR de investimentos usadas pela calculadora. Cada número tem fonte. Item com verificado false não entra na conta como se fosse regra oficial.",
+  "mp1303": {
+    "verificado": true,
+    "vigenteEm2026": false,
+    "publicacao": "2025-06-11",
+    "perdaEficacia": "2025-10-08",
+    "situacao": "SEM EFICÁCIA",
+    "anoReferencia": 2026,
+    "norma": "Medida Provisória nº 1.303, de 11 de junho de 2025. O Congresso registrou perda de eficácia em 8 de outubro de 2025, sem conversão em lei.",
+    "fonte": "https://www.congressonacional.leg.br/pt_BR/materias/medidas-provisorias/-/mpv/169059",
+    "nota": "A MP queria, entre outras coisas, alíquota única e fim da isenção de R$ 35 mil no cripto. Ela não vale para operações de 2026. O texto no Planalto está marcado como vigência encerrada."
+  },
+  "acoesComuns": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquota": 0.15,
+    "isencaoVendasMensais": 20000,
+    "norma": "Lei nº 11.033/2004, art. 2º, II, e art. 3º, I",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm",
+    "fonteReceita": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/isencoes",
+    "nota": "A isenção é do ganho líquido em ações no mercado à vista quando o total vendido no mês é igual ou inferior a R$ 20 mil. Day trade, ETF e FII não usam esse limite. Ouro ativo financeiro tem limite próprio e não entra nesta conta."
+  },
+  "dayTrade": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquota": 0.2,
+    "temIsencao20000": false,
+    "irrfAliquotaSobreLucro": 0.01,
+    "norma": "Lei nº 11.033/2004, art. 2º, I; Instrução Normativa RFB nº 1.585/2015, art. 65, §§ 10, 11 e 15",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm",
+    "fonteReceita": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1",
+    "nota": "Day trade é a operação iniciada e encerrada no mesmo dia, no mesmo ativo e na mesma corretora. O prejuízo só compensa day trade. A corretora retém 1% do resultado positivo."
+  },
+  "etfAcoes": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquota": 0.15,
+    "temIsencao20000": false,
+    "compensaComAcoesComuns": true,
+    "norma": "Instrução Normativa RFB nº 1.585/2015, arts. 27 e 64; Lei nº 11.033/2004, art. 2º, II",
+    "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/isencoes",
+    "nota": "A venda de cota de fundo de índice de ações em bolsa é ganho líquido de 15% e não tem a isenção de R$ 20 mil. O prejuízo dessa venda compensa ganhos de ações comuns, e o contrário também, porque os arts. 27 e 58 estão no mesmo grupo do art. 64. ETF de renda fixa é outra regra."
+  },
+  "etfRendaFixa": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "retidoNaFonte": true,
+    "entraNoDarf6015": false,
+    "faixas": [
+      { "id": "ate180", "ateDias": 180, "aliquota": 0.25 },
+      { "id": "ate720", "ateDias": 720, "aliquota": 0.2 },
+      { "id": "acima720", "ateDias": null, "aliquota": 0.15 }
+    ],
+    "norma": "Instrução Normativa RFB nº 1.585/2015, arts. 28 a 30",
+    "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/fundos-de-investimento-no-brasil",
+    "nota": "A alíquota depende do prazo médio de repactuação da carteira do índice: 25% até 180 dias, 20% de 181 a 720, 15% acima de 720. O imposto é retido por quem paga o investidor, não pelo DARF 6015. Sem o prazo, a conta não escolhe alíquota."
+  },
+  "fiiVenda": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquota": 0.2,
+    "temIsencao20000": false,
+    "compensaSoComFii": true,
+    "norma": "Lei nº 8.668/1993, art. 18; Instrução Normativa RFB nº 1.585/2015, art. 37, § 2º",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l8668.htm",
+    "fonteReceita": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/fundos-de-investimento-no-brasil",
+    "nota": "Ganho na venda de cotas de FII em bolsa: 20%. O prejuízo só compensa venda de cotas de fundo da mesma espécie. O resgate na liquidação do fundo é retido pelo administrador e não é este campo."
+  },
+  "fiiRendimentos": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquotaSemIsencao": 0.2,
+    "retidoNaFonte": true,
+    "entraNoDarf6015": false,
+    "minimoCotistas": 100,
+    "limiteParticipacaoCotista": 0.1,
+    "limiteGrupoLigado": 0.3,
+    "norma": "Lei nº 11.033/2004, art. 3º, III e §§ 1º a 4º, com a redação da Lei nº 14.754/2023; Instrução Normativa RFB nº 1.585/2015, arts. 35 e 40",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm",
+    "fonteLei14754": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm",
+    "nota": "O rendimento distribuído é isento para a pessoa física se as cotas só são negociadas em bolsa ou balcão organizado, o fundo tem pelo menos 100 cotistas, o cotista não tem 10% ou mais das cotas ou dos rendimentos, e o grupo de pessoas ligadas não tem 30% ou mais. Fora isso, a alíquota é 20%, retida pelo administrador. A IN 1.585 ainda cita 50 cotistas; a lei, desde 2024, exige 100. A conta usa 100."
+  },
+  "irrfDedoDuro": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquotaSobreAlienacao": 0.00005,
+    "dispensaRetencaoAte": 1,
+    "deduzDoImpostoDoMes": true,
+    "compensaMesesSeguintes": true,
+    "norma": "Lei nº 11.033/2004, art. 2º, §§ 1º, 4º, 5º e 7º; Instrução Normativa RFB nº 1.585/2015, arts. 63 e 65",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm",
+    "fonteReceita": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto",
+    "nota": "Nas operações comuns a corretora retém 0,005% do valor da venda. Se a soma do mês não passar de R$ 1, a retenção é dispensada. No day trade a retenção é 1% do lucro. O valor retido abate o imposto do mês e, se sobrar, os meses seguintes. A calculadora usa o IRRF que você digita, não estima a retenção."
+  },
+  "criptoBrasil": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "isencaoAlienacoesMensais": 35000,
+    "compensaPrejuizoEntreMeses": false,
+    "faixas": [
+      { "ate": 5000000, "aliquota": 0.15 },
+      { "ate": 10000000, "aliquota": 0.175 },
+      { "ate": 30000000, "aliquota": 0.2 },
+      { "ate": null, "aliquota": 0.225 }
+    ],
+    "norma": "Lei nº 8.981/1995, art. 21, redação da Lei nº 13.259/2016; Solução de Consulta Cosit nº 214/2021",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l8981.htm",
+    "fonteAliquotas": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/ganhos-de-capital/aliquotas",
+    "fonteIsencao": "http://normas.receita.fazenda.gov.br/sijut2consulta/anexoOutros.action?idArquivoBinario=64040",
+    "nota": "Cripto negociado no Brasil, ou guardado pela própria pessoa sem instituição no exterior, segue ganho de capital. A isenção vale quando a soma das alienações de todos os criptoativos no mês é igual ou inferior a R$ 35 mil. A tabela é progressiva sobre o ganho. A MP 1.303, que acabaria com essa isenção, não está em vigor."
+  },
+  "criptoExterior": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquota": 0.15,
+    "periodo": "anual",
+    "temIsencao35000": false,
+    "norma": "Lei nº 14.754/2023, arts. 2º e 3º; Instrução Normativa RFB nº 2.180/2024, art. 9º, §§ 1º a 3º",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm",
+    "fonteIn": "https://www.in.gov.br/en/web/dou/-/instrucao-normativa-rfb-n-2.180-de-11-de-marco-de-2024-547987426",
+    "fontePerguntas": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2024/abril/receita-federal-e-secretaria-da-reforma-tributaria-lancam-atualizacao-do-perguntas-e-respostas-sobre-tributacao-de-rendimentos-no-exterior/perguntas-e-respostas-offshores-lei-14-754-e-in-rfb-2-180.pdf",
+    "nota": "Ativo virtual custodiado ou negociado por instituição no exterior é aplicação financeira no exterior quando for moeda virtual, como o Bitcoin, ou representar outra aplicação financeira. A Receita diz que um NFT de obra de arte, em regra, não é aplicação financeira. Custódia própria, sem intermediário, não é localizada no exterior."
+  },
+  "exterior": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquota": 0.15,
+    "periodo": "anual",
+    "deducaoNaBase": false,
+    "compensaPerdasNoAnoEDepois": true,
+    "norma": "Lei nº 14.754/2023, arts. 2º, § 1º, 3º, 4º e 9º",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm",
+    "nota": "Rendimentos de aplicações financeiras no exterior entram na declaração anual, separados, a 15%, sem dedução da base. Perdas comprovadas compensam esses rendimentos no mesmo ano e, se sobrar, em anos seguintes. Imposto pago no exterior só reduz o IR brasileiro se houver acordo contra bitributação ou reciprocidade, e nunca além do imposto brasileiro dessa renda. A data de entrega da declaração é fixada pela Receita a cada ano e não está na lei."
+  },
+  "darfBolsa": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "codigo": "6015",
+    "valorMinimo": 10,
+    "vencimento": "ultimo dia util do mes seguinte",
+    "norma": "Lei nº 9.430/1996, art. 68; orientação da Receita para o código 6015",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l9430.htm",
+    "fonteReceita": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto",
+    "nota": "O código 6015 recolhe o ganho líquido em bolsa. Abaixo de R$ 10 não se emite DARF: o valor soma ao mesmo código nos meses seguintes, até chegar a R$ 10, e é pago no prazo desse último mês. O art. 68-A permite ao Executivo elevar esse piso até R$ 100. Não foi localizado decreto que altere os R$ 10 para este código."
+  },
+  "ganhoCapitalPrazo": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "codigoDarf": null,
+    "codigoVerificado": false,
+    "vencimento": "ultimo dia util do mes seguinte",
+    "norma": "Lei nº 8.981/1995, art. 21, § 1º",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l8981.htm",
+    "fontePrograma": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/gcap",
+    "nota": "O ganho de capital é pago até o último dia útil do mês seguinte. O programa GCAP da Receita gera a guia. O número do código dessa guia não foi confirmado numa página oficial consultada, então a calculadora não exibe um código."
+  },
+  "atraso": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "multaPorDia": 0.0033,
+    "multaTeto": 0.2,
+    "jurosUmPorCentoNoMesDoPagamento": 0.01,
+    "jurosSobrePrincipalSemMulta": true,
+    "selicEmbutida": false,
+    "norma": "Lei nº 9.430/1996, art. 61 e art. 5º, § 3º",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l9430.htm",
+    "fonteReceita": "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/declaracoes-e-demonstrativos/ecf/perguntas-e-respostas-pessoa-juridica-2021-arquivos/capitulo-xviii-acrescimos-legais-2021.pdf/@@download/file",
+    "nota": "Multa de mora: 0,33% ao dia, a partir do dia seguinte ao vencimento até o pagamento, limitada a 20%. Juros: Selic acumulada do mês seguinte ao vencimento até o mês anterior ao pagamento, mais 1% no mês do pagamento, sobre o imposto sem a multa. A Selic muda todo mês e não está neste arquivo: informe a acumulada, ou deixe em branco."
+  },
+  "feriadosNacionais": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l0662.htm",
+    "fonteAparecida": "https://www.planalto.gov.br/ccivil_03/leis/1980-1988/l6802.htm",
+    "norma": "Lei nº 662/1949, art. 1º, com a redação da Lei nº 10.607/2002; Lei nº 6.802/1980 para 12 de outubro",
+    "dias": [
+      { "mes": 1, "dia": 1, "nome": "Confraternização Universal" },
+      { "mes": 4, "dia": 21, "nome": "Tiradentes" },
+      { "mes": 5, "dia": 1, "nome": "Dia do Trabalho" },
+      { "mes": 9, "dia": 7, "nome": "Independência" },
+      { "mes": 10, "dia": 12, "nome": "Nossa Senhora Aparecida" },
+      { "mes": 11, "dia": 2, "nome": "Finados" },
+      { "mes": 11, "dia": 15, "nome": "Proclamação da República" },
+      { "mes": 12, "dia": 25, "nome": "Natal" }
+    ]
+  },
+  "naoModelados": [
+    {
+      "id": "codigo-gcap",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Código numérico do DARF de ganho de capital",
+      "nota": "A lei manda pagar o ganho de capital até o último dia útil do mês seguinte, e o programa GCAP gera a guia. O número do código não foi confirmado numa página da Receita consultada, então não aparece no resultado.",
+      "fonte": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/gcap"
+    },
+    {
+      "id": "cripto-prejuizo-meses",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Prejuízo de cripto no Brasil em meses seguintes",
+      "nota": "A Solução de Consulta Cosit nº 214/2021 trata do ganho e da isenção de R$ 35 mil. Não foi confirmado aqui se o prejuízo de um mês reduz o ganho de outro. Esse prejuízo não é abatido.",
+      "fonte": "http://normas.receita.fazenda.gov.br/sijut2consulta/anexoOutros.action?idArquivoBinario=64040"
+    },
+    {
+      "id": "acoes-mes-isento-saldo",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Lucro ou prejuízo de ações num mês de vendas até R$ 20 mil",
+      "nota": "O lucro desse mês é isento. Não foi confirmado se ele consome prejuízo acumulado, nem se o prejuízo desse mês pode ser usado depois. A conta não faz nem uma coisa nem outra.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm"
+    },
+    {
+      "id": "feriados-moveis",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Feriados móveis e locais no vencimento",
+      "nota": "A data desconta sábado, domingo e os feriados nacionais fixos. Não desconta Sexta-feira da Paixão (a Lei nº 9.093/1995 a trata como feriado religioso municipal), carnaval, Corpus Christi nem feriado estadual ou municipal. Se o fim do mês cair num desses dias, confira o vencimento.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l9093.htm"
+    },
+    {
+      "id": "selic-tabela",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Tabela mensal da Selic",
+      "nota": "A fórmula dos juros está na lei. A taxa de cada mês não foi gravada aqui. Informe a Selic acumulada ou deixe o campo vazio para ver só a multa.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l9430.htm"
+    },
+    {
+      "id": "controladas-exterior",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Empresas e fundos controlados no exterior",
+      "nota": "Lucros de controlada no exterior também podem ir a 15% em 31 de dezembro, mas o teste de controle depende do caso. A perda de aplicação financeira pode compensar esses lucros no mesmo ano. Nenhuma das duas coisas entra na conta.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm"
+    },
+    {
+      "id": "nft-custodia",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "NFT e custódia própria de cripto",
+      "nota": "A Receita diz que um NFT de obra de arte, em regra, não é aplicação financeira no exterior, e que a custódia própria sem intermediário não fica no exterior. Esses casos não têm uma alíquota separada nesta tela: use cripto no Brasil só se for ganho de capital no País.",
+      "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2024/abril/receita-federal-e-secretaria-da-reforma-tributaria-lancam-atualizacao-do-perguntas-e-respostas-sobre-tributacao-de-rendimentos-no-exterior/perguntas-e-respostas-offshores-lei-14-754-e-in-rfb-2-180.pdf"
+    },
+    {
+      "id": "outros-ativos-bolsa",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Ouro, opções, termo, futuros e BDR",
+      "nota": "Ouro ativo financeiro tem isenção própria de R$ 20 mil, separada da das ações. Opções, contratos a termo, futuros e BDR têm regras próprias de apuração. Nenhum deles entra nos campos desta tela.",
+      "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/isencoes"
+    },
+    {
+      "id": "mp-janela-2025",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Operações entre 11 de junho e 8 de outubro de 2025",
+      "nota": "A MP nº 1.303/2025 perdeu eficácia em 8 de outubro de 2025 e não vale em 2026. Não houve decreto legislativo regulando o que ocorreu enquanto ela vigia. Esta conta não recalcula esses meses.",
+      "fonte": "https://www.congressonacional.leg.br/pt_BR/materias/medidas-provisorias/-/mpv/169059"
+    }
+  ]
+}
