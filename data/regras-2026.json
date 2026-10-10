@@ -1,0 +1,241 @@
+{
+  "ano": 2026,
+  "descricao": "Parâmetros usados pela calculadora PJ vs CLT. Cada item traz a fonte e o ano de referência. Itens com verificado false não entram no cálculo como se fossem um número oficial.",
+  "salarioMinimo": {
+    "valor": 1621,
+    "verificado": true,
+    "anoReferencia": 2026,
+    "norma": "Decreto nº 12.797, de 23 de dezembro de 2025",
+    "fonte": "https://www8.receita.fazenda.gov.br/simplesnacional/noticias/NoticiaCompleta.aspx?id=c3b2044c-ff97-432a-b33c-ecf2a3df6dc3"
+  },
+  "inssEmpregado": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "norma": "Portaria Interministerial MPS/MF nº 13, de 9 de janeiro de 2026",
+    "fonte": "https://www.gov.br/inss/pt-br/direitos-e-deveres/inscricao-e-contribuicao/tabela-de-contribuicao-mensal",
+    "teto": 8475.55,
+    "nota": "Alíquotas progressivas por faixa, não sobre o salário inteiro. O 13º não se soma ao salário do mês para achar a faixa.",
+    "faixas": [
+      { "ate": 1621, "aliquota": 0.075 },
+      { "ate": 2902.84, "aliquota": 0.09 },
+      { "ate": 4354.27, "aliquota": 0.12 },
+      { "ate": 8475.55, "aliquota": 0.14 }
+    ]
+  },
+  "inssContribuinteIndividual": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquotaCheia": 0.2,
+    "aliquotaDescontadaPelaEmpresa": 0.11,
+    "deducaoSobrePatronal": 0.45,
+    "tetoDaDeducao": 0.09,
+    "norma": "Lei nº 8.212/1991, art. 21 e art. 30, § 4º; o desconto de 11% pela empresa está no Decreto nº 3.048/1999, art. 216, § 26",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm",
+    "nota": "Sobre pró-labore pago por empresa em geral, a retenção do segurado é 11% do salário de contribuição, limitado ao teto. A contribuição patronal de 20% (art. 22, III) não tem teto e não está dentro do Simples: nos Anexos III e V a CPP patronal já compõe o DAS."
+  },
+  "inssPatronal": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquota": 0.2,
+    "temTeto": false,
+    "norma": "Lei nº 8.212/1991, art. 22, III",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm",
+    "aplicaEm": ["lucro-presumido"],
+    "nota": "No Simples Nacional dos Anexos III e V a contribuição patronal está no DAS. No MEI o INSS do titular está no DAS fixo. RAT (1% a 3%, art. 22, II) e contribuições a terceiros variam por atividade e não foram aplicadas."
+  },
+  "irpf": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026",
+    "normaTabela": "Lei nº 15.191, de 11 de agosto de 2025",
+    "normaReducao": "Lei nº 15.270, de 26 de novembro de 2025, art. 3º-A da Lei nº 9.250/1995",
+    "fonteReducao": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/exemplos-de-aplicacao-da-lei-15-270-2025",
+    "vigencia": "A partir de janeiro de 2026",
+    "descontoSimplificadoMensal": 607.2,
+    "deducaoDependenteMensal": 189.59,
+    "dependentesAssumidos": 0,
+    "tabelaMensal": [
+      { "ate": 2428.8, "aliquota": 0, "deducao": 0 },
+      { "ate": 2826.65, "aliquota": 0.075, "deducao": 182.16 },
+      { "ate": 3751.05, "aliquota": 0.15, "deducao": 394.16 },
+      { "ate": 4664.68, "aliquota": 0.225, "deducao": 675.49 },
+      { "ate": null, "aliquota": 0.275, "deducao": 908.73 }
+    ],
+    "reducaoMensal": {
+      "faixaZeraAte": 5000,
+      "reducaoMaximaParaZerar": 312.89,
+      "faixaParcialAte": 7350,
+      "constante": 978.62,
+      "coeficiente": 0.133145,
+      "nota": "A redução usa os rendimentos tributáveis sujeitos à incidência mensal (o bruto tributável), não a base depois das deduções. Fica limitada ao imposto da tabela. O § 3º do art. 3º-A manda aplicar a mesma redução ao 13º."
+    }
+  },
+  "plr": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026",
+    "normaTrabalhista": "Lei nº 10.101/2000, art. 3º",
+    "fonteTrabalhista": "https://www.planalto.gov.br/ccivil_03/leis/l10101.htm",
+    "nota": "Tabela publicada pela Receita na página de tributação de 2026 com o título 'A partir de maio de 2025'. Tributação exclusiva, sem INSS e sem FGTS. A redução da Lei nº 15.270/2025 não está descrita para a PLR e não foi aplicada.",
+    "tabelaAnual": [
+      { "ate": 8214.4, "aliquota": 0, "deducao": 0 },
+      { "ate": 9922.28, "aliquota": 0.075, "deducao": 616.08 },
+      { "ate": 13167, "aliquota": 0.15, "deducao": 1360.25 },
+      { "ate": 16380.38, "aliquota": 0.225, "deducao": 2347.78 },
+      { "ate": null, "aliquota": 0.275, "deducao": 3166.8 }
+    ]
+  },
+  "fgts": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aliquota": 0.08,
+    "norma": "Lei nº 8.036/1990, art. 15",
+    "fonte": "https://www2.camara.leg.br/legin/fed/lei/1990/lei-8036-11-maio-1990-365155-normaatualizada-pl.html",
+    "nota": "8% da remuneração, incluída a gratificação de Natal. Parcelas do art. 28, § 9º, da Lei nº 8.212/1991 ficam de fora (§ 6º do art. 15). Não há multa de 40%: isso só existe na dispensa sem justa causa e não foi simulada."
+  },
+  "decimoTerceiro": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "norma": "Constituição, art. 7º, VIII; Lei nº 4.090/1962",
+    "fonte": "https://portal.stf.jus.br/constituicao-supremo/artigo.asp?abrirBase=CF&abrirArtigo=7",
+    "nota": "Ano completo: um salário bruto. INSS em separado do salário do mês. IR com a redução mensal da Lei nº 15.270/2025."
+  },
+  "ferias": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "terco": "1/3",
+    "norma": "Constituição, art. 7º, XVII",
+    "fonte": "https://portal.stf.jus.br/constituicao-supremo/artigo.asp?abrirBase=CF&abrirArtigo=7",
+    "nota": "O lado CLT soma, além dos 12 salários, um terço constitucional. O INSS e o IR desse terço são calculados como competência separada. Se o terço for pago no mesmo mês do salário, o teto do INSS vale para a soma, e o resultado pode mudar. Essa interação não foi modelada."
+  },
+  "beneficiosClt": {
+    "vrVaIntegraSalario": false,
+    "planoSaudeIntegraSalario": false,
+    "verificado": true,
+    "premissaDoUsuario": true,
+    "anoReferencia": 2026,
+    "norma": "Lei nº 8.212/1991, art. 28, § 9º, alíneas c e q (redação da Lei nº 13.467/2017 para a assistência médica)",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm",
+    "nota": "A calculadora trata VR/VA e o plano pago pela empresa como fora do salário, do INSS, do IR, do FGTS, do 13º e das férias. Isso só vale se o benefício cumprir a lei (tíquete ou cartão, e plano que cubra o quadro). Valor em dinheiro livre pode integrar o salário. A ferramenta não confere o caso concreto."
+  },
+  "mei": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "limiteReceitaAnual": 81000,
+    "inssAliquota": 0.05,
+    "inssValor": 81.05,
+    "issFixo": 5,
+    "icmsFixo": 1,
+    "dasServicos": 86.05,
+    "normaLimite": "Lei Complementar nº 123/2006, art. 18-A, § 1º",
+    "fonteLimite": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm",
+    "fonteDas": "https://www8.receita.fazenda.gov.br/simplesnacional/noticias/NoticiaCompleta.aspx?id=c3b2044c-ff97-432a-b33c-ecf2a3df6dc3",
+    "nota": "DAS de serviços = INSS de 5% do salário mínimo (R$ 81,05) + ISS fixo de R$ 5. O ICMS de R$ 1 só entra se a atividade também for contribuinte de ICMS e não foi somado. Muitas atividades intelectuais não podem ser MEI. Acima de R$ 81 mil o enquadramento deixa de valer; o desenquadramento não foi recalculado."
+  },
+  "simples": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "limiteReceitaAnual": 4800000,
+    "fatorR": 0.28,
+    "norma": "Lei Complementar nº 123/2006, art. 18, §§ 1º, 1º-A, 5º-J, 5º-K, 5º-M e 24, e Anexos III e V na redação da Lei Complementar nº 155/2016",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm",
+    "formula": "(RBT12 x aliquota nominal - parcela a deduzir) / RBT12",
+    "notaTabelas": "As tabelas da Lei Complementar nº 214/2025 substituem estes anexos a partir de 2027. Em 2026 vale a redação da LC nº 155/2016. A RBT12 legal é a dos doze meses anteriores; a calculadora usa a receita do próprio ano simulado.",
+    "folhaDeSalarios": "Remunerações a pessoas físicas pelo trabalho, incluído o pró-labore, mais a contribuição patronal previdenciária e o FGTS efetivamente recolhidos. Distribuição de lucros fica de fora.",
+    "isencaoLucros": {
+      "verificado": true,
+      "anoReferencia": 2026,
+      "norma": "Lei Complementar nº 123/2006, art. 14",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm",
+      "nota": "Lucros pagos ao sócio do Simples são isentos, salvo pró-labore, aluguéis ou serviços. A Lei nº 15.270/2025 criou retenção de 10% sobre dividendos mensais acima de R$ 50 mil. Não foi verificado se essa retenção revoga o art. 14, então ela não é aplicada ao Simples."
+    },
+    "anexoIII": [
+      { "ate": 180000, "aliquota": 0.06, "deducao": 0 },
+      { "ate": 360000, "aliquota": 0.112, "deducao": 9360 },
+      { "ate": 720000, "aliquota": 0.135, "deducao": 17640 },
+      { "ate": 1800000, "aliquota": 0.16, "deducao": 35640 },
+      { "ate": 3600000, "aliquota": 0.21, "deducao": 125640 },
+      { "ate": 4800000, "aliquota": 0.33, "deducao": 648000 }
+    ],
+    "anexoV": [
+      { "ate": 180000, "aliquota": 0.155, "deducao": 0 },
+      { "ate": 360000, "aliquota": 0.18, "deducao": 4500 },
+      { "ate": 720000, "aliquota": 0.195, "deducao": 9900 },
+      { "ate": 1800000, "aliquota": 0.205, "deducao": 17100 },
+      { "ate": 3600000, "aliquota": 0.23, "deducao": 62100 },
+      { "ate": 4800000, "aliquota": 0.305, "deducao": 540000 }
+    ]
+  },
+  "lucroPresumido": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "percentualPresuncaoServicos": 0.32,
+    "irpj": 0.15,
+    "adicionalIrpj": 0.1,
+    "limiteAdicionalPorMes": 20000,
+    "csll": 0.09,
+    "pisCumulativo": 0.0065,
+    "cofinsCumulativo": 0.03,
+    "norma": "Lei nº 9.249/1995, arts. 3º, 15, § 1º, III, e 20; Lei nº 7.689/1988, art. 3º, II; Lei nº 10.637/2002, art. 8º, II, com a alíquota cumulativa da Lei nº 9.715/1998; Lei nº 9.718/1998, art. 8º",
+    "fonteIrpj": "https://www.planalto.gov.br/ccivil_03/leis/l9249.htm",
+    "fonteCsll": "https://www.planalto.gov.br/ccivil_03/leis/l7689.htm",
+    "fontePis": "https://www.planalto.gov.br/ccivil_03/leis/2002/l10637.htm",
+    "fonteCofins": "https://www.planalto.gov.br/ccivil_03/leis/l9718compilada.htm",
+    "nota": "Serviços em geral, presunção de 32% para IRPJ e CSLL. O adicional de 10% incide sobre a parcela do lucro presumido que exceder R$ 20 mil por mês do trimestre (R$ 60 mil no trimestre). PIS e COFINS são os do regime cumulativo. O faturamento foi dividido em quatro trimestres iguais."
+  },
+  "dividendosPf": {
+    "verificado": true,
+    "anoReferencia": 2026,
+    "aplicaEm": ["lucro-presumido"],
+    "limiteMensal": 50000,
+    "aliquotaSobreOTotal": 0.1,
+    "norma": "Lei nº 15.270/2025, art. 6º-A da Lei nº 9.250/1995",
+    "fonte": "https://in.gov.br/web/dou/-/lei-n-15.270-de-26-de-novembro-2025-671614220",
+    "nota": "Se uma mesma pessoa jurídica pagar a uma mesma pessoa física, no mês, lucros acima de R$ 50 mil, a retenção é 10% sobre o total daquele mês, não só sobre o que passar de R$ 50 mil. A calculadora reparte o lucro do ano em doze meses iguais. Não se aplica ao Simples, pela razão descrita em simples.isencaoLucros."
+  },
+  "iss": {
+    "verificado": true,
+    "aliquotaUnicaNacional": false,
+    "anoReferencia": 2026,
+    "min": 0.02,
+    "max": 0.05,
+    "padraoDaCalculadora": 0.05,
+    "norma": "Lei Complementar nº 116/2003, art. 8º, II, e art. 8º-A",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp116.htm",
+    "nota": "O ISS de serviços no Lucro Presumido é municipal. A lei federal só fixa o piso de 2% e o teto de 5%. O valor inicial de 5% é o teto, uma premissa, não a alíquota da sua cidade. No Simples e no MEI o ISS já está no DAS."
+  },
+  "naoModelados": [
+    {
+      "id": "lc224-presuncao",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Acréscimo de presunção da LC nº 224/2025",
+      "nota": "Há regra nova de acréscimo de 10% no percentual de presunção sobre a receita que excede um limite anual alto. A mecânica trimestral e a diferença de vigência entre IRPJ e CSLL não foram conferidas na íntegra nesta versão, então o acréscimo não entra na conta. Para faturamento muito acima de R$ 5 milhões no ano, o Lucro Presumido daqui fica incompleto.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm"
+    },
+    {
+      "id": "rat-terceiros",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "RAT e contribuições a terceiros",
+      "nota": "No Lucro Presumido, além dos 20% de INSS patronal, podem incidir RAT de 1% a 3% e contribuições a terceiros. As alíquotas dependem da atividade. Nenhum percentual foi inventado: esses encargos não entram na conta, e o líquido do Presumido pode ficar alto demais.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm"
+    },
+    {
+      "id": "dividendos-simples",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Retenção de 10% sobre lucros do Simples",
+      "nota": "Não foi verificado se a retenção mensal de 10% da Lei nº 15.270/2025 alcança lucros que o art. 14 da LC nº 123/2006 isenta. A calculadora não aplica esses 10% no MEI nem no Simples.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm"
+    },
+    {
+      "id": "cbs-ibs-2026",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "CBS e IBS da reforma tributária",
+      "nota": "A Lei Complementar nº 214/2025 inicia a transição. Não foi modelada cobrança de CBS ou IBS em 2026, nem compensação com PIS/COFINS. As tabelas novas do Simples dessa lei valem a partir de 2027.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm"
+    }
+  ]
+}

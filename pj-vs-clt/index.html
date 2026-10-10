@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PJ x CLT 2026 | Quanto Vira</title>
+<meta name="description" content="Compare o líquido anual como CLT e como PJ (MEI, Simples Anexo III, Anexo V ou Lucro Presumido) com as regras de 2026.">
+<link rel="canonical" href="https://quantovira.com.br/pj-vs-clt/">
+<meta property="og:title" content="PJ x CLT 2026 | Quanto Vira">
+<meta property="og:description" content="Líquido anual equivalente, detalhamento e ponto de equilíbrio, com INSS, IR, FGTS, 13º, férias e DAS.">
+<meta property="og:url" content="https://quantovira.com.br/pj-vs-clt/">
+<meta property="og:site_name" content="Quanto Vira">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">Quanto<span>Vira</span></a><nav><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/sobre/">Sobre</a></nav></div></header>
+<main class="wrap">
+<h1>PJ x CLT <span class="badge">Regras de 2026</span></h1>
+<p class="lead">Compare o que sobra no ano como empregado e como prestador de serviço. Os percentuais saem de <a href="/data/regras-2026.json">regras-2026.json</a>, com a fonte de cada um.</p>
+
+<div class="grid formwide">
+<form id="f" class="card">
+  <h2>Seus números</h2>
+  <label>Salário CLT bruto mensal (R$)<input type="number" id="salarioClt" value="8000" min="0" step="100"></label>
+  <label>VR/VA mensal (R$)<input type="number" id="vrVa" value="0" min="0" step="50"></label>
+  <label>Plano de saúde pago pela empresa (R$/mês)<input type="number" id="planoSaude" value="0" min="0" step="50"></label>
+  <label>PLR anual (R$)<input type="number" id="plr" value="0" min="0" step="100"></label>
+  <label>Valor mensal da nota PJ (R$)<input type="number" id="valorPjMensal" value="14000" min="0" step="100"></label>
+  <label>Regime da PJ<select id="regime">
+    <option value="mei">MEI (serviços)</option>
+    <option value="simples-iii" selected>Simples, Anexo III (Fator R)</option>
+    <option value="simples-v">Simples, Anexo V</option>
+    <option value="lucro-presumido">Lucro Presumido (serviços)</option>
+  </select></label>
+  <label>Pró-labore mensal (R$)<input type="number" id="proLabore" value="3920" min="0" step="50"></label>
+  <p class="hint">No Anexo III, 28% da nota costuma ser o mínimo do Fator R. No MEI o pró-labore não gera outro INSS.</p>
+  <label>Contador (R$/mês)<input type="number" id="custoContador" value="0" min="0" step="50"></label>
+  <label>Férias sem faturar no PJ (dias)<input type="number" id="feriasDias" value="0" min="0" max="360" step="1"></label>
+  <p class="hint">Cada 30 dias tira um mês de receita. O pró-labore e o contador continuam nos 12 meses.</p>
+  <label>ISS no Lucro Presumido (%)<input type="number" id="iss" value="5" min="2" max="5" step="0.01"></label>
+  <p class="hint">Piso 2% e teto 5% (LC nº 116/2003). 5% é o teto, não a alíquota da sua cidade. No Simples e no MEI o ISS já está no DAS.</p>
+  <button type="submit">Calcular</button>
+</form>
+
+<section class="card">
+  <h2>Resultado no ano</h2>
+  <div class="kpis">
+    <div><span id="kClt">–</span><small>Equivalente CLT (caixa + FGTS)</small></div>
+    <div><span id="kPj">–</span><small>Líquido PJ</small></div>
+    <div><span id="kDif">–</span><small>PJ menos CLT</small></div>
+  </div>
+  <p class="hint" id="equilibrio"></p>
+  <div class="tablewrap">
+  <table class="cmp">
+    <thead><tr><th>Item</th><th>CLT</th><th>PJ</th></tr></thead>
+    <tbody id="linhas"></tbody>
+  </table>
+  </div>
+  <ul class="flags" id="avisos"></ul>
+</section>
+</div>
+
+<article class="card article">
+  <h2>O que entra na conta</h2>
+  <p>No CLT, o equivalente anual é o salário líquido de doze meses, mais o 13º e o terço de férias já com INSS e IR, mais VR/VA, plano de saúde e PLR líquida, mais o FGTS de 8%. O FGTS não cai na conta corrente; por isso a tabela também mostra o caixa sem ele.</p>
+  <p>O INSS do empregado é progressivo, com teto de R$ 8.475,55. O IR usa a tabela mensal de 2026 e a redução da Lei nº 15.270/2025: rendimento tributável até R$ 5.000 fica com imposto zero, e entre R$ 5.000,01 e R$ 7.350 a redução diminui até acabar. A fonte pagadora escolhe o maior entre o desconto simplificado de R$ 607,20 e o INSS. Aqui não há dependente.</p>
+  <p>No PJ, a receita cai nos dias sem faturar. O MEI de serviços paga DAS fixo de R$ 86,05 por mês (R$ 81,05 de INSS e R$ 5 de ISS). No Simples, a alíquota efetiva é (receita de 12 meses × alíquota nominal − parcela a deduzir) ÷ receita de 12 meses, nos Anexos III e V. O Fator R é o pró-labore de doze meses dividido pela receita; a lei pede 28% para atividade que depende dele ir ao Anexo III. No Lucro Presumido de serviços, a presunção é 32%, com IRPJ de 15%, adicional de 10% acima de R$ 60 mil de base no trimestre, CSLL de 9%, PIS de 0,65%, COFINS de 3%, ISS informado por você, INSS patronal de 20% sobre o pró-labore inteiro e 11% do segurado até o teto.</p>
+  <h2>Limitações</h2>
+  <ul id="limites"></ul>
+  <p class="disclaimer"><strong>Aviso:</strong> conta educativa, não é consultoria fiscal, trabalhista ou previdenciária. O PGDAS-D e a folha oficial prevalecem. Não inclui dissídio, hora extra, vale-transporte, pensão, dependente, multa de 40% do FGTS nem desenquadramento do MEI. Para decidir um contrato, fale com um contador.</p>
+</article>
+</main>
+<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · Sem cookies e sem rastreamento.</footer>
+<script src="/assets/pjclt.js"></script>
+<script src="/pj-vs-clt/app.js"></script>
+</body>
+</html>

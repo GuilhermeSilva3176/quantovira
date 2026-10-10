@@ -1,1 +1,1 @@
-{"name":"quantovira","private":true,"scripts":{"test":"node test.js && node test-params.js"}}
+{"name":"quantovira","private":true,"scripts":{"test":"node test.js && node test-params.js && node test-pjclt.js"}}
