@@ -1,0 +1,25 @@
+name: Verificar
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Gerar artigos
+        run: node scripts/build-artigos.js
+
+      - name: Testes
+        run: npm test

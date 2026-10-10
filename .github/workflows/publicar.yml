@@ -1,0 +1,41 @@
+name: Publicar artigos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'scripts/**'
+      - '.github/workflows/publicar.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-artigos
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Gerar páginas
+        run: node scripts/build-artigos.js
+
+      - name: Commit das páginas geradas
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nenhuma página nova."
+            exit 0
+          fi
+          git commit -m "Publica artigos gerados [skip ci]"
+          git push origin HEAD:main

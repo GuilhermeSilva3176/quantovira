@@ -64,3 +64,10 @@ details.atraso{margin-top:12px;border-top:1px solid var(--br);padding-top:8px}
 details.atraso>summary{cursor:pointer;font-weight:800}
 details.detalhe{margin-top:8px}
 details.detalhe>summary{cursor:pointer;font-weight:700;color:var(--acc)}
+.prose h2{margin-top:18px}.prose h3{font-size:1.02rem;margin:16px 0 6px}
+.prose p{margin:8px 0}.prose ul,.prose ol{margin:8px 0;padding-left:1.2rem}.prose li{margin:4px 0}
+.prose blockquote{margin:12px 0;padding:4px 12px;border-left:3px solid var(--acc);color:var(--mut)}
+.prose code{font-size:.9em}.prose pre{background:var(--bg);padding:12px;border-radius:8px;overflow:auto}
+.callout{background:var(--acc2);border-radius:12px;padding:12px 14px;margin:16px 0}.callout p{margin:0}
+.byline{color:var(--mut);font-size:.9rem;margin-top:0}
+.artigos-rel{margin:24px 0 8px}
