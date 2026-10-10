@@ -24,4 +24,4 @@ a{color:var(--acc)}
 button.sec{background:#fff;color:var(--acc);border:1px solid var(--acc);margin-top:8px}
 .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}
 .tool{display:block;text-decoration:none;color:var(--ink)}.tool h2{color:var(--acc)}.soon{opacity:.6}
-.page{max-width:760px;margin:20px auto}.ph{background:#fff7e6;border:1px dashed #e0a800;padding:2px 6px;border-radius:4px}
+.page{max-width:760px;margin:20px auto}
