@@ -1,5 +1,6 @@
 :root{--bg:#f6f7fb;--card:#fff;--ink:#14213d;--mut:#5b6475;--acc:#0f9d76;--acc2:#e9f7f2;--br:#e3e6ee}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+main{flex:1}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
 .top{background:var(--ink);color:#fff;padding:12px 0}.top .wrap{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}.top strong{font-size:1.3rem}.top strong span{color:#5ee0b5}.tag{opacity:.75;font-size:.9rem}
 h1{font-size:clamp(1.5rem,4vw,2.2rem);margin:28px 0 8px}.lead{color:var(--mut);max-width:760px}
@@ -15,7 +16,14 @@ button{margin-top:16px;width:100%;padding:12px;border:0;border-radius:10px;backg
 .kpis span{display:block;font-size:1.6rem;font-weight:800;color:var(--acc)}.kpis small{color:var(--mut);font-size:.78rem}
 @media(max-width:480px){.kpis{grid-template-columns:1fr}}
 .chartbox{position:relative;height:360px;margin-top:14px}
-.ad{margin:20px 0;min-height:100px;border:2px dashed var(--br);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#a0a7b5;font-size:.85rem}
+.ad{display:none}
+body.ads .ad{margin:20px 0;min-height:100px;border:2px dashed var(--br);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#a0a7b5;font-size:.85rem}
+ol.steps{margin:8px 0 0;padding-left:1.2rem}ol.steps li{margin:6px 0}
+details.tech{margin-top:8px;border-top:1px solid var(--br);padding-top:12px}
+details.tech>summary{cursor:pointer;font-weight:800;font-size:1.05rem}
+details.tech>summary:hover{color:var(--acc)}
+details.tech[open]>summary{margin-bottom:8px}
+.sources{margin:8px 0 0;padding-left:1.2rem}.sources li{margin:6px 0}
 .article{margin-bottom:20px}.article h2{margin-top:18px}.disclaimer{background:#fff7e6;border:1px solid #ffe2a8;padding:10px;border-radius:8px;font-size:.9rem}
 .foot{color:var(--mut);font-size:.8rem;padding:10px 16px 30px}
 a{color:var(--acc)}

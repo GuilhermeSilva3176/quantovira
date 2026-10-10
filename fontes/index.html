@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fontes e metodologia | Quanto Vira</title>
+<meta name="description" content="De onde vêm os números do simulador FIRE e da calculadora PJ x CLT, com links para as fontes oficiais.">
+<link rel="canonical" href="https://quantovira.com.br/fontes/">
+<meta property="og:title" content="Fontes e metodologia | Quanto Vira">
+<meta property="og:description" content="De onde vêm os números do simulador FIRE e da calculadora PJ x CLT, com links para as fontes oficiais.">
+<meta property="og:url" content="https://quantovira.com.br/fontes/">
+<meta property="og:site_name" content="Quanto Vira">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">Quanto<span>Vira</span></a><nav><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/sobre/">Sobre</a></nav></div></header>
+<main class="wrap">
+<article class="card page">
+<h1>Fontes e metodologia</h1>
+<p>Os números das calculadoras vêm de órgãos públicos e de leis. Esta página aponta o site de cada fonte. O passo a passo de cada ferramenta continua em <strong>Detalhes técnicos</strong>, na própria calculadora.</p>
+
+<h2>Simulador FIRE</h2>
+<p>Para cada ano futuro, a simulação sorteia um ano real de 1995 a 2025 e aplica o retorno daquele ano já descontada a inflação. Ações e renda fixa saem do mesmo ano. Uma simulação dá certo quando a meta é atingida e o dinheiro não acaba até a idade final.</p>
+<ul class="sources">
+<li>Inflação (IPCA): <a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidor-amplo.html">IBGE, Índice Nacional de Preços ao Consumidor Amplo</a>. A série mensal usada é a SGS 433 do Banco Central, que republica o IPCA.</li>
+<li>CDI: Banco Central, SGS 4391 (CDI acumulado no mês).</li>
+<li>Ibovespa até 2018: Banco Central, SGS 7845 (fechamento de dezembro). A série do Banco Central termina em 2019.</li>
+<li>Busca dessas séries: <a href="https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries">Sistema Gerenciador de Séries Temporais do Banco Central</a>.</li>
+<li>Ibovespa de 2019 a 2025: <a href="https://finance.yahoo.com/quote/%5EBVSP/">Yahoo Finance, índice ^BVSP</a>. É cotação de mercado, não uma publicação oficial. Nos anos em que o Banco Central e o Yahoo se sobrepõem, os fechamentos de dezembro coincidem.</li>
+</ul>
+<p>O retorno é bruto: não tira imposto, taxa nem come-cotas. O método e as limitações estão no <a href="/simulador-fire/">simulador</a>.</p>
+
+<h2>PJ x CLT, regras de 2026</h2>
+<ul class="sources">
+<li>Salário mínimo de 2026 e DAS do MEI: <a href="https://www8.receita.fazenda.gov.br/simplesnacional/noticias/NoticiaCompleta.aspx?id=c3b2044c-ff97-432a-b33c-ecf2a3df6dc3">Receita Federal, Simples Nacional</a>. INSS do MEI de serviços: 5% do mínimo (R$ 81,05) mais ISS fixo de R$ 5.</li>
+<li>INSS do empregado, teto e faixas: <a href="https://www.gov.br/inss/pt-br/direitos-e-deveres/inscricao-e-contribuicao/tabela-de-contribuicao-mensal">INSS, tabela de contribuição mensal</a> (Portaria Interministerial MPS/MF nº 13/2026).</li>
+<li>INSS de sócio e patronal: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm">Lei nº 8.212/1991</a>, arts. 21, 22 e 30.</li>
+<li>Imposto de Renda mensal de 2026: <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026">Receita Federal, tabelas de 2026</a>. A redução da Lei nº 15.270/2025 está nos <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/exemplos-de-aplicacao-da-lei-15-270-2025">exemplos da Receita</a> e no <a href="https://in.gov.br/web/dou/-/lei-n-15.270-de-26-de-novembro-2025-671614220">texto da lei no Diário Oficial</a>.</li>
+<li>PLR: a mesma página de tabelas da Receita, tabela “a partir de maio de 2025”, e a <a href="https://www.planalto.gov.br/ccivil_03/leis/l10101.htm">Lei nº 10.101/2000</a>.</li>
+<li>FGTS de 8%: <a href="https://www2.camara.leg.br/legin/fed/lei/1990/lei-8036-11-maio-1990-365155-normaatualizada-pl.html">Lei nº 8.036/1990, art. 15</a>.</li>
+<li>13º e terço de férias: <a href="https://portal.stf.jus.br/constituicao-supremo/artigo.asp?abrirBase=CF&amp;abrirArtigo=7">Constituição, art. 7º, VIII e XVII</a>.</li>
+<li>Vale-refeição e plano de saúde fora do salário, quando a lei permite: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm">Lei nº 8.212/1991, art. 28, § 9º</a>.</li>
+<li>MEI, Simples, Anexos III e V e Fator R de 28%: <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm">Lei Complementar nº 123/2006</a>. O limite anual do MEI é R$ 81 mil. O do Simples é R$ 4,8 milhões.</li>
+<li>Lucro Presumido de serviços (presunção de 32%, IRPJ e adicional): <a href="https://www.planalto.gov.br/ccivil_03/leis/l9249.htm">Lei nº 9.249/1995</a>. CSLL de 9%: <a href="https://www.planalto.gov.br/ccivil_03/leis/l7689.htm">Lei nº 7.689/1988</a>. PIS cumulativo de 0,65%: <a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10637.htm">Lei nº 10.637/2002</a>. COFINS de 3%: <a href="https://www.planalto.gov.br/ccivil_03/leis/l9718compilada.htm">Lei nº 9.718/1998</a>.</li>
+<li>ISS municipal, piso de 2% e teto de 5%: <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp116.htm">Lei Complementar nº 116/2003</a>. Não existe alíquota única no país. O 5% da calculadora é o teto, e dá para trocar.</li>
+<li>Retenção de 10% sobre lucros mensais acima de R$ 50 mil, só no Lucro Presumido: <a href="https://in.gov.br/web/dou/-/lei-n-15.270-de-26-de-novembro-2025-671614220">Lei nº 15.270/2025</a>.</li>
+</ul>
+
+<h2>O que a conta não inclui</h2>
+<p>Estes pontos foram lidos e ficaram de fora, porque a regra não foi conferida por completo ou depende da atividade. O resultado não inventa um percentual para eles.</p>
+<ul class="sources">
+<li>Acréscimo de presunção da <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm">Lei Complementar nº 224/2025</a>.</li>
+<li>RAT e contribuições a terceiros no Lucro Presumido (<a href="https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm">Lei nº 8.212/1991</a>).</li>
+<li>Se a retenção de 10% da Lei nº 15.270/2025 alcança lucros do Simples isentos pelo art. 14 da <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm">Lei Complementar nº 123/2006</a>. A calculadora não aplica esses 10% no MEI nem no Simples.</li>
+<li>CBS e IBS em 2026 (<a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm">Lei Complementar nº 214/2025</a>). As tabelas novas do Simples dessa lei começam em 2027.</li>
+</ul>
+<p class="disclaimer"><strong>Aviso:</strong> esta página descreve de onde saem os números. Não é consultoria fiscal, trabalhista, previdenciária nem recomendação de investimento. A lei e o documento oficial prevalecem.</p>
+</article>
+</main>
+<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>
+</body>
+</html>

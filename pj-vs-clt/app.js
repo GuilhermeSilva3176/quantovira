@@ -40,7 +40,7 @@
       var extra = '';
       if (p.regime === 'mei' && r.breakEvenMensal * 12 > regras.mei.limiteReceitaAnual) extra = ' Esse valor estoura o limite anual do MEI.';
       if ((p.regime === 'simples-iii' || p.regime === 'simples-v') && r.breakEvenMensal * 12 > regras.simples.limiteReceitaAnual) extra = ' Esse valor estoura o teto do Simples.';
-      eq.textContent = 'Ponto de equilíbrio: nota PJ de ' + brl(r.breakEvenMensal) + ' por mês para o líquido PJ alcançar o equivalente CLT (caixa + FGTS).' + extra;
+      eq.textContent = 'Ponto de equilíbrio: nota PJ de ' + brl(r.breakEvenMensal) + ' por mês para o que sobra no PJ alcançar o ano do CLT, já com o FGTS.' + extra;
     }
     var impostosPj = p.das + p.pis + p.cofins + p.iss + p.irpj + p.csll;
     var html = '';
