@@ -7,7 +7,7 @@
 <meta name="description" content="Calcule o imposto de ações, day trade, FIIs, ETFs, cripto e investimentos no exterior, com as regras de 2026.">
 <link rel="canonical" href="https://quantovira.com.br/ir-investimentos/">
 <meta property="og:title" content="IR de investimentos | Quanto Vira">
-<meta property="og:description" content="Imposto por categoria, DARF 6015, vencimento e prejuízo a compensar.">
+<meta property="og:description" content="Imposto por categoria, DARF, vencimento e prejuízo a compensar.">
 <meta property="og:url" content="https://quantovira.com.br/ir-investimentos/">
 <meta property="og:site_name" content="Quanto Vira">
 <meta property="og:locale" content="pt_BR">
@@ -21,111 +21,134 @@
 <p class="lead">Veja quanto de imposto há no mês em ações, FIIs e outros investimentos, e se dá para emitir o DARF.</p>
 
 <div class="grid irform">
-<form id="f" class="card">
+<form id="f" class="card" autocomplete="off">
   <h2>O mês do ganho</h2>
-  <label>Mês<select id="mes">
-    <option value="1">Janeiro</option>
-    <option value="2" selected>Fevereiro</option>
-    <option value="3">Março</option>
-    <option value="4">Abril</option>
-    <option value="5">Maio</option>
-    <option value="6">Junho</option>
-    <option value="7">Julho</option>
-    <option value="8">Agosto</option>
-    <option value="9">Setembro</option>
-    <option value="10">Outubro</option>
-    <option value="11">Novembro</option>
-    <option value="12">Dezembro</option>
-  </select></label>
-  <label>Ano<input type="number" id="ano" value="2026" min="2024" max="2035"></label>
-
-  <fieldset class="cat">
-    <legend>Ações, no mercado comum</legend>
-    <label>Quanto vendeu no mês (R$)<input type="number" id="acoesVendas" value="60000" min="0" step="0.01"></label>
-    <label>Lucro ou prejuízo (R$)<input type="number" id="acoesResultado" value="9967" step="0.01"></label>
-    <p class="hint">Prejuízo com sinal de menos. Vendas até R$ 20 mil isentam o lucro das ações.</p>
-    <label>Prejuízo acumulado (R$)<input type="number" id="acoesPrejuizo" value="0" min="0" step="0.01"></label>
-    <label>IRRF já retido (R$)<input type="number" id="acoesIrrf" value="3" min="0" step="0.01"></label>
-  </fieldset>
-
-  <fieldset class="cat">
-    <legend>ETF de ações</legend>
-    <label>Quanto vendeu no mês (R$)<input type="number" id="etfVendas" value="0" min="0" step="0.01"></label>
-    <label>Lucro ou prejuízo (R$)<input type="number" id="etfResultado" value="0" step="0.01"></label>
-    <p class="hint">ETF de ações não tem a isenção de R$ 20 mil. O prejuízo compensa ações, e o contrário também.</p>
-    <label>Prejuízo acumulado (R$)<input type="number" id="etfPrejuizo" value="0" min="0" step="0.01"></label>
-    <label>IRRF já retido (R$)<input type="number" id="etfIrrf" value="0" min="0" step="0.01"></label>
-  </fieldset>
-
-  <fieldset class="cat">
-    <legend>Day trade</legend>
-    <label>Quanto vendeu no mês (R$)<input type="number" id="dayVendas" value="0" min="0" step="0.01"></label>
-    <label>Lucro ou prejuízo (R$)<input type="number" id="dayResultado" value="0" step="0.01"></label>
-    <p class="hint">Compra e venda no mesmo dia. Não tem isenção de R$ 20 mil. O prejuízo só abate day trade.</p>
-    <label>Prejuízo acumulado (R$)<input type="number" id="dayPrejuizo" value="0" min="0" step="0.01"></label>
-    <label>IRRF já retido (R$)<input type="number" id="dayIrrf" value="0" min="0" step="0.01"></label>
-  </fieldset>
-
-  <fieldset class="cat">
-    <legend>Venda de cotas de FII</legend>
-    <label>Quanto vendeu no mês (R$)<input type="number" id="fiiVendas" value="0" min="0" step="0.01"></label>
-    <label>Lucro ou prejuízo (R$)<input type="number" id="fiiResultado" value="0" step="0.01"></label>
-    <p class="hint">É o ganho na venda da cota, não o rendimento mensal do fundo. O prejuízo só abate outro FII.</p>
-    <label>Prejuízo acumulado (R$)<input type="number" id="fiiPrejuizo" value="0" min="0" step="0.01"></label>
-    <label>IRRF já retido (R$)<input type="number" id="fiiIrrf" value="0" min="0" step="0.01"></label>
-  </fieldset>
-
-  <fieldset class="cat">
-    <legend>Rendimentos de FII</legend>
-    <label>Quanto o fundo pagou no mês (R$)<input type="number" id="fiiRendValor" value="0" min="0" step="0.01"></label>
-    <label>O fundo cumpre a isenção?<select id="fiiRendEnq">
-      <option value="isento" selected>Sim: 100 cotistas ou mais, e eu tenho menos de 10%</option>
-      <option value="tributado">Não cumpre</option>
-      <option value="nao-sei">Não sei</option>
+  <div class="fields">
+    <label>Mês<select id="mes">
+      <option value="1">Janeiro</option>
+      <option value="2" selected>Fevereiro</option>
+      <option value="3">Março</option>
+      <option value="4">Abril</option>
+      <option value="5">Maio</option>
+      <option value="6">Junho</option>
+      <option value="7">Julho</option>
+      <option value="8">Agosto</option>
+      <option value="9">Setembro</option>
+      <option value="10">Outubro</option>
+      <option value="11">Novembro</option>
+      <option value="12">Dezembro</option>
     </select></label>
-    <p class="hint">Fiagro segue a mesma regra. Se não cumprir, os 20% ficam com o administrador, fora do DARF.</p>
-  </fieldset>
+    <label>Ano<input type="number" id="ano" value="2026" min="2024" max="2035"></label>
+  </div>
 
-  <fieldset class="cat">
-    <legend>ETF de renda fixa</legend>
-    <label>Lucro no resgate ou na venda (R$)<input type="number" id="etfRfResultado" value="0" step="0.01"></label>
-    <label>Prazo médio do índice<select id="etfRfPrazo">
-      <option value="" selected>Não sei</option>
-      <option value="ate180">Até 180 dias (25%)</option>
-      <option value="ate720">De 181 a 720 dias (20%)</option>
-      <option value="acima720">Acima de 720 dias (15%)</option>
-    </select></label>
-    <p class="hint">Esse imposto é retido na fonte. Sem o prazo, a conta não escolhe a alíquota.</p>
-  </fieldset>
+  <div class="seg" role="tablist" aria-label="Tipo de investimento">
+    <button type="button" role="tab" id="tab-acoes" data-aba="acoes" aria-controls="panel-acoes" aria-selected="true">Ações<span class="dot" hidden></span></button>
+    <button type="button" role="tab" id="tab-day" data-aba="day" aria-controls="panel-day" aria-selected="false" tabindex="-1">Day trade<span class="dot" hidden></span></button>
+    <button type="button" role="tab" id="tab-etf" data-aba="etf" aria-controls="panel-etf" aria-selected="false" tabindex="-1">ETF<span class="dot" hidden></span></button>
+    <button type="button" role="tab" id="tab-fii" data-aba="fii" aria-controls="panel-fii" aria-selected="false" tabindex="-1">FII<span class="dot" hidden></span></button>
+    <button type="button" role="tab" id="tab-cripto" data-aba="cripto" aria-controls="panel-cripto" aria-selected="false" tabindex="-1">Cripto<span class="dot" hidden></span></button>
+    <button type="button" role="tab" id="tab-exterior" data-aba="exterior" aria-controls="panel-exterior" aria-selected="false" tabindex="-1">Exterior<span class="dot" hidden></span></button>
+  </div>
 
-  <fieldset class="cat">
-    <legend>Cripto</legend>
-    <label>Onde está<select id="criptoLocal">
-      <option value="brasil" selected>Corretora no Brasil, ou na minha carteira</option>
-      <option value="exterior">Corretora no exterior</option>
-    </select></label>
-    <label>Alienado no mês (R$)<input type="number" id="criptoVendas" value="0" min="0" step="0.01"></label>
-    <label>Lucro ou prejuízo (R$)<input type="number" id="criptoResultado" value="0" step="0.01"></label>
-    <label>Prejuízo acumulado (R$)<input type="number" id="criptoPrejuizo" value="0" min="0" step="0.01"></label>
-    <p class="hint">No Brasil, vendas de até R$ 35 mil no mês isentam o ganho. No exterior, a conta é anual, de 15%.</p>
-  </fieldset>
+  <div class="panel" id="panel-acoes" role="tabpanel" aria-labelledby="tab-acoes">
+    <p class="paneltitle">Mercado comum <button type="button" class="info" aria-expanded="false" aria-controls="tip-acoes" aria-label="Informação sobre ações">i</button></p>
+    <p class="tip" id="tip-acoes" hidden>Prejuízo com sinal de menos. Vendas até R$ 20 mil isentam o lucro das ações.</p>
+    <div class="fields">
+      <label>Vendas no mês<input type="number" id="acoesVendas" value="60000" min="0" step="0.01"></label>
+      <label>Lucro ou prejuízo<input type="number" id="acoesResultado" value="9967" step="0.01"></label>
+      <label>Prejuízo acumulado<input type="number" id="acoesPrejuizo" value="0" min="0" step="0.01"></label>
+      <label>IRRF retido<input type="number" id="acoesIrrf" value="3" min="0" step="0.01"></label>
+    </div>
+  </div>
 
-  <fieldset class="cat">
-    <legend>Outros investimentos no exterior</legend>
-    <label>Rendimentos no ano (R$)<input type="number" id="extRendimento" value="0" min="0" step="0.01"></label>
-    <label>Perdas a compensar (R$)<input type="number" id="extPrejuizo" value="0" min="0" step="0.01"></label>
-    <label>Imposto já pago no exterior (R$)<input type="number" id="extImposto" value="0" min="0" step="0.01"></label>
-    <label class="check"><input type="checkbox" id="extAcordo"> Há acordo contra bitributação ou reciprocidade</label>
-    <p class="hint">Entra na declaração do ano seguinte, a 15%. Não é DARF mensal.</p>
-  </fieldset>
+  <div class="panel" id="panel-day" role="tabpanel" aria-labelledby="tab-day" hidden>
+    <p class="paneltitle">Day trade <button type="button" class="info" aria-expanded="false" aria-controls="tip-day" aria-label="Informação sobre day trade">i</button></p>
+    <p class="tip" id="tip-day" hidden>Compra e venda no mesmo dia. Não tem isenção de R$ 20 mil. O prejuízo só abate day trade.</p>
+    <div class="fields">
+      <label>Vendas no mês<input type="number" id="dayVendas" value="0" min="0" step="0.01"></label>
+      <label>Lucro ou prejuízo<input type="number" id="dayResultado" value="0" step="0.01"></label>
+      <label>Prejuízo acumulado<input type="number" id="dayPrejuizo" value="0" min="0" step="0.01"></label>
+      <label>IRRF retido<input type="number" id="dayIrrf" value="0" min="0" step="0.01"></label>
+    </div>
+  </div>
 
-  <fieldset class="cat">
-    <legend>Se o pagamento atrasar</legend>
-    <label>Dias de atraso<input type="number" id="atrasoDias" value="0" min="0" step="1"></label>
-    <label>Selic acumulada (%)<input type="number" id="atrasoSelic" value="" step="0.01" placeholder="em branco se não souber"></label>
-    <label class="check"><input type="checkbox" id="atrasoMesPosterior" checked> O pagamento é num mês depois do vencimento</label>
+  <div class="panel" id="panel-etf" role="tabpanel" aria-labelledby="tab-etf" hidden>
+    <p class="paneltitle">ETF de ações <button type="button" class="info" aria-expanded="false" aria-controls="tip-etf" aria-label="Informação sobre ETF de ações">i</button></p>
+    <p class="tip" id="tip-etf" hidden>ETF de ações não tem a isenção de R$ 20 mil. O prejuízo compensa ações, e o contrário também.</p>
+    <div class="fields">
+      <label>Vendas no mês<input type="number" id="etfVendas" value="0" min="0" step="0.01"></label>
+      <label>Lucro ou prejuízo<input type="number" id="etfResultado" value="0" step="0.01"></label>
+      <label>Prejuízo acumulado<input type="number" id="etfPrejuizo" value="0" min="0" step="0.01"></label>
+      <label>IRRF retido<input type="number" id="etfIrrf" value="0" min="0" step="0.01"></label>
+    </div>
+    <p class="paneltitle">ETF de renda fixa <button type="button" class="info" aria-expanded="false" aria-controls="tip-etfrf" aria-label="Informação sobre ETF de renda fixa">i</button></p>
+    <p class="tip" id="tip-etfrf" hidden>Esse imposto é retido na fonte: 25% até 180 dias, 20% até 720 e 15% acima disso. Sem o prazo, a conta não escolhe a alíquota.</p>
+    <div class="fields">
+      <label>Lucro no resgate<input type="number" id="etfRfResultado" value="0" step="0.01"></label>
+      <label>Prazo do índice<select id="etfRfPrazo">
+        <option value="" selected>Não sei</option>
+        <option value="ate180">Até 180 dias</option>
+        <option value="ate720">181 a 720 dias</option>
+        <option value="acima720">Acima de 720 dias</option>
+      </select></label>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-fii" role="tabpanel" aria-labelledby="tab-fii" hidden>
+    <p class="paneltitle">Venda de cotas <button type="button" class="info" aria-expanded="false" aria-controls="tip-fii" aria-label="Informação sobre venda de FII">i</button></p>
+    <p class="tip" id="tip-fii" hidden>É o ganho na venda da cota, não o rendimento mensal do fundo. O prejuízo só abate outro FII.</p>
+    <div class="fields">
+      <label>Vendas no mês<input type="number" id="fiiVendas" value="0" min="0" step="0.01"></label>
+      <label>Lucro ou prejuízo<input type="number" id="fiiResultado" value="0" step="0.01"></label>
+      <label>Prejuízo acumulado<input type="number" id="fiiPrejuizo" value="0" min="0" step="0.01"></label>
+      <label>IRRF retido<input type="number" id="fiiIrrf" value="0" min="0" step="0.01"></label>
+    </div>
+    <p class="paneltitle">Rendimentos <button type="button" class="info" aria-expanded="false" aria-controls="tip-fiirend" aria-label="Informação sobre rendimentos de FII">i</button></p>
+    <p class="tip" id="tip-fiirend" hidden>Fiagro segue a mesma regra. A isenção pede 100 cotistas ou mais, cotas em bolsa e menos de 10% na sua mão. Se não cumprir, os 20% ficam com o administrador, fora do DARF.</p>
+    <div class="fields">
+      <label>Pago no mês<input type="number" id="fiiRendValor" value="0" min="0" step="0.01"></label>
+      <label>Isenção do fundo<select id="fiiRendEnq">
+        <option value="isento" selected>Sim, isento</option>
+        <option value="tributado">Não cumpre</option>
+        <option value="nao-sei">Não sei</option>
+      </select></label>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-cripto" role="tabpanel" aria-labelledby="tab-cripto" hidden>
+    <p class="paneltitle">Cripto <button type="button" class="info" aria-expanded="false" aria-controls="tip-cripto" aria-label="Informação sobre cripto">i</button></p>
+    <p class="tip" id="tip-cripto" hidden>No Brasil, vendas de até R$ 35 mil no mês isentam o ganho. No exterior, a conta é anual, de 15%.</p>
+    <div class="fields">
+      <label>Onde está<select id="criptoLocal">
+        <option value="brasil" selected>No Brasil</option>
+        <option value="exterior">No exterior</option>
+      </select></label>
+      <label>Vendido no mês<input type="number" id="criptoVendas" value="0" min="0" step="0.01"></label>
+      <label>Lucro ou prejuízo<input type="number" id="criptoResultado" value="0" step="0.01"></label>
+      <label>Prejuízo acumulado<input type="number" id="criptoPrejuizo" value="0" min="0" step="0.01"></label>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-exterior" role="tabpanel" aria-labelledby="tab-exterior" hidden>
+    <p class="paneltitle">Aplicações no exterior <button type="button" class="info" aria-expanded="false" aria-controls="tip-ext" aria-label="Informação sobre investimentos no exterior">i</button></p>
+    <p class="tip" id="tip-ext" hidden>Entra na declaração do ano seguinte, a 15%. Não é DARF mensal.</p>
+    <div class="fields">
+      <label>Rendimentos no ano<input type="number" id="extRendimento" value="0" min="0" step="0.01"></label>
+      <label>Perdas a compensar<input type="number" id="extPrejuizo" value="0" min="0" step="0.01"></label>
+      <label>Imposto pago fora<input type="number" id="extImposto" value="0" min="0" step="0.01"></label>
+      <label class="check span2"><input type="checkbox" id="extAcordo"> Há acordo contra bitributação ou reciprocidade</label>
+    </div>
+  </div>
+
+  <details class="atraso" id="atrasoBox">
+    <summary>Se o pagamento atrasar</summary>
     <p class="hint">A multa é 0,33% ao dia, no máximo 20%. Os juros pedem a Selic, que não está gravada aqui.</p>
-  </fieldset>
+    <div class="fields">
+      <label>Dias de atraso<input type="number" id="atrasoDias" value="0" min="0" step="1"></label>
+      <label>Selic acumulada (%)<input type="number" id="atrasoSelic" value="" step="0.01" placeholder="em branco se não souber"></label>
+      <label class="check span2"><input type="checkbox" id="atrasoMesPosterior" checked> O pagamento é num mês depois do vencimento</label>
+    </div>
+  </details>
 
   <button type="submit">Calcular</button>
 </form>
@@ -133,17 +156,27 @@
 <section class="card">
   <h2>Resultado</h2>
   <div class="kpis">
-    <div><span id="kDarf">–</span><small>DARF 6015 a pagar</small></div>
+    <div><span id="kDarf">–</span><small>DARF a pagar</small></div>
     <div><span id="kVenc">–</span><small>Vencimento</small></div>
-    <div><span id="kPrej">–</span><small>Prejuízo de ações e ETF que sobra</small></div>
+    <div><span id="kPrej">–</span><small title="Prejuízo de ações e ETF que sobra">Prejuízo que sobra</small></div>
   </div>
-  <p class="hint" id="resumo"></p>
-  <div class="tablewrap">
+  <p class="hint" id="resumo">DARF de ganho de capital em renda variável. Gere a guia pelo <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto">Sicalc ou pelo app da Receita</a>. <span id="resumoExtra"></span></p>
+  <div class="tablewrap" id="tabelaCurta">
   <table class="cmp">
     <thead><tr><th>Item</th><th>Valor</th></tr></thead>
     <tbody id="linhas"></tbody>
   </table>
   </div>
+  <p class="hint" id="vazio" hidden>Nenhum valor diferente de zero neste mês.</p>
+  <details class="detalhe" id="detalhe">
+    <summary>Ver detalhamento</summary>
+    <div class="tablewrap">
+    <table class="cmp">
+      <thead><tr><th>Item</th><th>Valor</th></tr></thead>
+      <tbody id="linhasTodas"></tbody>
+    </table>
+    </div>
+  </details>
   <ul class="flags" id="avisos"></ul>
 </section>
 </div>
@@ -155,23 +188,23 @@
   <h2>Como usar</h2>
   <ol class="steps">
     <li>Escolha o mês em que o ganho aconteceu. O vencimento é o último dia útil do mês seguinte.</li>
-    <li>Em cada tipo, coloque quanto vendeu, o lucro ou o prejuízo, o prejuízo antigo e o IRRF que veio na nota.</li>
-    <li>Clique em <strong>Calcular</strong>. O primeiro número é o DARF 6015, se ele chegar a R$ 10.</li>
-    <li>Veja, na tabela, o imposto de cada tipo e o prejuízo que ainda pode abater um mês futuro.</li>
+    <li>Abra a aba do investimento e preencha vendas, lucro ou prejuízo, prejuízo antigo e o IRRF da nota.</li>
+    <li>Clique em <strong>Calcular</strong>. O primeiro número é o DARF, se ele chegar a R$ 10. Gere a guia pelo Sicalc ou pelo app da Receita.</li>
+    <li>A tabela mostra só o que não está zerado. <strong>Ver detalhamento</strong> traz o restante, inclusive o prejuízo que ainda pode abater um mês futuro.</li>
   </ol>
-  <p>Exemplo, com os valores que já vêm na tela e no próprio exemplo da Receita: em fevereiro, venda de ações de R$ 60 mil e lucro de R$ 9.967. O imposto é 15%, R$ 1.495,05. Menos R$ 3 de IRRF, ficam R$ 1.492,05 no DARF 6015, com vencimento em 31/03/2026.</p>
+  <p>Exemplo, com os valores que já vêm na tela e no próprio exemplo da Receita: em fevereiro, venda de ações de R$ 60 mil e lucro de R$ 9.967. O imposto é 15%, R$ 1.495,05. Menos R$ 3 de IRRF, ficam R$ 1.492,05 no DARF, com vencimento em 31/03/2026.</p>
   <details class="tech">
     <summary>Detalhes técnicos</summary>
     <h2>O que entra na conta</h2>
     <p>Ações no mercado comum: 15% sobre o lucro do mês, depois de abater o prejuízo da mesma cesta. Se as vendas de ações daquele mês ficam em até R$ 20 mil, o lucro das ações é isento. ETF de ações também é 15%, sem essa isenção, e divide o prejuízo com as ações. Day trade é 20%, com prejuízo separado. Venda de cota de FII é 20%, com prejuízo separado.</p>
-    <p>O IRRF da nota (o “dedo-duro”) abate a soma desses impostos. Se sobrar retenção, ela fica para os meses seguintes. Abaixo de R$ 10 não se emite DARF: o valor acumula no código 6015.</p>
+    <p>O IRRF da nota (o “dedo-duro”) abate a soma desses impostos. Se sobrar retenção, ela fica para os meses seguintes. Abaixo de R$ 10 não se emite DARF: o valor acumula para o mês seguinte.</p>
     <p>Rendimento de FII é isento quando o fundo tem pelo menos 100 cotistas, as cotas só negociam em bolsa ou balcão, você tem menos de 10% e o grupo ligado tem menos de 30%. Fora isso, são 20% retidos pelo administrador. ETF de renda fixa também é retido na fonte, a 25%, 20% ou 15%, conforme o prazo do índice.</p>
     <p>Cripto no Brasil é ganho de capital: isento se as alienações do mês não passam de R$ 35 mil; acima disso, a tabela vai de 15% a 22,5%. Cripto em corretora no exterior e os demais investimentos lá fora são 15% na declaração anual. A MP nº 1.303/2025, que mudaria essas regras, perdeu eficácia em 8 de outubro de 2025 e não vale em 2026.</p>
     <h2>Limitações</h2>
     <ul id="limites"></ul>
     <h2>Fontes</h2>
     <ul class="sources">
-      <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm">Lei nº 11.033/2004</a> (15%, 20% do day trade, isenção de R$ 20 mil e IRRF) e a página da <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto">Receita sobre o cálculo e o código 6015</a>.</li>
+      <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm">Lei nº 11.033/2004</a> (15%, 20% do day trade, isenção de R$ 20 mil e IRRF) e a página da <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto">Receita sobre o cálculo e o pagamento</a>. O DARF de ganho de capital em renda variável é gerado pelo Sicalc ou pelo app da Receita.</li>
       <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l8668.htm">Lei nº 8.668/1993</a> (20% na venda de FII) e <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm">Lei nº 14.754/2023</a> (isenção do rendimento do FII com 100 cotistas, e 15% no exterior).</li>
       <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l8981.htm">Lei nº 8.981/1995</a> e a <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/ganhos-de-capital/aliquotas">tabela de ganho de capital da Receita</a> (cripto no Brasil). <a href="http://normas.receita.fazenda.gov.br/sijut2consulta/anexoOutros.action?idArquivoBinario=64040">Solução de Consulta Cosit nº 214/2021</a> (isenção de R$ 35 mil).</li>
       <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l9430.htm">Lei nº 9.430/1996</a> (mínimo de R$ 10, multa e juros). Situação da MP nº 1.303/2025 no <a href="https://www.congressonacional.leg.br/pt_BR/materias/medidas-provisorias/-/mpv/169059">Congresso Nacional</a>.</li>
@@ -183,6 +216,7 @@
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>
 <script src="/assets/ir.js"></script>
+<script src="/assets/ir-params.js"></script>
 <script src="/ir-investimentos/app.js"></script>
 </body>
 </html>

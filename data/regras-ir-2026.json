@@ -47,7 +47,7 @@
     "verificado": true,
     "anoReferencia": 2026,
     "retidoNaFonte": true,
-    "entraNoDarf6015": false,
+    "entraNoDarfMensal": false,
     "faixas": [
       { "id": "ate180", "ateDias": 180, "aliquota": 0.25 },
       { "id": "ate720", "ateDias": 720, "aliquota": 0.2 },
@@ -55,7 +55,7 @@
     ],
     "norma": "Instrução Normativa RFB nº 1.585/2015, arts. 28 a 30",
     "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/fundos-de-investimento-no-brasil",
-    "nota": "A alíquota depende do prazo médio de repactuação da carteira do índice: 25% até 180 dias, 20% de 181 a 720, 15% acima de 720. O imposto é retido por quem paga o investidor, não pelo DARF 6015. Sem o prazo, a conta não escolhe alíquota."
+    "nota": "A alíquota depende do prazo médio de repactuação da carteira do índice: 25% até 180 dias, 20% de 181 a 720, 15% acima de 720. O imposto é retido por quem paga o investidor e não entra no DARF mensal de bolsa. Sem o prazo, a conta não escolhe alíquota."
   },
   "fiiVenda": {
     "verificado": true,
@@ -73,7 +73,7 @@
     "anoReferencia": 2026,
     "aliquotaSemIsencao": 0.2,
     "retidoNaFonte": true,
-    "entraNoDarf6015": false,
+    "entraNoDarfMensal": false,
     "minimoCotistas": 100,
     "limiteParticipacaoCotista": 0.1,
     "limiteGrupoLigado": 0.3,
@@ -137,13 +137,13 @@
   "darfBolsa": {
     "verificado": true,
     "anoReferencia": 2026,
-    "codigo": "6015",
+    "codigoVerificado": false,
     "valorMinimo": 10,
     "vencimento": "ultimo dia util do mes seguinte",
-    "norma": "Lei nº 9.430/1996, art. 68; orientação da Receita para o código 6015",
+    "norma": "Lei nº 9.430/1996, art. 68",
     "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l9430.htm",
     "fonteReceita": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto",
-    "nota": "O código 6015 recolhe o ganho líquido em bolsa. Abaixo de R$ 10 não se emite DARF: o valor soma ao mesmo código nos meses seguintes, até chegar a R$ 10, e é pago no prazo desse último mês. O art. 68-A permite ao Executivo elevar esse piso até R$ 100. Não foi localizado decreto que altere os R$ 10 para este código."
+    "nota": "O ganho líquido em bolsa é recolhido em DARF de renda variável. Gere a guia pelo Sicalc ou pelo app da Receita. Abaixo de R$ 10 não se emite DARF: o valor soma nos meses seguintes, até chegar a R$ 10, e é pago no prazo desse último mês. O art. 68-A permite ao Executivo elevar esse piso até R$ 100. Não foi localizado decreto que altere os R$ 10."
   },
   "ganhoCapitalPrazo": {
     "verificado": true,
@@ -187,6 +187,14 @@
     ]
   },
   "naoModelados": [
+    {
+      "id": "codigo-darf-bolsa",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Número do código do DARF de renda variável",
+      "nota": "O ganho em bolsa é pago por DARF até o último dia útil do mês seguinte. O número do código não é exibido. Gere a guia pelo Sicalc ou pelo app da Receita.",
+      "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto"
+    },
     {
       "id": "codigo-gcap",
       "verificado": false,

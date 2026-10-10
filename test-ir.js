@@ -1,6 +1,8 @@
 const assert = require('assert');
+const fs = require('fs');
 const regras = require('./data/regras-ir-2026.json');
 const IR = require('./assets/ir.js');
+const Params = require('./assets/ir-params.js');
 let ok = 0;
 const t = (n, f) => { f(); ok++; console.log('ok -', n); };
 const z = { vendas: 0, resultado: 0, prejuizoAcumulado: 0, irrf: 0 };
@@ -22,9 +24,10 @@ function calc(extra) {
 t('exemplo da Receita: venda de R$ 60 mil, ganho de R$ 9.967, IRRF de R$ 3', () => {
   const r = calc({ acoes: { vendas: 60000, resultado: 9967, prejuizoAcumulado: 0, irrf: 3 } });
   assert.strictEqual(r.comum.imposto, 1495.05);
-  assert.strictEqual(r.darf6015.aRecolher, 1492.05);
-  assert.strictEqual(r.darf6015.codigo, '6015');
-  assert.deepStrictEqual(r.darf6015.vencimento, { ano: 2026, mes: 3, dia: 31 });
+  assert.strictEqual(r.darfBolsa.aRecolher, 1492.05);
+  assert.ok(!('codigo' in r.darfBolsa));
+  assert.ok(!JSON.stringify(r).includes('6015'));
+  assert.deepStrictEqual(r.darfBolsa.vencimento, { ano: 2026, mes: 3, dia: 31 });
 });
 
 t('ações até R$ 20 mil, inclusive o limite, ficam isentas', () => {
@@ -38,7 +41,7 @@ t('ações até R$ 20 mil, inclusive o limite, ficam isentas', () => {
 t('day trade é 20% e não usa a isenção de R$ 20 mil', () => {
   const r = calc({ dayTrade: { vendas: 1000, resultado: 1000, prejuizoAcumulado: 0, irrf: 10 } });
   assert.strictEqual(r.dayTrade.imposto, 200);
-  assert.strictEqual(r.darf6015.aRecolher, 190);
+  assert.strictEqual(r.darfBolsa.aRecolher, 190);
 });
 
 t('prejuízo de day trade não abate ação, e o contrário também não', () => {
@@ -76,37 +79,37 @@ t('venda de FII é 20% e o prejuízo não abate ação', () => {
   assert.strictEqual(r.fiiVenda.base, 700);
   assert.strictEqual(r.fiiVenda.imposto, 140);
   assert.strictEqual(r.comum.imposto, 150);
-  assert.strictEqual(r.darf6015.aRecolher, 290);
+  assert.strictEqual(r.darfBolsa.aRecolher, 290);
 });
 
 t('rendimento de FII isento fica zerado; sem isenção, 20% não entram no DARF', () => {
   const isento = calc({ fiiRendimentos: { valor: 1000, enquadramento: 'isento' } });
   assert.strictEqual(isento.fiiRendimentos.imposto, 0);
-  assert.strictEqual(isento.darf6015.aRecolher, 0);
+  assert.strictEqual(isento.darfBolsa.aRecolher, 0);
   const tributado = calc({ fiiRendimentos: { valor: 1000, enquadramento: 'tributado' } });
   assert.strictEqual(tributado.fiiRendimentos.imposto, 200);
   assert.strictEqual(tributado.fiiRendimentos.retidoNaFonte, true);
-  assert.strictEqual(tributado.darf6015.aRecolher, 0);
+  assert.strictEqual(tributado.darfBolsa.aRecolher, 0);
 });
 
-t('ETF de renda fixa usa a faixa do prazo e não entra no DARF 6015', () => {
+t('ETF de renda fixa usa a faixa do prazo e não entra no DARF mensal', () => {
   const r = calc({ etfRendaFixa: { resultado: 1000, prazo: 'ate180' } });
   assert.strictEqual(r.etfRendaFixa.aliquota, 0.25);
   assert.strictEqual(r.etfRendaFixa.imposto, 250);
-  assert.strictEqual(r.darf6015.aRecolher, 0);
+  assert.strictEqual(r.darfBolsa.aRecolher, 0);
   const longo = calc({ etfRendaFixa: { resultado: 1000, prazo: 'acima720' } });
   assert.strictEqual(longo.etfRendaFixa.imposto, 150);
 });
 
 t('IRRF que sobra não vira DARF negativo, e valor abaixo de R$ 10 acumula', () => {
   const sobra = calc({ acoes: { vendas: 10000, resultado: 100, prejuizoAcumulado: 0, irrf: 2 } });
-  assert.strictEqual(sobra.darf6015.aRecolher, 0);
+  assert.strictEqual(sobra.darfBolsa.aRecolher, 0);
   assert.strictEqual(sobra.irrfSobra, 2);
   const baixo = calc({ acoes: { vendas: 30000, resultado: 40, prejuizoAcumulado: 0, irrf: 0 } });
   assert.strictEqual(baixo.comum.imposto, 6);
-  assert.strictEqual(baixo.darf6015.abaixoDoMinimo, true);
-  assert.strictEqual(baixo.darf6015.aRecolher, 0);
-  assert.strictEqual(baixo.darf6015.acumulado, 6);
+  assert.strictEqual(baixo.darfBolsa.abaixoDoMinimo, true);
+  assert.strictEqual(baixo.darfBolsa.aRecolher, 0);
+  assert.strictEqual(baixo.darfBolsa.acumulado, 6);
 });
 
 t('cripto no Brasil: isenção de R$ 35 mil e tabela progressiva', () => {
@@ -166,7 +169,45 @@ t('JSON traz fonte e ano, marca a MP 1.303 como sem efeito em 2026 e lista o que
   assert.ok(regras.naoModelados.length >= 8);
   assert.ok(regras.naoModelados.every((item) => item.verificado === false && item.nota && item.fonte));
   assert.strictEqual(regras.ganhoCapitalPrazo.codigoVerificado, false);
+  assert.strictEqual(regras.darfBolsa.codigoVerificado, false);
+  assert.ok(!('codigo' in regras.darfBolsa));
+  assert.ok(!JSON.stringify(regras).includes('6015'));
   assert.strictEqual(regras.fiiRendimentos.minimoCotistas, 100);
+});
+
+t('a interface e as fontes não trazem o código numérico do DARF', () => {
+  ['ir-investimentos/index.html', 'ir-investimentos/app.js', 'fontes/index.html', 'assets/ir.js', 'assets/ir-params.js', 'assets/style.css'].forEach((f) => {
+    assert.ok(!fs.readFileSync(f, 'utf8').includes('6015'), f);
+  });
+});
+
+t('parâmetros da URL e do armazenamento voltam iguais e a URL prevalece', () => {
+  const amostra = Params.merge(null, {});
+  amostra.dayResultado = 1000;
+  amostra.dayIrrf = 10;
+  amostra.aba = 'day';
+  amostra.extAcordo = true;
+  amostra.etfRfPrazo = 'ate180';
+  amostra.atrasoSelic = 0.5;
+  amostra.criptoResultado = -20;
+  assert.deepStrictEqual(Params.decode(Params.encode(amostra)), amostra);
+  assert.strictEqual(Params.decode('?dayResultado=-40').dayResultado, -40);
+  assert.strictEqual(Params.decode('mes=99').mes, 12);
+  assert.strictEqual(Params.decode('acoesVendas=-5').acoesVendas, 0);
+  assert.strictEqual(Params.decode('aba=zzz').aba, undefined);
+  const m = Params.merge(
+    { dayResultado: 1000, aba: 'day', acoesVendas: 1, extAcordo: true },
+    Params.decode('acoesVendas=10&aba=fii&extAcordo=0')
+  );
+  assert.strictEqual(m.acoesVendas, 10);
+  assert.strictEqual(m.aba, 'fii');
+  assert.strictEqual(m.dayResultado, 1000);
+  assert.strictEqual(m.acoesResultado, 9967);
+  assert.strictEqual(m.extAcordo, false);
+  assert.strictEqual(m.atrasoMesPosterior, true);
+  assert.strictEqual(m.atrasoSelic, null);
+  assert.strictEqual(Params.merge({ aba: 'zzz', atrasoSelic: 'abc' }, {}).aba, 'acoes');
+  assert.strictEqual(Params.merge({ aba: 'zzz', atrasoSelic: 'abc' }, {}).atrasoSelic, null);
 });
 
 console.log(ok + ' testes passaram');

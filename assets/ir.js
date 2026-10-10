@@ -145,7 +145,7 @@
     } else if (enq === 'tributado') {
       fiiRend.imposto = round2(fiiRend.valor * regras.fiiRendimentos.aliquotaSemIsencao);
       fiiRend.retidoNaFonte = true;
-      avisos.push('Sem a isenção, os 20% dos rendimentos do FII são retidos pelo administrador. Esse valor não entra no DARF 6015.');
+      avisos.push('Sem a isenção, os 20% dos rendimentos do FII são retidos pelo administrador. Esse valor não entra no DARF mensal de bolsa.');
     } else if (fiiRend.valor > 0) {
       avisos.push('Sem saber se o FII cumpre a isenção, o rendimento não entra no imposto.');
     }
@@ -250,8 +250,7 @@
       irrfBolsa: irrfBolsa,
       irrfSobra: irrfSobra,
       impostoBolsa: impostoBolsa,
-      darf6015: {
-        codigo: regras.darfBolsa.codigo,
+      darfBolsa: {
         devido: devidoBolsa,
         abaixoDoMinimo: bolsaAbaixo,
         aRecolher: bolsaAbaixo ? 0 : devidoBolsa,
