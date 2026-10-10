@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador FIRE com Monte Carlo | Quanto Vira</title>
+<meta name="description" content="Simulador gratuito de independência financeira (FIRE) com Monte Carlo usando dados históricos reais de IPCA, CDI e Ibovespa desde 1995. Veja a probabilidade de sucesso e a idade estimada de FIRE.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://quantovira.com.br/simulador-fire/">
+<meta property="og:title" content="Simulador FIRE com Monte Carlo | Quanto Vira">
+<meta property="og:description" content="Probabilidade de sucesso, faixas p10/p50/p90 e idade estimada de independência financeira, em valores reais.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quantovira.com.br/simulador-fire/">
+<meta property="og:site_name" content="Quanto Vira">
+<meta property="og:locale" content="pt_BR">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">Quanto<span>Vira</span></a><nav><a href="/simulador-fire/">Simulador FIRE</a><a href="/sobre/">Sobre</a></nav></div></header>
+<main class="wrap">
+<h1>Simulador de independência financeira (FIRE) com Monte Carlo</h1>
+<p class="lead">Milhares de futuros possíveis montados a partir de anos reais da economia brasileira (1995–2025). Todos os valores estão em <strong>reais de hoje</strong>, já descontada a inflação.</p>
+
+<div class="grid">
+<form id="f" class="card">
+  <h2>Seus dados</h2>
+  <label>Idade atual<input type="number" id="idade" value="30" min="16" max="80"></label>
+  <label>Patrimônio atual (R$)<input type="number" id="patrimonio" value="50000" min="0" step="1000"></label>
+  <label>Aporte mensal (R$)<input type="number" id="aporteMensal" value="3000" min="0" step="100"></label>
+  <label>Gasto mensal desejado na independência (R$)<input type="number" id="gastoMensal" value="6000" min="100" step="100"></label>
+  <label>Taxa de retirada anual (%)<input type="number" id="taxaRetirada" value="3.5" min="1" max="10" step="0.1"></label>
+  <p class="hint">Meta = gasto anual ÷ taxa. <span id="metaTxt"></span></p>
+  <label>Alocação em ações (Ibovespa): <b id="pctTxt">50%</b><input type="range" id="pctAcoes" value="50" min="0" max="100" step="5"></label>
+  <p class="hint">O restante vai para renda fixa pós-fixada (CDI).</p>
+  <label>Simular até a idade<input type="number" id="idadeFinal" value="95" min="40" max="110"></label>
+  <label>Número de simulações<select id="nSims"><option>1000</option><option selected>5000</option><option>10000</option></select></label>
+  <button type="submit">Simular</button>
+  <button type="button" id="copy" class="sec">Copiar link da simulação</button>
+  <p class="hint" id="copyMsg" aria-live="polite"></p>
+</form>
+
+<section class="card results">
+  <h2>Resultado</h2>
+  <div class="kpis">
+    <div><span id="kSuc">–</span><small>Probabilidade de sucesso</small></div>
+    <div><span id="kAge">–</span><small>Idade FIRE (mediana)</small></div>
+    <div><span id="kAgeR">–</span><small>Faixa p10–p90 da idade</small></div>
+  </div>
+  <p class="hint" id="explain"></p>
+  <div class="chartbox"><canvas id="chart"></canvas></div>
+</section>
+</div>
+
+<aside class="ad" aria-label="Publicidade">Espaço publicitário</aside>
+
+<article class="card article">
+  <h2>Como funciona o método</h2>
+  <p>Usamos <strong>bootstrap histórico</strong>: para cada ano futuro, sorteamos ao acaso um ano real entre 1995 e 2025 e aplicamos os retornos <em>reais</em> (acima do IPCA) do CDI e do Ibovespa daquele ano. Ações e renda fixa vêm do mesmo ano sorteado, o que preserva a relação entre eles (por exemplo, 2008: bolsa −44% real, CDI +6% real). A carteira é rebalanceada uma vez por ano.</p>
+  <p>Enquanto você acumula, o aporte anual (12 × aporte mensal) entra no início de cada ano. Quando o patrimônio alcança a <strong>meta</strong> (gasto anual ÷ taxa de retirada), você atinge o FIRE e passa a sacar o gasto anual, corrigido pela inflação. Uma simulação conta como <strong>sucesso</strong> quando atinge a meta e o dinheiro não acaba até a idade final escolhida.</p>
+  <p>O gráfico mostra o patrimônio em cada idade: a mediana (p50) e as faixas em que caem 10% (p10) e 90% (p90) das simulações.</p>
+  <h2>Limitações</h2>
+  <ul>
+    <li>São só 31 anos de histórico. O período inclui juros reais altíssimos no fim dos anos 1990, que talvez não se repitam.</li>
+    <li>Não consideramos imposto de renda, taxas, custódia nem come-cotas. Os retornos são brutos, então o resultado é otimista.</li>
+    <li>Os anos são sorteados de forma independente, o que não reproduz sequências longas de crise.</li>
+    <li>Renda fixa é só CDI. Tesouro IPCA+ ainda não está incluído.</li>
+    <li>Passo anual. Não modela INSS, renda extra, imóveis nem mudanças de gasto ao longo da vida.</li>
+  </ul>
+  <h2>Fontes dos dados</h2>
+  <p>IPCA (IBGE) e CDI: Banco Central, SGS séries 433 e 4391. Ibovespa: BCB SGS série 7845 até 2018 e Yahoo Finance (^BVSP) de 2019 a 2025. Detalhes em <a href="/data/historico.json">historico.json</a>.</p>
+  <p class="disclaimer"><strong>Aviso:</strong> esta ferramenta é educativa. Não é recomendação de investimento e não garante resultados. Rentabilidade passada não garante rentabilidade futura. Para decisões importantes, procure um profissional certificado.</p>
+</article>
+</main>
+<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · Sem cookies e sem rastreamento.</footer>
+<script src="/assets/sim.js"></script>
+<script src="/assets/params.js"></script>
+<script src="/simulador-fire/app.js"></script>
+</body>
+</html>

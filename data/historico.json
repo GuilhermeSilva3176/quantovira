@@ -1,0 +1,266 @@
+{
+ "descricao": "Retornos anuais nominais (fração) e reais de IPCA, CDI e Ibovespa, 1995-2025.",
+ "fontes": {
+  "ipca": "BCB SGS série 433 (IPCA, var. % mensal, fonte IBGE) https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json",
+  "cdi": "BCB SGS série 4391 (CDI acumulado no mês, % a.m.) https://api.bcb.gov.br/dados/serie/bcdata.sgs.4391/dados?formato=json",
+  "ibov_1994_2018": "BCB SGS série 7845 (Ibovespa mensal, pontos; fechamento de dezembro). Série termina em 08/2019. Valores a partir de 1997 multiplicados por 10 para compensar o rebase do índice em 1997. https://api.bcb.gov.br/dados/serie/bcdata.sgs.7845/dados?formato=json",
+  "ibov_2019_2025": "Yahoo Finance ^BVSP mensal (fechamento de dezembro), fonte não oficial; conferida contra BCB 1995-2018 (coincide). https://query1.finance.yahoo.com/v8/finance/chart/%5EBVSP?interval=1mo&range=max"
+ },
+ "notas": [
+  "Anual = composição dos 12 meses.",
+  "Ibovespa é índice de retorno total (reinveste proventos), sem IR e custos.",
+  "CDI bruto, sem IR.",
+  "IPCA+ (NTN-B) não incluído: sem série longa gratuita usada aqui.",
+  "Coletado em 09/10/2026."
+ ],
+ "anos": [
+  {
+   "ano": 1995,
+   "ipca": 0.224089,
+   "cdi": 0.530921,
+   "ibov": -0.012609,
+   "cdi_real": 0.250662,
+   "ibov_real": -0.193367
+  },
+  {
+   "ano": 1996,
+   "ipca": 0.095638,
+   "cdi": 0.270944,
+   "ibov": 0.637567,
+   "cdi_real": 0.160004,
+   "ibov_real": 0.494624
+  },
+  {
+   "ano": 1997,
+   "ipca": 0.052247,
+   "cdi": 0.245989,
+   "ibov": 0.448316,
+   "cdi_real": 0.184122,
+   "ibov_real": 0.376403
+  },
+  {
+   "ano": 1998,
+   "ipca": 0.016556,
+   "cdi": 0.285846,
+   "ibov": -0.334641,
+   "cdi_real": 0.264903,
+   "ibov_real": -0.345478
+  },
+  {
+   "ano": 1999,
+   "ipca": 0.089399,
+   "cdi": 0.251226,
+   "ibov": 1.51931,
+   "cdi_real": 0.148547,
+   "ibov_real": 1.312568
+  },
+  {
+   "ano": 2000,
+   "ipca": 0.059743,
+   "cdi": 0.173306,
+   "ibov": -0.107191,
+   "cdi_real": 0.10716,
+   "ibov_real": -0.157523
+  },
+  {
+   "ano": 2001,
+   "ipca": 0.076733,
+   "cdi": 0.172601,
+   "ibov": -0.114686,
+   "cdi_real": 0.089037,
+   "ibov_real": -0.177778
+  },
+  {
+   "ano": 2002,
+   "ipca": 0.125303,
+   "cdi": 0.190903,
+   "ibov": -0.165889,
+   "cdi_real": 0.058295,
+   "ibov_real": -0.258768
+  },
+  {
+   "ano": 2003,
+   "ipca": 0.092999,
+   "cdi": 0.232616,
+   "ibov": 0.973376,
+   "cdi_real": 0.127737,
+   "ibov_real": 0.805468
+  },
+  {
+   "ano": 2004,
+   "ipca": 0.076006,
+   "cdi": 0.161551,
+   "ibov": 0.17809,
+   "cdi_real": 0.079502,
+   "ibov_real": 0.094872
+  },
+  {
+   "ano": 2005,
+   "ipca": 0.056897,
+   "cdi": 0.189968,
+   "ibov": 0.277103,
+   "cdi_real": 0.125907,
+   "ibov_real": 0.208351
+  },
+  {
+   "ano": 2006,
+   "ipca": 0.031418,
+   "cdi": 0.150352,
+   "ibov": 0.329338,
+   "cdi_real": 0.115311,
+   "ibov_real": 0.288845
+  },
+  {
+   "ano": 2007,
+   "ipca": 0.044573,
+   "cdi": 0.118149,
+   "ibov": 0.436512,
+   "cdi_real": 0.070436,
+   "ibov_real": 0.375214
+  },
+  {
+   "ano": 2008,
+   "ipca": 0.059023,
+   "cdi": 0.123808,
+   "ibov": -0.412234,
+   "cdi_real": 0.061174,
+   "ibov_real": -0.444993
+  },
+  {
+   "ano": 2009,
+   "ipca": 0.04312,
+   "cdi": 0.098694,
+   "ibov": 0.826578,
+   "cdi_real": 0.053276,
+   "ibov_real": 0.751071
+  },
+  {
+   "ano": 2010,
+   "ipca": 0.059091,
+   "cdi": 0.097607,
+   "ibov": 0.010439,
+   "cdi_real": 0.036367,
+   "ibov_real": -0.045937
+  },
+  {
+   "ano": 2011,
+   "ipca": 0.065031,
+   "cdi": 0.115937,
+   "ibov": -0.181086,
+   "cdi_real": 0.047798,
+   "ibov_real": -0.231089
+  },
+  {
+   "ano": 2012,
+   "ipca": 0.058386,
+   "cdi": 0.084069,
+   "ibov": 0.073968,
+   "cdi_real": 0.024266,
+   "ibov_real": 0.014723
+  },
+  {
+   "ano": 2013,
+   "ipca": 0.059108,
+   "cdi": 0.080629,
+   "ibov": -0.154958,
+   "cdi_real": 0.02032,
+   "ibov_real": -0.202119
+  },
+  {
+   "ano": 2014,
+   "ipca": 0.064076,
+   "cdi": 0.108222,
+   "ibov": -0.029122,
+   "cdi_real": 0.041487,
+   "ibov_real": -0.087586
+  },
+  {
+   "ano": 2015,
+   "ipca": 0.106735,
+   "cdi": 0.132633,
+   "ibov": -0.133141,
+   "cdi_real": 0.023401,
+   "ibov_real": -0.216742
+  },
+  {
+   "ano": 2016,
+   "ipca": 0.062881,
+   "cdi": 0.139946,
+   "ibov": 0.389352,
+   "cdi_real": 0.072506,
+   "ibov_real": 0.307157
+  },
+  {
+   "ano": 2017,
+   "ipca": 0.029473,
+   "cdi": 0.099339,
+   "ibov": 0.268567,
+   "cdi_real": 0.067865,
+   "ibov_real": 0.232249
+  },
+  {
+   "ano": 2018,
+   "ipca": 0.037455,
+   "cdi": 0.064109,
+   "ibov": 0.150323,
+   "cdi_real": 0.025692,
+   "ibov_real": 0.108794
+  },
+  {
+   "ano": 2019,
+   "ipca": 0.04306,
+   "cdi": 0.059459,
+   "ibov": 0.315837,
+   "cdi_real": 0.015722,
+   "ibov_real": 0.261516
+  },
+  {
+   "ano": 2020,
+   "ipca": 0.045173,
+   "cdi": 0.027538,
+   "ibov": 0.031657,
+   "cdi_real": -0.016873,
+   "ibov_real": -0.012932
+  },
+  {
+   "ano": 2021,
+   "ipca": 0.100611,
+   "cdi": 0.044357,
+   "ibov": -0.121402,
+   "cdi_real": -0.051111,
+   "ibov_real": -0.201718
+  },
+  {
+   "ano": 2022,
+   "ipca": 0.057848,
+   "cdi": 0.123805,
+   "ibov": 0.049694,
+   "cdi_real": 0.06235,
+   "ibov_real": -0.007709
+  },
+  {
+   "ano": 2023,
+   "ipca": 0.046211,
+   "cdi": 0.130282,
+   "ibov": 0.21952,
+   "cdi_real": 0.080358,
+   "ibov_real": 0.165654
+  },
+  {
+   "ano": 2024,
+   "ipca": 0.048313,
+   "cdi": 0.108881,
+   "ibov": -0.103603,
+   "cdi_real": 0.057777,
+   "ibov_real": -0.144915
+  },
+  {
+   "ano": 2025,
+   "ipca": 0.042644,
+   "cdi": 0.143328,
+   "ibov": 0.339549,
+   "cdi_real": 0.096566,
+   "ibov_real": 0.284762
+  }
+ ]
+}

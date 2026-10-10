@@ -1,0 +1,11 @@
+const assert=require('assert');const P=require('./assets/params.js');let ok=0;const t=(n,f)=>{f();ok++;console.log('ok -',n);};
+const p={idade:35,patrimonio:120000,aporteMensal:2500,gastoMensal:7000,taxaRetirada:3.5,pctAcoes:60,idadeFinal:95,nSims:10000};
+t('encode/decode ida e volta',()=>assert.deepStrictEqual(P.decode(P.encode(p)),p));
+t('decode aceita ? inicial',()=>assert.strictEqual(P.decode('?idade=40').idade,40));
+t('limita valores fora da faixa',()=>{const d=P.decode('idade=5&pctAcoes=150&taxaRetirada=0');assert.strictEqual(d.idade,16);assert.strictEqual(d.pctAcoes,100);assert.strictEqual(d.taxaRetirada,1);});
+t('ignora lixo e campos desconhecidos',()=>assert.deepStrictEqual(P.decode('idade=abc&foo=1&&x'),{}));
+t('nSims só valores permitidos',()=>{assert.strictEqual(P.decode('nSims=999999').nSims,undefined);assert.strictEqual(P.decode('nSims=1000').nSims,1000);});
+t('URL tem precedência sobre localStorage, que tem precedência sobre padrão',()=>{const m=P.merge({idade:50,patrimonio:1},{idade:40});assert.strictEqual(m.idade,40);assert.strictEqual(m.patrimonio,1);assert.strictEqual(m.gastoMensal,6000);});
+t('merge com storage nulo/corrompido usa padrões',()=>{const m=P.merge(null,{});assert.strictEqual(m.nSims,5000);assert.strictEqual(P.merge({idade:'xx'},{}).idade,30);});
+t('decimais preservados',()=>assert.strictEqual(P.decode(P.encode({taxaRetirada:3.25})).taxaRetirada,3.25));
+console.log(`\n${ok} testes passaram`);
