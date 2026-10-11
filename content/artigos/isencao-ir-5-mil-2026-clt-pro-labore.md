@@ -2,7 +2,7 @@
 title: "Isenção de IR até R$ 5 mil em 2026: o que muda para o CLT e para o PJ que recebe pró-labore"
 description: "Em 2026 o IR mensal zera até R$ 5.000 e diminui até R$ 7.350. Veja a conta no salário CLT e no pró-labore."
 date: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-11
 author: Equipe Quanto Vira
 calculadora: pj-vs-clt
 fontes:
@@ -96,7 +96,7 @@ O art. 11-A, criado pela mesma lei, reduz o imposto do ajuste anual a partir do 
 - de R$ 60.000,01 até R$ 88.200,00, a redução é R$ 8.429,73 − (0,095575 × esses rendimentos)
 - acima de R$ 88.200,00, o ano fica sem essa redução
 
-Doze meses de R$ 5.000,00 somam R$ 60.000,00. Doze meses de R$ 7.350,00 somam R$ 88.200,00. A faixa do ano repete a faixa do mês. Doze salários de R$ 4.200,00 somam R$ 50.400,00. O limite anual do desconto simplificado, na mesma página da Receita e no art. 10 da Lei nº 9.250 com a redação da Lei nº 15.270, é R$ 17.640,00. A base fica em R$ 50.400,00 − R$ 17.640,00 = R$ 32.760,00. Na faixa de 7,5% da tabela anual, o imposto é R$ 32.760,00 × 7,5% − R$ 2.185,92 = R$ 271,08. A redução anual de até R$ 2.694,15 cobre esse valor, e o imposto do ajuste vai a zero quando essa for a renda sujeita ao ajuste e o desconto simplificado for a dedução usada. O 13º tem cobrança exclusiva na fonte, com a redução do § 3º. Este texto deixa o 13º nessa conta separada.
+Doze meses de R$ 5.000,00 somam R$ 60.000,00. Doze meses de R$ 7.350,00 somam R$ 88.200,00. A faixa do ano repete a faixa do mês. Doze salários de R$ 4.200,00 somam R$ 50.400,00. O desconto simplificado anual é 20% dos rendimentos tributáveis, limitado a R$ 17.640,00. O art. 10 da Lei nº 9.250/1995 traz esse desconto, e a Lei nº 15.270/2025 só mudou o limite, no inciso X. A [página da Receita](https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026) publica o limite de R$ 17.640,00. Em R$ 50.400,00, 20% são R$ 10.080,00, abaixo do teto. A base fica em R$ 50.400,00 − R$ 10.080,00 = R$ 40.320,00. Na faixa de 15% da tabela anual, o imposto é R$ 40.320,00 × 15% − R$ 4.729,91 = R$ 1.318,09. A redução anual de até R$ 2.694,15 cobre esse valor, e o imposto do ajuste vai a zero quando essa for a renda sujeita ao ajuste e o desconto simplificado for a dedução usada. O 13º tem cobrança exclusiva na fonte, com a redução do § 3º. Este texto deixa o 13º nessa conta separada.
 
 Cada fonte calcula o mês sobre o valor que ela mesma paga. O ajuste olha o ano. Duas fontes de R$ 4.200,00 no mesmo mês somam R$ 8.400,00. Em doze meses, isso dá R$ 100.800,00, acima de R$ 88.200,00. Cada pagamento de R$ 4.200,00, no exemplo isolado, sai com imposto zero. A declaração anual enxerga a soma.
 

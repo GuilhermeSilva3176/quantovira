@@ -2,7 +2,7 @@
 title: "Dividendos passam a ser tributados? O que a Lei 15.270 muda para quem é PJ e tira lucro da empresa"
 description: "A partir de 2026, lucro acima de R$ 50 mil no mês pode ter retenção de 10% sobre o total, e renda anual acima de R$ 600 mil entra na tributação mínima."
 date: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-11
 author: Equipe Quanto Vira
 calculadora: pj-vs-clt
 fontes:
@@ -103,9 +103,9 @@ A Receita responde que a retenção de 10% também alcança lucro distribuído p
 
 O art. 14 segue no texto da lei complementar. O lucro que a microempresa ou a empresa de pequeno porte optante pelo Simples paga ao titular ou ao sócio é isento na fonte e na declaração, salvo pró-labore, aluguel ou serviço. A orientação da Receita é que, acima de R$ 50.000 no mês, prevalece a Lei nº 15.270/2025.
 
-O MEI é optante do Simples. O teto de receita bruta do MEI é R$ 81.000 no ano. A tributação mínima, de rendimentos superiores a R$ 600.000, não nasce só dessa receita. A retenção de 10% depende de a distribuição do mês passar de R$ 50.000, pela mesma regra das outras empresas.
+O MEI é optante do Simples. O teto de receita bruta do MEI é R$ 81.000 no ano. O texto [MEI pode prestar serviço de TI ou de consultoria?](/artigos/mei-pode-ti-consultoria-limite-2026/) trata do Projeto de Lei Complementar nº 186/2026, que propõe outro teto. Em 2026 o limite vigente continua R$ 81.000. A tributação mínima, de rendimentos superiores a R$ 600.000, não nasce só dessa receita. A retenção de 10% depende de a distribuição do mês passar de R$ 50.000, pela mesma regra das outras empresas.
 
-A calculadora [PJ x CLT](/pj-vs-clt/) compara o líquido do ano nos dois lados. No lucro presumido, ela aplica a retenção de 10% quando o lucro do ano, repartido em doze meses iguais, passa de R$ 50.000 por mês. Ela não aplica esses 10% no MEI nem no Simples. Ela também não calcula a tributação mínima anual nem o redutor do art. 16-B.
+A calculadora [PJ x CLT](/pj-vs-clt/) compara o líquido do ano nos dois lados. Ela aplica a retenção de 10% no Lucro Presumido, no Simples e no MEI quando o lucro do ano, repartido em doze meses iguais, passa de R$ 50.000 por mês. A pergunta 10 do perguntas e respostas da Receita descreve essa retenção para o Simples. Ela não calcula a tributação mínima anual, nem o redutor do art. 16-B, nem o crédito dessa retenção quando a renda do ano fica abaixo de R$ 600.000.
 
 ## Redutor quando a empresa já pagou imposto alto
 
