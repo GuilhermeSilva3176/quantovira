@@ -3,8 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE = 'https://quantovira.com.br';
+const S = require('./site-shell.js');
+const SITE = S.SITE;
 const AUTOR_PADRAO = 'Equipe Quanto Vira';
+const ULTIMOS_ARTIGOS_HOME = 6;
+const ARTIGOS_RELACIONADOS_CALC = 6;
 const CALCULADORAS = {
   'simulador-fire': { href: '/simulador-fire/', nome: 'Simulador FIRE' },
   'pj-vs-clt': { href: '/pj-vs-clt/', nome: 'PJ x CLT' },
@@ -28,7 +31,7 @@ const RELACIONADOS = [
   { arquivo: 'ir-investimentos/index.html', calculadora: 'ir-investimentos' }
 ];
 const MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
-const NAV = '<a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a>';
+const NAV = S.NAV;
 const INICIO = '<!-- artigos:inicio -->';
 const FIM = '<!-- artigos:fim -->';
 
@@ -293,15 +296,17 @@ function lerArtigos(root) {
 }
 
 function layout(opts) {
-  const json = opts.jsonLd
-    ? '\n<script type="application/ld+json">' + opts.jsonLd + '</script>'
-    : '';
-  return '<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>'
-    + escapeHtml(opts.title) + '</title>\n<meta name="description" content="' + escapeHtml(opts.description) + '">\n<link rel="canonical" href="'
-    + escapeHtml(opts.canonical) + '">\n<meta property="og:title" content="' + escapeHtml(opts.title) + '">\n<meta property="og:description" content="'
-    + escapeHtml(opts.description) + '">\n<meta property="og:url" content="' + escapeHtml(opts.canonical) + '">\n<meta property="og:site_name" content="Quanto Vira">\n<meta property="og:locale" content="pt_BR">\n<meta property="og:type" content="'
-    + opts.ogType + '">' + (opts.extraHead || '') + json + '\n<link rel="stylesheet" href="/assets/style.css">\n</head>\n<body>\n<header class="top"><div class="wrap"><a class="brand" href="/">Quanto<span>Vira</span></a><nav>'
-    + NAV + '</nav></div></header>\n<main class="wrap">\n' + opts.main + '\n<!-- Para exibir o anúncio, acrescente a classe ads no body. -->\n<aside class="ad" aria-label="Publicidade">Espaço publicitário</aside>\n</main>\n<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>\n</body>\n</html>\n';
+  const head = S.headBlock({
+    title: opts.title,
+    description: opts.description,
+    canonical: opts.canonical,
+    ogType: opts.ogType,
+    extraHead: opts.extraHead,
+    jsonLdRaw: opts.jsonLd ? '\n<script type="application/ld+json">' + opts.jsonLd + '</script>' : '',
+    jsonLd: opts.jsonLdObject || null
+  });
+  return '<!doctype html>\n<html lang="pt-BR">\n<head>\n' + head + '\n</head>\n<body>\n' + S.HEADER + '\n<main class="wrap">\n' + opts.main
+    + '\n<!-- Para exibir o anúncio, acrescente a classe ads no body. -->\n<aside class="ad" aria-label="Publicidade">Espaço publicitário</aside>\n</main>\n' + S.FOOTER + '\n</body>\n</html>\n';
 }
 
 function jsonLd(artigo) {
@@ -320,16 +325,21 @@ function jsonLd(artigo) {
   return JSON.stringify(data).replace(/</g, '\\u003c');
 }
 
-function htmlArtigo(artigo) {
+function htmlArtigo(artigo, todosArtigos) {
   const calc = CALCULADORAS[artigo.calculadora];
   const fontes = artigo.fontes.map(function (f) {
     return '<li><a href="' + escapeHtml(f.url) + '">' + escapeHtml(f.nome) + '</a></li>';
   }).join('');
+  const relacionados = (todosArtigos || []).filter(function (a) {
+    return a.slug !== artigo.slug && a.calculadora === artigo.calculadora;
+  }).slice(0, 4);
+  const blocoRel = relacionados.length ? '\n' + blocoRelacionados(relacionados, 'Mais sobre ' + calc.nome) : '';
   const main = '<article class="card page prose">\n<h1>' + escapeHtml(artigo.title) + '</h1>\n<p class="byline">Por '
     + escapeHtml(artigo.author) + ' · Atualizado em ' + dataPt(artigo.updated) + '</p>\n<p class="lead">'
     + escapeHtml(artigo.description) + '</p>\n<aside class="callout"><p>Leve os seus números para a calculadora <a href="'
     + calc.href + '">' + escapeHtml(calc.nome) + '</a>.</p></aside>\n' + artigo.html
-    + '\n<h2>Fontes</h2>\n<ul class="sources">' + fontes + '</ul>\n<p class="disclaimer"><strong>Aviso:</strong> texto educativo. Não é recomendação de investimento, nem consultoria financeira, jurídica ou tributária.</p>\n</article>';
+    + '\n<h2>Fontes</h2>\n<ul class="sources">' + fontes + '</ul>\n<p class="disclaimer"><strong>Aviso:</strong> texto educativo. Não é recomendação de investimento, nem consultoria financeira, jurídica ou tributária.</p>\n</article>'
+    + blocoRel;
   return layout({
     title: artigo.title + ' | Quanto Vira',
     description: artigo.description,
@@ -363,12 +373,14 @@ function htmlLista(artigos) {
   });
 }
 
-function blocoRelacionados(lista) {
+function blocoRelacionados(lista, titulo) {
   if (!lista.length) return '';
+  const h = titulo || 'Artigos relacionados';
   const cards = lista.map(function (a) {
     return '<a class="card tool" href="/artigos/' + a.slug + '/"><h2>' + escapeHtml(a.title) + '</h2><p>' + escapeHtml(a.description) + '</p></a>';
   }).join('\n');
-  return '<section class="artigos-rel" aria-label="Artigos relacionados">\n<h2>Artigos relacionados</h2>\n<div class="tools">\n' + cards + '\n</div>\n</section>';
+  const mais = lista.length >= 4 ? '\n<p class="hint"><a href="/artigos/">Ver todos os artigos</a></p>' : '';
+  return '<section class="artigos-rel" aria-label="' + escapeHtml(h) + '">\n<h2>' + escapeHtml(h) + '</h2>\n<div class="tools">\n' + cards + '\n</div>' + mais + '\n</section>';
 }
 
 function injetar(html, bloco) {
@@ -412,15 +424,18 @@ function build(root) {
     if (!manter[nome]) fs.rmSync(full, { recursive: true, force: true });
   });
   artigos.forEach(function (a) {
-    escrever(path.join(dir, a.slug, 'index.html'), htmlArtigo(a));
+    escrever(path.join(dir, a.slug, 'index.html'), htmlArtigo(a, artigos));
   });
   escrever(path.join(dir, 'index.html'), htmlLista(artigos));
   RELACIONADOS.forEach(function (pagina) {
     const arquivo = path.join(root, pagina.arquivo);
     if (!fs.existsSync(arquivo)) throw new Error('página ausente: ' + pagina.arquivo);
-    const lista = pagina.calculadora ? artigos.filter(function (a) { return a.calculadora === pagina.calculadora; }) : artigos;
+    let lista = pagina.calculadora
+      ? artigos.filter(function (a) { return a.calculadora === pagina.calculadora; }).slice(0, ARTIGOS_RELACIONADOS_CALC)
+      : artigos.slice(0, ULTIMOS_ARTIGOS_HOME);
+    const titulo = pagina.calculadora ? 'Artigos relacionados' : 'Últimos artigos';
     const html = fs.readFileSync(arquivo, 'utf8');
-    const novo = injetar(html, blocoRelacionados(lista));
+    const novo = injetar(html, blocoRelacionados(lista, titulo));
     if (novo !== html) fs.writeFileSync(arquivo, novo);
   });
   escrever(path.join(root, 'sitemap.xml'), sitemap(artigos));

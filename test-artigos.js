@@ -108,7 +108,7 @@ t('o build publica o artigo, ignora o rascunho e é idempotente', () => {
   const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const fire = fs.readFileSync(path.join(root, 'simulador-fire', 'index.html'), 'utf8');
   const pj = fs.readFileSync(path.join(root, 'pj-vs-clt', 'index.html'), 'utf8');
-  assert.ok(home.includes('Artigos relacionados'));
+  assert.ok(home.includes('Últimos artigos'));
   assert.ok(home.includes('/artigos/quanto-guardar/'));
   assert.ok(fire.includes('/artigos/quanto-guardar/'));
   assert.ok(!pj.includes('quanto-guardar'));
@@ -143,7 +143,7 @@ t('o exemplo do repositório é rascunho e não vira página', () => {
   assert.ok(lista.includes('Nenhum artigo publicado ainda.'));
   assert.ok(!lista.includes('Modelo de artigo'));
   assert.ok(!fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8').includes('exemplo'));
-  assert.ok(!fs.readFileSync(path.join(root, 'index.html'), 'utf8').includes('Artigos relacionados'));
+  assert.ok(!fs.readFileSync(path.join(root, 'index.html'), 'utf8').includes('Últimos artigos'));
 });
 
 console.log(ok + ' testes passaram');
