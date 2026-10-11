@@ -216,8 +216,8 @@
       "verificado": false,
       "anoReferencia": 2026,
       "titulo": "Lucro ou prejuízo de ações num mês de vendas até R$ 20 mil",
-      "nota": "O lucro desse mês é isento. Não foi confirmado se ele consome prejuízo acumulado, nem se o prejuízo desse mês pode ser usado depois. A conta não faz nem uma coisa nem outra.",
-      "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm"
+      "nota": "O lucro desse mês é isento e não consome o prejuízo acumulado. A página de compensações da Receita permite usar perda de operação comum em meses seguintes, mas não diz se a perda de um mês com vendas de até R$ 20 mil entra nesse saldo. Essa compensação não foi confirmada. A calculadora não soma essa perda.",
+      "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/compensacoes"
     },
     {
       "id": "feriados-moveis",

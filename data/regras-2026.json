@@ -52,6 +52,9 @@
     "fonteReducao": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/exemplos-de-aplicacao-da-lei-15-270-2025",
     "vigencia": "A partir de janeiro de 2026",
     "descontoSimplificadoMensal": 607.2,
+    "percentualDescontoSimplificadoAnual": 0.2,
+    "descontoSimplificadoAnual": 17640,
+    "normaDescontoSimplificadoAnual": "Lei nº 9.250/1995, art. 10, com o limite do inciso X na redação da Lei nº 15.270/2025",
     "deducaoDependenteMensal": 189.59,
     "dependentesAssumidos": 0,
     "tabelaMensal": [
@@ -68,6 +71,21 @@
       "constante": 978.62,
       "coeficiente": 0.133145,
       "nota": "A redução usa os rendimentos tributáveis sujeitos à incidência mensal (o bruto tributável), não a base depois das deduções. Fica limitada ao imposto da tabela. O § 3º do art. 3º-A manda aplicar a mesma redução ao 13º."
+    },
+    "tabelaAnual": [
+      { "ate": 29145.6, "aliquota": 0, "deducao": 0 },
+      { "ate": 33919.8, "aliquota": 0.075, "deducao": 2185.92 },
+      { "ate": 45012.6, "aliquota": 0.15, "deducao": 4729.91 },
+      { "ate": 55976.16, "aliquota": 0.225, "deducao": 8105.85 },
+      { "ate": null, "aliquota": 0.275, "deducao": 10904.66 }
+    ],
+    "reducaoAnual": {
+      "faixaZeraAte": 60000,
+      "reducaoMaximaParaZerar": 2694.15,
+      "faixaParcialAte": 88200,
+      "constante": 8429.73,
+      "coeficiente": 0.095575,
+      "nota": "Redução do art. 11-A da Lei nº 9.250/1995, incluído pela Lei nº 15.270/2025. Usa os rendimentos tributáveis sujeitos ao ajuste anual. O 13º e a PLR têm tributação exclusiva e ficam fora dessa base. A redução fica limitada ao imposto da tabela anual."
     }
   },
   "plr": {
@@ -106,7 +124,7 @@
     "terco": "1/3",
     "norma": "Constituição, art. 7º, XVII",
     "fonte": "https://portal.stf.jus.br/constituicao-supremo/artigo.asp?abrirBase=CF&abrirArtigo=7",
-    "nota": "O lado CLT soma, além dos 12 salários, um terço constitucional. O INSS e o IR desse terço são calculados como competência separada. Se o terço for pago no mesmo mês do salário, o teto do INSS vale para a soma, e o resultado pode mudar. Essa interação não foi modelada."
+    "nota": "O lado CLT soma, além dos 12 salários, um terço constitucional. O INSS desse terço é a diferença entre o INSS do salário somado ao terço, limitado ao teto, e o INSS do salário. Se o salário já está no teto, o INSS extra do terço é zero. O IR do terço continua calculado sobre essa parcela sozinha."
   },
   "beneficiosClt": {
     "vrVaIntegraSalario": false,
@@ -145,9 +163,12 @@
     "isencaoLucros": {
       "verificado": true,
       "anoReferencia": 2026,
-      "norma": "Lei Complementar nº 123/2006, art. 14",
+      "percentualPresuncaoServicos": 0.32,
+      "norma": "Lei Complementar nº 123/2006, art. 14, §§ 1º e 2º",
       "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm",
-      "nota": "Lucros pagos ao sócio do Simples são isentos, salvo pró-labore, aluguéis ou serviços. A Lei nº 15.270/2025 criou retenção de 10% sobre dividendos mensais acima de R$ 50 mil. Não foi verificado se essa retenção revoga o art. 14, então ela não é aplicada ao Simples."
+      "normaPresuncao": "Lei nº 9.249/1995, art. 15, para serviços em geral",
+      "fontePresuncao": "https://www.planalto.gov.br/ccivil_03/leis/l9249.htm",
+      "nota": "O caput isenta o lucro pago ao titular ou sócio do Simples, salvo pró-labore, aluguel ou serviço. O § 1º limita a isenção ao percentual de presunção do art. 15 da Lei nº 9.249/1995 sobre a receita, menos o Simples do período. Para os regimes de serviço desta calculadora o percentual é 32%. O § 2º afasta o limite quando a empresa mantém escrituração contábil e evidencia lucro maior. Sem a opção de contabilidade completa, o excedente entra no ajuste anual progressivo junto com o pró-labore."
     },
     "anexoIII": [
       { "ate": 180000, "aliquota": 0.06, "deducao": 0 },
@@ -186,12 +207,13 @@
   "dividendosPf": {
     "verificado": true,
     "anoReferencia": 2026,
-    "aplicaEm": ["lucro-presumido"],
+    "aplicaEm": ["lucro-presumido", "simples-iii", "simples-v", "mei"],
     "limiteMensal": 50000,
     "aliquotaSobreOTotal": 0.1,
-    "norma": "Lei nº 15.270/2025, art. 6º-A da Lei nº 9.250/1995",
+    "norma": "art. 6º-A da Lei nº 9.250/1995, incluído pela Lei nº 15.270/2025",
     "fonte": "https://in.gov.br/web/dou/-/lei-n-15.270-de-26-de-novembro-2025-671614220",
-    "nota": "Se uma mesma pessoa jurídica pagar a uma mesma pessoa física, no mês, lucros acima de R$ 50 mil, a retenção é 10% sobre o total daquele mês, não só sobre o que passar de R$ 50 mil. A calculadora reparte o lucro do ano em doze meses iguais. Não se aplica ao Simples, pela razão descrita em simples.isencaoLucros."
+    "fontePerguntas": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/receita-federal-lanca-perguntas-e-respostas-sobre-tributacao-de-altas-rendas-consideracoes-sobre-lucros-e-dividendos/manual_padrao_rfb_per_tributacao_sutri_v2.pdf",
+    "nota": "Se uma mesma pessoa jurídica pagar a uma mesma pessoa física, no mês, lucros acima de R$ 50 mil, a retenção é 10% sobre o total daquele mês, não só sobre o que passar de R$ 50 mil. O perguntas e respostas da Receita de 19/12/2025, pergunta 10, diz que essa retenção também alcança empresas do Simples Nacional. A calculadora aplica os 10% no Lucro Presumido, no Simples e no MEI, repartindo o lucro do ano em doze meses iguais. Não calcula o crédito dessa retenção na tributação mínima do art. 16-A, nem a restituição quando a renda do ano fica abaixo de R$ 600 mil."
   },
   "iss": {
     "verificado": true,
@@ -222,12 +244,12 @@
       "fonte": "https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm"
     },
     {
-      "id": "dividendos-simples",
+      "id": "credito-retencao-dividendos",
       "verificado": false,
       "anoReferencia": 2026,
-      "titulo": "Retenção de 10% sobre lucros do Simples",
-      "nota": "Não foi verificado se a retenção mensal de 10% da Lei nº 15.270/2025 alcança lucros que o art. 14 da LC nº 123/2006 isenta. A calculadora não aplica esses 10% no MEI nem no Simples.",
-      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm"
+      "titulo": "Crédito da retenção de 10% e tributação mínima",
+      "nota": "A retenção de 10% entra na conta, também no Simples, conforme a pergunta 10 do perguntas e respostas da Receita. O crédito dessa retenção na tributação mínima do art. 16-A, e a restituição quando os rendimentos do ano ficam abaixo de R$ 600 mil, não foram calculados. No Simples, o excedente do art. 14, § 1º, entra no ajuste progressivo. A calculadora não abate os 10% desse excedente: a forma de evitar a sobreposição não foi confirmada.",
+      "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/receita-federal-lanca-perguntas-e-respostas-sobre-tributacao-de-altas-rendas-consideracoes-sobre-lucros-e-dividendos/manual_padrao_rfb_per_tributacao_sutri_v2.pdf"
     },
     {
       "id": "cbs-ibs-2026",

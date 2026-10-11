@@ -34,6 +34,13 @@ t('ações até R$ 20 mil, inclusive o limite, ficam isentas', () => {
   const noLimite = calc({ acoes: { vendas: 20000, resultado: 1000, prejuizoAcumulado: 500, irrf: 0 } });
   assert.strictEqual(noLimite.comum.imposto, 0);
   assert.strictEqual(noLimite.comum.prejuizoRestante, 500);
+  const perda = calc({ acoes: { vendas: 20000, resultado: -800, prejuizoAcumulado: 500, irrf: 0 } });
+  assert.strictEqual(perda.comum.imposto, 0);
+  assert.strictEqual(perda.comum.prejuizoRestante, 500);
+  assert.ok(perda.avisos.some((a) => a.indexOf('não foi confirmada') >= 0));
+  const regra = regras.naoModelados.find((item) => item.id === 'acoes-mes-isento-saldo');
+  assert.strictEqual(regra.verificado, false);
+  assert.ok(regra.fonte.indexOf('compensacoes') >= 0);
   const acima = calc({ acoes: { vendas: 20000.01, resultado: 1000, prejuizoAcumulado: 0, irrf: 0 } });
   assert.strictEqual(acima.comum.imposto, 150);
 });
