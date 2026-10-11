@@ -122,9 +122,10 @@
     "verificado": true,
     "anoReferencia": 2026,
     "terco": "1/3",
-    "norma": "Constituição, art. 7º, XVII",
+    "norma": "Constituição, art. 7º, XVII; Decreto nº 9.580/2018, art. 682, § 1º",
     "fonte": "https://portal.stf.jus.br/constituicao-supremo/artigo.asp?abrirBase=CF&abrirArtigo=7",
-    "nota": "O lado CLT soma, além dos 12 salários, um terço constitucional. O INSS desse terço é a diferença entre o INSS do salário somado ao terço, limitado ao teto, e o INSS do salário. Se o salário já está no teto, o INSS extra do terço é zero. O IR do terço continua calculado sobre essa parcela sozinha."
+    "fonteIrrf": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9580.htm",
+    "nota": "O lado CLT soma, além dos 12 salários, um terço constitucional. O INSS desse terço é a diferença entre o INSS do salário somado ao terço, limitado ao teto, e o INSS do salário. Se o salário já está no teto, o INSS extra do terço é zero. O IR das férias incide sobre o salário de férias mais o terço, num pagamento separado dos outros rendimentos do mês. Onze meses usam o IR do salário; o mês das férias usa o IR desse pagamento."
   },
   "beneficiosClt": {
     "vrVaIntegraSalario": false,
@@ -258,6 +259,14 @@
       "titulo": "CBS e IBS da reforma tributária",
       "nota": "A Lei Complementar nº 214/2025 inicia a transição. Não foi modelada cobrança de CBS ou IBS em 2026, nem compensação com PIS/COFINS. As tabelas novas do Simples dessa lei valem a partir de 2027.",
       "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm"
+    },
+    {
+      "id": "reducao-ferias-lei-15270",
+      "verificado": false,
+      "anoReferencia": 2026,
+      "titulo": "Redução mensal da Lei nº 15.270 nas férias",
+      "nota": "O IR das férias incide sobre o salário de férias mais o terço, separado dos outros rendimentos do mês (RIR/2018, art. 682, § 1º). A página de exemplos da Lei nº 15.270 não fala de férias. A calculadora aplica a mesma redução do salário nesse pagamento. Acima de R$ 7.350 a redução é zero. Abaixo disso, o uso da redução no cálculo separado não foi confirmado.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9580.htm"
     }
   ]
 }

@@ -145,11 +145,15 @@
 
   <div class="panel" id="panel-exterior" role="tabpanel" aria-labelledby="tab-exterior" hidden>
     <p class="paneltitle">Aplicações no exterior <button type="button" class="info" aria-expanded="false" aria-controls="tip-ext" aria-label="Informação sobre investimentos no exterior">i</button></p>
-    <p class="tip" id="tip-ext" hidden>Entra na declaração do ano seguinte, a 15%. Não é DARF mensal.</p>
+    <p class="tip" id="tip-ext" hidden>Entra na declaração do ano seguinte, a 15%. Não é DARF mensal. Cada rendimento leva o imposto pago sobre ele. O crédito não passa do IR brasileiro daquele rendimento.</p>
     <div class="fields">
-      <label>Rendimentos no ano<input type="number" id="extRendimento" value="0" min="0" step="0.01"></label>
+      <label>Rendimento 1<input type="number" id="extRend1" value="0" min="0" step="0.01"></label>
+      <label>Imposto pago no rendimento 1<input type="number" id="extPago1" value="0" min="0" step="0.01"></label>
+      <label>Rendimento 2<input type="number" id="extRend2" value="0" min="0" step="0.01"></label>
+      <label>Imposto pago no rendimento 2<input type="number" id="extPago2" value="0" min="0" step="0.01"></label>
+      <label>Rendimento 3<input type="number" id="extRend3" value="0" min="0" step="0.01"></label>
+      <label>Imposto pago no rendimento 3<input type="number" id="extPago3" value="0" min="0" step="0.01"></label>
       <label>Perdas a compensar<input type="number" id="extPrejuizo" value="0" min="0" step="0.01"></label>
-      <label>Imposto pago fora<input type="number" id="extImposto" value="0" min="0" step="0.01"></label>
       <label class="check span2"><input type="checkbox" id="extAcordo"> Há acordo contra bitributação ou reciprocidade</label>
     </div>
   </div>
@@ -213,7 +217,7 @@
     <p>Ações no mercado comum: 15% sobre o lucro do mês, depois de abater o prejuízo da mesma cesta. Se as vendas de ações daquele mês ficam em até R$ 20 mil, o lucro das ações é isento. ETF de ações também é 15%, sem essa isenção, e divide o prejuízo com as ações. Day trade é 20%, com prejuízo separado. Venda de cota de FII é 20%, com prejuízo separado.</p>
     <p>O IRRF da nota (o “dedo-duro”) abate a soma desses impostos. Se sobrar retenção, ela fica para os meses seguintes. Abaixo de R$ 10 não se emite DARF: o valor acumula para o mês seguinte.</p>
     <p>Rendimento de FII é isento quando o fundo tem pelo menos 100 cotistas, as cotas só negociam em bolsa ou balcão, você tem menos de 10% e o grupo ligado tem menos de 30%. Fora isso, são 20% retidos pelo administrador. ETF de renda fixa também é retido na fonte, a 25%, 20% ou 15%, conforme o prazo do índice.</p>
-    <p>Cripto no Brasil é ganho de capital: isento se as alienações do mês não passam de R$ 35 mil; acima disso, a tabela vai de 15% a 22,5%. Cripto em corretora no exterior e os demais investimentos lá fora são 15% na declaração anual. A MP nº 1.303/2025, que mudaria essas regras, perdeu eficácia em 8 de outubro de 2025 e não vale em 2026.</p>
+    <p>Cripto no Brasil é ganho de capital: isento se as alienações do mês não passam de R$ 35 mil; acima disso, a tabela vai de 15% a 22,5%. Cripto em corretora no exterior e os demais investimentos lá fora são 15% na declaração anual. O imposto pago fora só entra com acordo ou reciprocidade, e cada crédito para no IR brasileiro daquele rendimento (Lei nº 14.754/2023, art. 4º, § 1º). A MP nº 1.303/2025, que mudaria essas regras, perdeu eficácia em 8 de outubro de 2025 e não vale em 2026.</p>
     <h2>Limitações</h2>
     <ul id="limites"></ul>
     <h2>Fontes</h2>

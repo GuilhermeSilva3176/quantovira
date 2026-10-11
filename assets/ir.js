@@ -76,6 +76,24 @@
     if (selicPercentual == null || !isFinite(selicPercentual)) return null;
     return round2(principal * (selicPercentual / 100 + regras.atraso.jurosUmPorCentoNoMesDoPagamento));
   }
+  function listaExterior(ext) {
+    var itens = [];
+    var lista = ext && ext.rendimentos;
+    if (Array.isArray(lista) && lista.length) {
+      for (var i = 0; i < lista.length; i++) {
+        var item = lista[i] || {};
+        itens.push({
+          rendimento: Math.max(0, dinheiro(item.rendimento)),
+          impostoPago: Math.max(0, dinheiro(item.impostoPago))
+        });
+      }
+      return itens;
+    }
+    var legadoRend = Math.max(0, dinheiro(ext && ext.rendimento));
+    var legadoPago = Math.max(0, dinheiro(ext && ext.impostoPagoExterior));
+    if (legadoRend > 0 || legadoPago > 0) itens.push({ rendimento: legadoRend, impostoPago: legadoPago });
+    return itens;
+  }
   function calcular(entrada, regras) {
     var e = entrada || {};
     var avisos = [];
@@ -186,10 +204,10 @@
       prejuizoNaoUsado: Math.max(0, dinheiro(cr.prejuizoAcumulado))
     };
     var ext = e.exterior || {};
-    var rendExt = Math.max(0, dinheiro(ext.rendimento));
+    var itensExt = listaExterior(ext);
     var perdaExt = Math.max(0, dinheiro(ext.prejuizo));
     if (local === 'exterior') {
-      if (resCripto > 0) rendExt = round2(rendExt + resCripto);
+      if (resCripto > 0) itensExt.push({ rendimento: resCripto, impostoPago: 0 });
       if (resCripto < 0) perdaExt = round2(perdaExt + -resCripto);
       if (vendasCripto > 0 && vendasCripto <= regras.criptoBrasil.isencaoAlienacoesMensais && resCripto > 0) {
         avisos.push('Cripto em corretora no exterior não usa a isenção de R$ 35 mil. Ele entra na declaração anual, a 15%.');
@@ -214,15 +232,34 @@
       cripto.acumulado = criptoAbaixo ? cripto.imposto : 0;
     }
 
-    var baseExt = round2(Math.max(0, rendExt - perdaExt));
-    var impostoExt = round2(baseExt * regras.exterior.aliquota);
-    var creditoExt = 0;
-    var pagoFora = Math.max(0, dinheiro(ext.impostoPagoExterior));
-    if (pagoFora > 0 && ext.temAcordo) {
-      creditoExt = Math.min(pagoFora, impostoExt);
-    } else if (pagoFora > 0) {
-      avisos.push('O imposto pago no exterior não foi descontado. A lei só permite isso com acordo contra bitributação ou reciprocidade.');
+    var somaExt = 0;
+    for (var ix = 0; ix < itensExt.length; ix++) somaExt = round2(somaExt + itensExt[ix].rendimento);
+    function impostoDaSoma(soma) {
+      return round2(round2(Math.max(0, soma - perdaExt)) * regras.exterior.aliquota);
     }
+    var baseExt = round2(Math.max(0, somaExt - perdaExt));
+    var impostoExt = impostoDaSoma(somaExt);
+    var creditoExt = 0;
+    var pagouFora = false;
+    var tetoEstourou = false;
+    for (var ic = 0; ic < itensExt.length; ic++) {
+      var itemExt = itensExt[ic];
+      var semEste = impostoDaSoma(round2(somaExt - itemExt.rendimento));
+      itemExt.teto = round2(Math.max(0, impostoExt - semEste));
+      itemExt.credito = 0;
+      if (itemExt.impostoPago > 0) pagouFora = true;
+      if (itemExt.impostoPago > 0 && ext.temAcordo) {
+        if (itemExt.impostoPago > itemExt.teto) tetoEstourou = true;
+        itemExt.credito = round2(Math.min(itemExt.impostoPago, itemExt.teto));
+        creditoExt = round2(creditoExt + itemExt.credito);
+      }
+    }
+    if (pagouFora && !ext.temAcordo) {
+      avisos.push('O imposto pago no exterior não foi descontado. A lei só permite isso com acordo contra bitributação ou reciprocidade.');
+    } else if (tetoEstourou) {
+      avisos.push('O imposto pago no exterior de um rendimento passou do IR brasileiro desse rendimento (Lei nº 14.754/2023, art. 4º, § 1º). O crédito ficou nesse teto.');
+    }
+    if (creditoExt > impostoExt) creditoExt = impostoExt;
     var devidoExt = round2(impostoExt - creditoExt);
 
     var dias = Math.max(0, Math.floor(n0(e.atraso && e.atraso.dias)));
@@ -266,7 +303,8 @@
         imposto: impostoExt,
         credito: round2(creditoExt),
         devido: devidoExt,
-        prejuizoRestante: round2(Math.max(0, perdaExt - rendExt)),
+        rendimentos: itensExt,
+        prejuizoRestante: round2(Math.max(0, perdaExt - somaExt)),
         anual: true
       },
       atraso: {

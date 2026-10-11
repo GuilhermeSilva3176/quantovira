@@ -7,7 +7,7 @@
     etf: ['etfVendas', 'etfResultado', 'etfPrejuizo', 'etfIrrf', 'etfRfResultado', 'etfRfPrazo'],
     fii: ['fiiVendas', 'fiiResultado', 'fiiPrejuizo', 'fiiIrrf', 'fiiRendValor', 'fiiRendEnq'],
     cripto: ['criptoLocal', 'criptoVendas', 'criptoResultado', 'criptoPrejuizo'],
-    exterior: ['extRendimento', 'extPrejuizo', 'extImposto', 'extAcordo']
+    exterior: ['extRend1', 'extPago1', 'extRend2', 'extPago2', 'extRend3', 'extPago3', 'extPrejuizo', 'extAcordo']
   };
   var PADRAO_SELECT = { fiiRendEnq: 'isento', etfRfPrazo: '', criptoLocal: 'brasil' };
 
@@ -28,7 +28,13 @@
       fiiRendimentos: { valor: num('fiiRendValor'), enquadramento: document.getElementById('fiiRendEnq').value },
       etfRendaFixa: { resultado: num('etfRfResultado'), prazo: document.getElementById('etfRfPrazo').value },
       cripto: { local: document.getElementById('criptoLocal').value, vendas: num('criptoVendas'), resultado: num('criptoResultado'), prejuizoAcumulado: num('criptoPrejuizo') },
-      exterior: { rendimento: num('extRendimento'), prejuizo: num('extPrejuizo'), impostoPagoExterior: num('extImposto'), temAcordo: document.getElementById('extAcordo').checked },
+      exterior: {
+        prejuizo: num('extPrejuizo'),
+        temAcordo: document.getElementById('extAcordo').checked,
+        rendimentos: [1, 2, 3].map(function (n) {
+          return { rendimento: num('extRend' + n), impostoPago: num('extPago' + n) };
+        })
+      },
       atraso: { dias: num('atrasoDias'), selicAcumulada: num('atrasoSelic'), mesPosterior: document.getElementById('atrasoMesPosterior').checked }
     };
   }
@@ -151,6 +157,7 @@
     } else {
       rows.push({ nome: 'Cripto no exterior', n: null, texto: 'na declaração anual' });
     }
+    if (nz(r.exterior.credito)) add('Crédito do imposto pago no exterior', r.exterior.credito, brl(-r.exterior.credito));
     add('Exterior na declaração anual (15%)', r.exterior.devido);
     if (nz(r.exterior.prejuizoRestante)) add('Perda no exterior que sobra', r.exterior.prejuizoRestante);
     if (r.atraso.dias > 0) {

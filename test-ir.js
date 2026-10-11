@@ -16,7 +16,7 @@ function calc(extra) {
     fiiRendimentos: { valor: 0, enquadramento: 'isento' },
     etfRendaFixa: { resultado: 0, prazo: '' },
     cripto: { local: 'brasil', vendas: 0, resultado: 0, prejuizoAcumulado: 0 },
-    exterior: { rendimento: 0, prejuizo: 0, impostoPagoExterior: 0, temAcordo: false },
+    exterior: { prejuizo: 0, temAcordo: false, rendimentos: [] },
     atraso: { dias: 0, selicAcumulada: null, mesPosterior: true }
   }, extra), regras);
 }
@@ -128,21 +128,68 @@ t('cripto no Brasil: isenção de R$ 35 mil e tabela progressiva', () => {
   assert.strictEqual(IR.ganhoProgressivo(6000000, regras.criptoBrasil.faixas), 925000);
 });
 
-t('cripto e aplicações no exterior: 15% no ano, com perda e crédito limitado', () => {
+t('cripto e aplicações no exterior: 15% no ano, com perda e crédito por rendimento', () => {
   const r = calc({
     cripto: { local: 'exterior', vendas: 10000, resultado: 4000, prejuizoAcumulado: 0 },
-    exterior: { rendimento: 6000, prejuizo: 2000, impostoPagoExterior: 500, temAcordo: true }
+    exterior: { prejuizo: 2000, temAcordo: true, rendimentos: [{ rendimento: 6000, impostoPago: 500 }] }
   });
   assert.strictEqual(r.exterior.base, 8000);
   assert.strictEqual(r.exterior.imposto, 1200);
   assert.strictEqual(r.exterior.credito, 500);
   assert.strictEqual(r.exterior.devido, 700);
-  const semAcordo = calc({ exterior: { rendimento: 10000, prejuizo: 0, impostoPagoExterior: 500, temAcordo: false } });
+  const semAcordo = calc({
+    exterior: { prejuizo: 0, temAcordo: false, rendimentos: [{ rendimento: 10000, impostoPago: 500 }] }
+  });
   assert.strictEqual(semAcordo.exterior.credito, 0);
   assert.strictEqual(semAcordo.exterior.devido, 1500);
-  const sobra = calc({ exterior: { rendimento: 1000, prejuizo: 2500, impostoPagoExterior: 0, temAcordo: false } });
+  const sobra = calc({
+    exterior: { prejuizo: 2500, temAcordo: false, rendimentos: [{ rendimento: 1000, impostoPago: 0 }] }
+  });
   assert.strictEqual(sobra.exterior.devido, 0);
   assert.strictEqual(sobra.exterior.prejuizoRestante, 1500);
+  const artigo = calc({
+    exterior: {
+      prejuizo: 800,
+      temAcordo: true,
+      rendimentos: [
+        { rendimento: 2400, impostoPago: 0 },
+        { rendimento: 600, impostoPago: 120 }
+      ]
+    }
+  });
+  assert.strictEqual(artigo.exterior.base, 2200);
+  assert.strictEqual(artigo.exterior.imposto, 330);
+  assert.strictEqual(artigo.exterior.credito, 90);
+  assert.strictEqual(artigo.exterior.devido, 240);
+  assert.strictEqual(artigo.exterior.rendimentos[1].teto, 90);
+  const dentro = calc({
+    exterior: {
+      prejuizo: 800,
+      temAcordo: true,
+      rendimentos: [
+        { rendimento: 2400, impostoPago: 0 },
+        { rendimento: 600, impostoPago: 70 }
+      ]
+    }
+  });
+  assert.strictEqual(dentro.exterior.credito, 70);
+  assert.strictEqual(dentro.exterior.devido, 260);
+  const legado = calc({ exterior: { rendimento: 6000, prejuizo: 2000, impostoPagoExterior: 500, temAcordo: true } });
+  assert.strictEqual(legado.exterior.credito, 500);
+  assert.strictEqual(legado.exterior.devido, 100);
+  const sobrepoe = calc({
+    exterior: {
+      prejuizo: 1500,
+      temAcordo: true,
+      rendimentos: [
+        { rendimento: 1000, impostoPago: 200 },
+        { rendimento: 1000, impostoPago: 200 }
+      ]
+    }
+  });
+  assert.strictEqual(sobrepoe.exterior.imposto, 75);
+  assert.strictEqual(sobrepoe.exterior.credito, 75);
+  assert.strictEqual(sobrepoe.exterior.devido, 0);
 });
 
 t('multa de 0,33% ao dia, teto de 20%, e juros só com a Selic informada', () => {
@@ -211,6 +258,13 @@ t('parâmetros da URL e do armazenamento voltam iguais e a URL prevalece', () =>
   assert.strictEqual(m.dayResultado, 1000);
   assert.strictEqual(m.acoesResultado, 9967);
   assert.strictEqual(m.extAcordo, false);
+  assert.strictEqual(Params.decode('extRendimento=3000&extImposto=120').extRend1, 3000);
+  assert.strictEqual(Params.decode('extRendimento=3000&extImposto=120').extPago1, 120);
+  assert.strictEqual(Params.decode('extRend1=600&extRendimento=3000').extRend1, 600);
+  const antigo = Params.merge({ extRendimento: 2400, extImposto: 70, extAcordo: true }, {});
+  assert.strictEqual(antigo.extRend1, 2400);
+  assert.strictEqual(antigo.extPago1, 70);
+  assert.strictEqual(antigo.extAcordo, true);
   assert.strictEqual(m.atrasoMesPosterior, true);
   assert.strictEqual(m.atrasoSelic, null);
   assert.strictEqual(Params.merge({ aba: 'zzz', atrasoSelic: 'abc' }, {}).aba, 'acoes');

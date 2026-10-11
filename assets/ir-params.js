@@ -25,9 +25,13 @@
     criptoVendas: { min: 0, max: 1e12, def: 0 },
     criptoResultado: { min: -1e12, max: 1e12, def: 0 },
     criptoPrejuizo: { min: 0, max: 1e12, def: 0 },
-    extRendimento: { min: 0, max: 1e12, def: 0 },
+    extRend1: { min: 0, max: 1e12, def: 0 },
+    extPago1: { min: 0, max: 1e12, def: 0 },
+    extRend2: { min: 0, max: 1e12, def: 0 },
+    extPago2: { min: 0, max: 1e12, def: 0 },
+    extRend3: { min: 0, max: 1e12, def: 0 },
+    extPago3: { min: 0, max: 1e12, def: 0 },
     extPrejuizo: { min: 0, max: 1e12, def: 0 },
-    extImposto: { min: 0, max: 1e12, def: 0 },
     atrasoDias: { min: 0, max: 100000, def: 0 },
     atrasoSelic: { min: -100, max: 1000, def: null, vazio: true }
   };
@@ -41,6 +45,7 @@
     extAcordo: false,
     atrasoMesPosterior: true
   };
+  var ALIAS = { extRendimento: 'extRend1', extImposto: 'extPago1' };
 
   function cleanNum(key, raw) {
     var f = NUM[key];
@@ -91,7 +96,13 @@
       if (i < 0) return;
       var k = decodeURIComponent(kv.slice(0, i));
       var raw = decodeURIComponent(kv.slice(i + 1));
-      if (NUM[k]) {
+      if (ALIAS[k]) {
+        var dest = ALIAS[k];
+        if (out[dest] === undefined) {
+          var legado = cleanNum(dest, raw);
+          if (legado !== undefined) out[dest] = legado;
+        }
+      } else if (NUM[k]) {
         var n = cleanNum(k, raw);
         if (n !== undefined) out[k] = n;
       } else if (ENUM[k]) {
@@ -108,9 +119,16 @@
     var out = {};
     fromUrl = fromUrl || {};
     stored = stored || {};
+    function guardado(k) {
+      if (stored[k] !== undefined) return stored[k];
+      if (k === 'extRend1' && stored.extRendimento !== undefined) return stored.extRendimento;
+      if (k === 'extPago1' && stored.extImposto !== undefined) return stored.extImposto;
+      return undefined;
+    }
     Object.keys(NUM).forEach(function (k) {
+      var antigo = guardado(k);
       if (fromUrl[k] !== undefined) out[k] = fromUrl[k];
-      else if (stored[k] !== undefined && cleanNum(k, stored[k]) !== undefined) out[k] = cleanNum(k, stored[k]);
+      else if (antigo !== undefined && cleanNum(k, antigo) !== undefined) out[k] = cleanNum(k, antigo);
       else out[k] = NUM[k].def;
     });
     Object.keys(ENUM).forEach(function (k) {

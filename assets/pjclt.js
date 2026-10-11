@@ -99,41 +99,55 @@
     var inss13 = inssEmpregado(decimo, regras);
     var ir13 = irrfMensal(decimo, inss13, regras);
     var terco = round2(salario / 3);
-    var inssTerco = round2(Math.max(0, inssEmpregado(salario + terco, regras) - inssMes));
-    var irTerco = irrfMensal(terco, inssTerco, regras);
+    var feriasBruto = round2(salario + terco);
+    var inssFerias = inssEmpregado(feriasBruto, regras);
+    var inssTerco = round2(Math.max(0, inssFerias - inssMes));
+    var memoriaFerias = memoriaIrrf(feriasBruto, inssFerias, regras);
+    var irFerias = memoriaFerias.devido;
     var plrIr = irExclusivo(plr, regras.plr.tabelaAnual);
     var beneficios = round2((vr + saude) * 12);
     var fgtsBase = round2(salario * 12 + decimo + terco);
     var fgts = round2(fgtsBase * regras.fgts.aliquota);
     var rendimentosAjuste = round2(salario * 12 + terco);
     var anual = memoriaIrAnual(rendimentosAjuste, round2(inssMes * 12 + inssTerco), regras);
-    var irRetidoAjuste = round2(irMes * 12 + irTerco);
+    var irRetidoAjuste = round2(irMes * 11 + irFerias);
     var ajusteAnual = round2(anual.devido - irRetidoAjuste);
     var avisos = [];
-    if (ajusteAnual < 0) avisos.push('No ajuste anual, o desconto simplificado devolve IR retido sobre salários e terço de férias. O 13º e a PLR ficam de fora dessa conta.');
-    else if (ajusteAnual > 0) avisos.push('No ajuste anual, o IR dos salários e do terço de férias fica maior que o retido no mês. O 13º e a PLR ficam de fora dessa conta.');
-    var caixa = round2(liquidoMes * 12 + (decimo - inss13 - ir13) + (terco - inssTerco - irTerco) + beneficios + (plr - plrIr) - ajusteAnual);
+    if (salario > 0) {
+      var avisoFerias = 'O IR das férias incide sobre o salário de férias mais o terço, separado dos outros rendimentos do mês (RIR/2018, art. 682, § 1º). A redução mensal da Lei nº 15.270 nesse cálculo separado não foi confirmada.';
+      avisoFerias += memoriaFerias.reducao > 0 ? ' A conta aplicou essa redução mesmo assim.' : ' Neste pagamento a redução é zero.';
+      avisos.push(avisoFerias);
+    }
+    if (ajusteAnual < 0) avisos.push('No ajuste anual, o desconto simplificado devolve IR retido sobre os salários e sobre as férias com o terço. Essa restituição chega no ano seguinte. O 13º e a PLR ficam de fora dessa conta.');
+    else if (ajusteAnual > 0) avisos.push('No ajuste anual, o IR dos salários e das férias com o terço fica maior que o retido no mês. O 13º e a PLR ficam de fora dessa conta.');
+    var caixaNoAno = round2(liquidoMes * 11 + (feriasBruto - inssFerias - irFerias) + (decimo - inss13 - ir13) + beneficios + (plr - plrIr));
+    var caixa = round2(caixaNoAno - ajusteAnual);
     return {
       salarioMensal: salario,
       inssMensal: inssMes,
       irMensal: irMes,
       liquidoMensal: liquidoMes,
       inssAnualSalarios: round2(inssMes * 12),
-      irAnualSalarios: round2(irMes * 12),
+      irAnualSalarios: round2(irMes * 11),
       decimo: decimo,
       inss13: inss13,
       ir13: ir13,
       terco: terco,
+      feriasBruto: feriasBruto,
+      inssFerias: inssFerias,
       inssTerco: inssTerco,
-      irTerco: irTerco,
+      irFerias: irFerias,
+      reducaoFerias: memoriaFerias.reducao,
       plr: plr,
       plrIr: plrIr,
       beneficios: beneficios,
       fgts: fgts,
       rendimentosAjuste: rendimentosAjuste,
       irAnualDevido: anual.devido,
+      irRetidoAjuste: irRetidoAjuste,
       ajusteAnual: ajusteAnual,
       avisos: avisos,
+      caixaNoAno: caixaNoAno,
       caixa: caixa,
       liquidoEquivalente: round2(caixa + fgts)
     };

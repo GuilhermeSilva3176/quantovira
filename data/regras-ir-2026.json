@@ -132,7 +132,7 @@
     "compensaPerdasNoAnoEDepois": true,
     "norma": "Lei nº 14.754/2023, arts. 2º, § 1º, 3º, 4º e 9º",
     "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm",
-    "nota": "Rendimentos de aplicações financeiras no exterior entram na declaração anual, separados, a 15%, sem dedução da base. Perdas comprovadas compensam esses rendimentos no mesmo ano e, se sobrar, em anos seguintes. Imposto pago no exterior só reduz o IR brasileiro se houver acordo contra bitributação ou reciprocidade, e nunca além do imposto brasileiro dessa renda. A data de entrega da declaração é fixada pela Receita a cada ano e não está na lei."
+    "nota": "Rendimentos de aplicações financeiras no exterior entram na declaração anual, separados, a 15%, sem dedução da base. Perdas comprovadas compensam esses rendimentos no mesmo ano e, se sobrar, em anos seguintes. O imposto pago no exterior só reduz o IR brasileiro se houver acordo contra bitributação ou reciprocidade. Cada crédito para na diferença entre o IR calculado com aquele rendimento e o IR calculado sem ele (art. 4º, § 1º). A data de entrega da declaração é fixada pela Receita a cada ano e não está na lei."
   },
   "darfBolsa": {
     "verificado": true,
