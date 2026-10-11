@@ -2,7 +2,7 @@
 title: "Vender ações até R$ 20 mil no mês é isento? A regra e as armadilhas"
 description: "A soma das vendas de ações no mês até R$ 20 mil isenta o lucro. Day trade, ETF de índice de ações e venda de cota de FII ficam de fora."
 date: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-11
 author: Equipe Quanto Vira
 calculadora: ir-investimentos
 fontes:
@@ -10,6 +10,8 @@ fontes:
     url: https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033compilado.htm
   - nome: Receita Federal — Isenções em operações de bolsa
     url: https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/isencoes
+  - nome: Receita Federal — Compensação de perdas
+    url: https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/compensacoes
   - nome: Receita Federal — Bolsa de valores
     url: https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1
   - nome: Receita Federal — Cálculo e pagamento do imposto
@@ -164,7 +166,7 @@ A isenção do salário é outra conta. Em 2026, o imposto mensal do trabalho te
 
 O dividendo é o valor que a companhia paga ao acionista. A regra dele, a partir de 2026, está em [Dividendos passam a ser tributados?](/artigos/dividendos-lei-15270-pj/).
 
-Quando a venda de ações fica abaixo do custo, a Receita trata o resultado como perda e diz que ela pode compensar um ganho futuro. A isenção do inciso I é do ganho, no mês em que as vendas de ações ficam até R$ 20.000,00. A página de isenções não diz se uma perda nesse mês entra no saldo dos meses seguintes. A calculadora [IR de investimentos](/ir-investimentos/) não soma essa perda ao saldo. A nota de corretagem guarda o número.
+Quando a venda de ações fica abaixo do custo, a Receita trata o resultado como perda e diz que ela pode compensar um ganho futuro. A isenção do inciso I é do ganho, no mês em que as vendas de ações ficam até R$ 20.000,00. A [página de compensações](https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/compensacoes) permite usar perda de operação comum para abater ganho do mesmo mês ou de meses seguintes. Essa página não diz se uma perda no mês em que as vendas de ações ficam até R$ 20.000,00 entra nesse saldo. **Não confirmado:** a calculadora [IR de investimentos](/ir-investimentos/) não soma essa perda ao saldo. A nota de corretagem guarda o número.
 
 ## Coloque o mês na calculadora
 

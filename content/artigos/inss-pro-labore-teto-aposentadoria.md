@@ -2,7 +2,7 @@
 title: "INSS do PJ: quanto contribuir sobre o pró-labore e o impacto na aposentadoria"
 description: "Em 2026 a empresa desconta 11% do pró-labore até o teto de R$ 8.475,55. A conta mostra o mês, o ano e o que esse teto faz com a média da aposentadoria."
 date: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-11
 author: Equipe Quanto Vira
 calculadora: pj-vs-clt
 fontes:
@@ -24,6 +24,8 @@ fontes:
     url: https://www.planalto.gov.br/ccivil_03/decreto/d3048compilado.htm
   - nome: "Lei nº 8.212/1991"
     url: https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm
+  - nome: "Lei Complementar nº 123/2006"
+    url: https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm
   - nome: "Lei nº 8.213/1991"
     url: https://www.planalto.gov.br/ccivil_03/leis/l8213cons.htm
   - nome: "Lei nº 10.666/2003"
@@ -84,7 +86,7 @@ O art. 22, inciso III, da Lei nº 8.212/1991 cobra da empresa 20% sobre o total 
 
 No pró-labore de R$ 5.500,00, 20% dão **R$ 1.100,00**. No pró-labore de R$ 10.500,00, 20% sobre o total dão **R$ 2.100,00**. Essa parcela é da empresa. Os R$ 605,00 e os R$ 932,31 continuam sendo o desconto do sócio.
 
-A forma de a empresa recolher os 20% depende do regime. A calculadora [PJ x CLT](/pj-vs-clt/) separa o desconto do sócio da contribuição da empresa. O ano inteiro, com a nota, o DAS ou o Lucro Presumido, está em [Proposta de R$ 10 mil como PJ: quanto ela vale em CLT?](/artigos/proposta-pj-quanto-vale-em-clt/).
+No Simples Nacional, exceto no Anexo IV, a parte patronal já vem no DAS. Não existe esse custo de 20% à parte. Os 20% à parte valem no Anexo IV e no Lucro Presumido ou Real. A [Lei Complementar nº 123/2006](https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm) põe a CPP entre os tributos do Simples no art. 13, inciso VI, e tira essa CPP do Simples no art. 18, § 5º-C, que é o caso do Anexo IV. A calculadora [PJ x CLT](/pj-vs-clt/) separa o desconto do sócio da contribuição da empresa. O ano inteiro, com a nota, o DAS ou o Lucro Presumido, está em [Proposta de R$ 10 mil como PJ: quanto ela vale em CLT?](/artigos/proposta-pj-quanto-vale-em-clt/).
 
 ## Abaixo de R$ 1.621, o mês pede complemento
 

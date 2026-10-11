@@ -2,7 +2,7 @@
 title: "Proposta de R$ 10 mil como PJ: quanto ela vale em CLT?"
 description: "Exemplo de um ano com 13º, férias, FGTS, INSS e IR de 2026 para comparar uma nota de R$ 10 mil com um salário CLT."
 date: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-11
 author: Equipe Quanto Vira
 calculadora: pj-vs-clt
 fontes:
@@ -24,15 +24,17 @@ fontes:
     url: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15270.htm
   - nome: "Lei Complementar nº 123/2006 (Simples Nacional)"
     url: https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm
+  - nome: "Lei nº 9.249/1995"
+    url: https://www.planalto.gov.br/ccivil_03/leis/l9249.htm
   - nome: "Lei nº 8.212/1991"
     url: https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm
   - nome: "Decreto nº 3.048/1999"
     url: https://www.planalto.gov.br/ccivil_03/decreto/d3048compilado.htm
 ---
 
-Uma nota de R$ 10.000 por mês como PJ, no exemplo deste texto, deixa R$ 109.104 no ano. O salário CLT que chega a esse ano, com 13º, terço de férias e FGTS, é R$ 9.874,07. Um CLT de R$ 10.000 chega a R$ 110.462,08, R$ 1.358,08 a mais.
+Uma nota de R$ 10.000 por mês como PJ, com escrituração contábil completa, deixa R$ 109.104 no ano. Sem essa escrituração, o art. 14, § 1º, da Lei Complementar nº 123/2006 deixa R$ 48.000 do lucro fora da isenção, e o ano do PJ cai para R$ 102.687,47. Um CLT de R$ 10.000, com o INSS do terço no teto e a restituição do ajuste anual, chega a R$ 100.757,60 no caixa e a R$ 111.424,27 com o FGTS.
 
-Esse empate vale para um desenho só: Simples Nacional no Anexo III, pró-labore de R$ 2.800, doze notas no ano, contador de R$ 0, e um CLT sem vale-refeição, plano de saúde nem PLR. Outro regime ou um benefício muda o ano. Dá para trocar os valores na calculadora [PJ x CLT](/pj-vs-clt/).
+Esse desenho é um só: Simples Nacional no Anexo III, pró-labore de R$ 2.800, doze notas no ano, contador de R$ 0, e um CLT sem vale-refeição, plano de saúde nem PLR. Contador de R$ 0 não garante a escrituração do § 2º. Outro regime ou um benefício muda o ano. Dá para trocar os valores na calculadora [PJ x CLT](/pj-vs-clt/).
 
 As regras abaixo são as vigentes em 2026.
 
@@ -103,17 +105,11 @@ Líquido do 13º: 10.000,00 − 988,09 − 1.569,55 = **R$ 7.442,36**.
 
 10.000,00 ÷ 3 = 3.333,333..., que fecha em **R$ 3.333,33**.
 
-O INSS dessa parcela, em mês separado, como a calculadora [PJ x CLT](/pj-vs-clt/) faz:
+A página do INSS manda calcular o 13º em separado do salário do mês. O terço de férias não recebe essa regra na mesma página. Se o terço sair no mesmo mês do salário, o teto de R$ 8.475,55 vale para a soma. O salário de R$ 10.000 já está nesse teto, e o INSS do mês é R$ 988,09. O INSS extra do terço é **R$ 0**. A calculadora [PJ x CLT](/pj-vs-clt/) usa essa diferença.
 
-- 1.621,00 × 7,5% = 121,575
-- 1.281,84 × 9% = 115,3656
-- 3.333,33 − 2.902,84 = 430,49, e 430,49 × 12% = 51,6588
+Em mês separado, a mesma parcela teria INSS de R$ 288,60: 1.621,00 × 7,5% = 121,575, 1.281,84 × 9% = 115,3656, e 430,49 × 12% = 51,6588, que somam 288,5994. A soma do ano não usa esses R$ 288,60.
 
-Soma: 288,5994, que fecha em **R$ 288,60**.
-
-A página do INSS manda calcular o 13º em separado do salário do mês. O terço de férias não recebe essa regra na mesma página. Se o terço sair no mesmo mês do salário, o teto de R$ 8.475,55 vale para a soma. Neste salário o mês já está no teto, e o INSS extra de R$ 288,60 pode deixar de existir. A soma abaixo conserva os R$ 288,60 para bater com a calculadora.
-
-No Imposto de Renda, o INSS de R$ 288,60 perde para o desconto simplificado de R$ 607,20. A base usa o desconto simplificado.
+No Imposto de Renda, o desconto simplificado de R$ 607,20 é a dedução, porque não há INSS extra nesta parcela. A base usa o desconto simplificado.
 
 3.333,33 − 607,20 = 2.726,13. A faixa é a de 7,5%, com parcela de R$ 182,16.
 
@@ -123,7 +119,7 @@ No Imposto de Renda, o INSS de R$ 288,60 perde para o desconto simplificado de R
 
 O rendimento de R$ 3.333,33 está até R$ 5.000. A redução zera o imposto e fica limitada aos R$ 22,30 da tabela. O IR do terço é **R$ 0**.
 
-Líquido do terço: 3.333,33 − 288,60 = **R$ 3.044,73**.
+Líquido do terço: 3.333,33 − 0 = **R$ 3.333,33**.
 
 ### FGTS
 
@@ -137,9 +133,15 @@ A base junta doze salários, o 13º e o terço.
 
 ### Soma do ano
 
-Depois de INSS e IR: 89.308,32 + 7.442,36 + 3.044,73 = **R$ 99.795,41**.
+Depois de INSS e IR mensais: 89.308,32 + 7.442,36 + 3.333,33 = **R$ 100.084,01**.
 
-Com o FGTS: 99.795,41 + 10.666,67 = **R$ 110.462,08**.
+O ajuste anual entra em seguida. Os rendimentos sujeitos a ele são os doze salários e o terço, 120.000 + 3.333,33 = **R$ 123.333,33**. O 13º tem cobrança exclusiva na fonte e fica de fora. O desconto simplificado anual é 20% dos rendimentos, limitado a R$ 17.640. Vinte por cento de R$ 123.333,33 passam do teto, então o desconto é **R$ 17.640**. O INSS desses mesmos rendimentos é 988,09 × 12 = **R$ 11.857,08**, menor que o desconto. A base fica em 123.333,33 − 17.640 = R$ 105.693,33. Na faixa de 27,5% da [tabela anual](https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026), o imposto é 105.693,33 × 27,5% − 10.904,66 = **R$ 18.161,01**. A renda passa de R$ 88.200, então a redução anual não se aplica.
+
+A fonte reteve 1.569,55 × 12 = **R$ 18.834,60**. O IR do terço foi zero. A restituição é 18.834,60 − 18.161,01 = **R$ 673,59**.
+
+Caixa, com a restituição: 100.084,01 + 673,59 = **R$ 100.757,60**.
+
+Com o FGTS: 100.757,60 + 10.666,67 = **R$ 111.424,27**.
 
 ## Proposta de R$ 10.000 como PJ
 
@@ -179,33 +181,36 @@ R$ 2.192,80 está na faixa até R$ 2.428,80, de alíquota zero. O imposto da tab
 
 ### O que sobra
 
-O art. 14 da Lei Complementar nº 123/2006 isenta o lucro pago ao sócio do Simples. Ficam de fora da isenção o pró-labore, o aluguel e o serviço. O imposto do exemplo está no pró-labore, e deu zero.
+O art. 14 da Lei Complementar nº 123/2006 isenta o lucro pago ao sócio do Simples. Ficam de fora da isenção o pró-labore, o aluguel e o serviço. O § 1º limita a isenção ao percentual de presunção do art. 15 da [Lei nº 9.249/1995](https://www.planalto.gov.br/ccivil_03/leis/l9249.htm) sobre a receita, menos o DAS do período. Para serviço em geral esse percentual é 32%. O § 2º afasta o limite quando a empresa mantém escrituração contábil e evidencia lucro maior. Contador de R$ 0 não demonstra essa escrituração.
 
-120.000 − 7.200 − 3.696 = **R$ 109.104**.
+120.000 − 7.200 − 3.696 = **R$ 109.104** quando o § 2º se aplica. Esse número junta o pró-labore líquido e o lucro inteiro.
 
-O lucro do mês, depois do DAS de R$ 600 (7.200 ÷ 12) e do pró-labore de R$ 2.800, é 10.000 − 600 − 2.800 = R$ 6.600. A Lei nº 15.270/2025, art. 6º-A, retém 10% quando a mesma empresa paga à mesma pessoa, no mês, lucros acima de R$ 50.000. R$ 6.600 fica abaixo disso.
+O lucro distribuído é outra conta. Depois do DAS de R$ 7.200 e do pró-labore de 2.800 × 12 = R$ 33.600, sobram 120.000 − 7.200 − 33.600 = **R$ 79.200**. No mês, 10.000 − 600 − 2.800 = R$ 6.600, e 6.600 × 12 repetem os R$ 79.200.
+
+O limite do § 1º é 120.000 × 32% − 7.200 = **R$ 31.200**. Sem escrituração, o excedente é 79.200 − 31.200 = **R$ 48.000**. Esse excedente entra no ajuste anual junto com o pró-labore de R$ 33.600. A renda é R$ 81.600. O desconto simplificado é 20%, R$ 16.320, maior que o INSS de R$ 3.696 e menor que o teto de R$ 17.640. A base fica em R$ 65.280. Na faixa de 27,5%, o imposto da tabela é 65.280 × 27,5% − 10.904,66 = R$ 7.047,34. A redução anual, para renda entre R$ 60.000,01 e R$ 88.200, é 8.429,73 − (0,095575 × 81.600) = R$ 630,81. O IR devido é 7.047,34 − 630,81 = **R$ 6.416,53**. A fonte não reteve IR no pró-labore. O ano cai para 109.104 − 6.416,53 = **R$ 102.687,47**.
+
+O art. 6º-A da Lei nº 9.250/1995, incluído pela Lei nº 15.270/2025, retém 10% quando a mesma empresa paga à mesma pessoa, no mês, lucros acima de R$ 50.000. R$ 6.600 fica abaixo disso. A retenção deste exemplo é zero. O crédito dessa retenção na tributação mínima anual não entra na conta, e neste valor ele também não nasce.
 
 ## Quanto a proposta vale em CLT
 
-Os dois anos, neste desenho:
+Os anos, neste desenho:
 
-- CLT de R$ 10.000, com FGTS: **R$ 110.462,08**
-- CLT de R$ 10.000, só o que dá para gastar: **R$ 99.795,41**
-- PJ de R$ 10.000: **R$ 109.104,00**
+- CLT de R$ 10.000, com FGTS: **R$ 111.424,27**
+- CLT de R$ 10.000, só o que dá para gastar: **R$ 100.757,60**
+- PJ de R$ 10.000, com escrituração completa: **R$ 109.104,00**
+- PJ de R$ 10.000, sem escrituração: **R$ 102.687,47**
 
-Com o FGTS, o CLT de R$ 10.000 fica R$ 1.358,08 acima da proposta: 110.462,08 − 109.104,00.
+Com escrituração, o FGTS põe o CLT R$ 2.320,27 acima da proposta: 111.424,27 − 109.104,00. No dinheiro que dá para gastar, a proposta fica R$ 8.346,40 acima do CLT: 109.104,00 − 100.757,60. O FGTS de R$ 10.666,67 continua sendo a parcela que inverte a ordem, e ele permanece na conta vinculada.
 
-No dinheiro que dá para gastar, a proposta fica R$ 9.308,59 acima do CLT: 109.104,00 − 99.795,41. O FGTS de R$ 10.666,67 é a parcela que inverte a ordem, e ele permanece na conta vinculada.
+Sem escrituração, o caixa do PJ fica em R$ 102.687,47, R$ 1.929,87 acima do caixa do CLT: 102.687,47 − 100.757,60. Com o FGTS, o CLT fica R$ 8.736,80 acima: 111.424,27 − 102.687,47. O limite do § 1º encolhe a vantagem do PJ no caixa e amplia a do CLT quando o depósito entra na comparação.
 
-O salário CLT que alcança os R$ 109.104, com as mesmas regras e sem benefício extra, é **R$ 9.874,07**. O INSS continua no teto, R$ 988,09. A base do IR é 9.874,07 − 988,09 = 8.885,98. A faixa de 27,5% dá 8.885,98 × 27,5% − 908,73 = 1.534,9145, que fecha em R$ 1.534,91. O rendimento passa de R$ 7.350, então a redução da lei para. O líquido mensal é 9.874,07 − 988,09 − 1.534,91 = R$ 7.351,07.
+O salário CLT que alcança os R$ 109.104 com FGTS, já com o teto do INSS no terço e com a restituição, é **R$ 9.783,83**. O INSS continua no teto, R$ 988,09. A base do IR mensal é 9.783,83 − 988,09 = 8.795,74. A faixa de 27,5% dá 8.795,74 × 27,5% − 908,73 = 1.510,0985, que fecha em R$ 1.510,10. O rendimento passa de R$ 7.350, então a redução mensal para. O líquido do mês é 9.783,83 − 988,09 − 1.510,10 = R$ 7.285,64. O terço é 9.783,83 ÷ 3 = R$ 3.261,28, sem INSS extra e com IR zero. O ajuste anual devolve R$ 693,37. O caixa fica em R$ 98.667,97 e o FGTS em R$ 10.436,09. A soma é **R$ 109.104,06**, seis centavos acima da proposta com escrituração. O salário de R$ 9.783,82 fecha o ano em R$ 109.103,93.
 
-O terço é 9.874,07 ÷ 3 = R$ 3.291,36. O INSS progressivo dessa parcela fecha em R$ 283,56, e o IR zera porque o rendimento fica até R$ 5.000. O caixa do ano fica em R$ 98.571,71 e o FGTS em R$ 10.532,34. A soma é **R$ 109.104,05**, cinco centavos acima da proposta. O salário de R$ 9.874,06 fecha o ano em R$ 109.103,90.
-
-Para o seu número, abra a calculadora [PJ x CLT](/pj-vs-clt/) e preencha o salário, a nota, o regime, o pró-labore, o contador e os dias sem faturar.
+Para o seu número, abra a calculadora [PJ x CLT](/pj-vs-clt/) e preencha o salário, a nota, o regime, o pró-labore, o contador, a contabilidade completa e os dias sem faturar. Sem a opção marcada, a tela usa o limite do § 1º.
 
 ## O que esta conta deixa de fora
 
-Trinta dias sem nota tiram um mês de receita. A receita cai para R$ 110.000. Ainda na faixa de 6%, o DAS fica em R$ 6.600. O pró-labore e o INSS de R$ 3.696 seguem nos doze meses. O ano do PJ cai para 110.000 − 6.600 − 3.696 = **R$ 99.704**.
+Trinta dias sem nota tiram um mês de receita. A receita cai para R$ 110.000. Ainda na faixa de 6%, o DAS fica em R$ 6.600. O pró-labore e o INSS de R$ 3.696 seguem nos doze meses. Com escrituração, o ano do PJ cai para 110.000 − 6.600 − 3.696 = **R$ 99.704**. Sem escrituração, o limite é 110.000 × 32% − 6.600 = R$ 28.600, e o lucro distribuído é 110.000 − 6.600 − 33.600 = R$ 69.800. O excedente é R$ 41.200. A renda do ajuste é 33.600 + 41.200 = R$ 74.800. O desconto de 20% é R$ 14.960. A base de R$ 59.840, na faixa de 27,5%, dá imposto de tabela de R$ 5.551,34. A redução anual é 8.429,73 − (0,095575 × 74.800) = R$ 1.280,72. O devido é 5.551,34 − 1.280,72 = **R$ 4.270,62**, e o ano fica em 99.704 − 4.270,62 = **R$ 95.433,38**.
 
 Um contador real sai desse líquido. O exemplo usou R$ 0 para manter a conta só com número de lei e com o valor da proposta.
 

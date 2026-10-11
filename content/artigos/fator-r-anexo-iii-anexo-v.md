@@ -2,7 +2,7 @@
 title: "Simples Nacional Anexo III x Anexo V e o Fator R: como o pró-labore muda o imposto do PJ de tecnologia"
 description: "Com a folha em 28% da receita, o serviço de tecnologia pode ficar no Anexo III. Veja as tabelas da LC 123 e um exemplo com nota de R$ 20 mil."
 date: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-11
 author: Equipe Quanto Vira
 calculadora: pj-vs-clt
 fontes:
@@ -16,9 +16,11 @@ fontes:
     url: https://www.gov.br/inss/pt-br/direitos-e-deveres/inscricao-e-contribuicao/tabela-de-contribuicao-mensal
   - nome: Receita Federal, tabelas do IRPF 2026
     url: https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026
+  - nome: Lei nº 9.249/1995
+    url: https://www.planalto.gov.br/ccivil_03/leis/l9249.htm
 ---
 
-Uma nota de R$ 20.000 por mês, no exemplo deste texto, paga R$ 17.520 de DAS no ano quando o pró-labore é R$ 5.600 e a atividade fica no Anexo III. O mesmo faturamento, com pró-labore de R$ 2.800, cai no Anexo V e o DAS sobe para R$ 38.700. A diferença de DAS é R$ 21.180. Depois do INSS e do Imposto de Renda do pró-labore, o ano com 28% fecha em R$ 212.341,68 e o ano com 14% fecha em R$ 197.604,00.
+Uma nota de R$ 20.000 por mês, no exemplo deste texto, paga R$ 17.520 de DAS no ano quando o pró-labore é R$ 5.600 e a atividade fica no Anexo III. O mesmo faturamento, com pró-labore de R$ 2.800, cai no Anexo V e o DAS sobe para R$ 38.700. A diferença de DAS é R$ 21.180. Com escrituração contábil completa, e depois do INSS e do ajuste anual do pró-labore, o ano com 28% fecha em R$ 213.104,94 e o ano com 14% fecha em R$ 197.604,00. Sem essa escrituração, o limite do art. 14, § 1º, reduz os dois.
 
 As regras abaixo são as vigentes em 2026. Os números saem da [Lei Complementar nº 123/2006](https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm), na redação que o Planalto publica hoje. Dá para repetir a conta na calculadora [PJ x CLT](/pj-vs-clt/).
 
@@ -173,31 +175,39 @@ O rendimento de R$ 5.600,00 está entre R$ 5.000,01 e R$ 7.350,00.
 
 461,87 − 233,01 = **R$ 228,86** de IR no mês.
 
-228,86 × 12 = **R$ 2.746,32** no ano.
+228,86 × 12 = **R$ 2.746,32** no ano. Esse valor é o que a fonte retém mês a mês. O ajuste anual, mais abaixo, devolve parte dele.
 
 ## O que sobra no ano
 
-O pró-labore continua com a pessoa. A soma do ano tira o DAS, o INSS e o IR do pró-labore. O contador está em zero.
+O pró-labore continua com a pessoa. A soma do ano tira o DAS, o INSS e o IR do pró-labore. O contador está em zero. Os dois anos abaixo pressupõem escrituração contábil completa, o § 2º do art. 14. Sem ela, o limite do § 1º entra na conta do fim desta seção.
 
-Com razão de 28%, no Anexo III:
+Com razão de 28%, no Anexo III, o IR retido no ano é R$ 2.746,32:
 
 240.000 − 17.520 − 7.392 − 2.746,32 = **R$ 212.341,68**.
 
-Com razão de 14%, no Anexo V:
+O ajuste anual olha o pró-labore de R$ 67.200,00. O desconto simplificado é 20% disso, R$ 13.440,00, maior que o INSS de R$ 7.392,00. A base fica em R$ 53.760,00. Na faixa de 22,5% da [tabela anual](https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026), o imposto é 53.760 × 22,5% − 8.105,85 = R$ 3.990,15. A redução do art. 11-A, para renda entre R$ 60.000,01 e R$ 88.200,00, é 8.429,73 − (0,095575 × 67.200) = R$ 2.007,09. O IR devido fica em 3.990,15 − 2.007,09 = **R$ 1.983,06**. A fonte já reteve R$ 2.746,32. A restituição é 2.746,32 − 1.983,06 = **R$ 763,26**.
+
+Com essa restituição, o ano do Anexo III fecha em 212.341,68 + 763,26 = **R$ 213.104,94**.
+
+Com razão de 14%, no Anexo V, o IR mensal do pró-labore de R$ 2.800,00 é zero. No ajuste, 20% de R$ 33.600,00 dão R$ 6.720,00, e a base de R$ 26.880,00 fica na faixa de alíquota zero. Não há restituição:
 
 240.000 − 38.700 − 3.696 = **R$ 197.604,00**.
 
-A distância entre os dois anos é 212.341,68 − 197.604,00 = **R$ 14.737,68**.
+A distância entre os dois anos, já com a restituição do Anexo III, é 213.104,94 − 197.604,00 = **R$ 15.500,94**.
 
-O pró-labore extra para chegar aos 28% é 2.800 × 12 = R$ 33.600. Esse valor já está dentro dos R$ 212.341,68, depois do INSS e do IR. O INSS a mais é 7.392 − 3.696 = R$ 3.696. O IR a mais é R$ 2.746,32. Os dois somam R$ 6.442,32. O DAS é R$ 21.180 menor. 21.180 − 6.442,32 = R$ 14.737,68, a mesma distância dos dois anos.
+O pró-labore extra para chegar aos 28% é 2.800 × 12 = R$ 33.600. Esse valor já está dentro dos R$ 213.104,94, depois do INSS e do IR anual. O INSS a mais é 7.392 − 3.696 = R$ 3.696. O IR a mais, depois do ajuste, é R$ 1.983,06. Os dois somam R$ 5.679,06. O DAS é R$ 21.180 menor. 21.180 − 5.679,06 = R$ 15.500,94, a mesma distância dos dois anos.
 
-O art. 14 da Lei Complementar nº 123/2006 isenta, na fonte e na declaração, o valor pago ao sócio da empresa do Simples. Ficam de fora dessa isenção o pró-labore, o aluguel e o serviço. O § 1º limita a isenção ao resultado dos percentuais do art. 15 da Lei nº 9.249/1995 sobre a receita, menos o Simples do período. O § 2º afasta esse limite quando a empresa mantém escrituração e evidencia lucro maior. O IR calculado acima é o do pró-labore. O exemplo não aplica o limite do § 1º.
+O art. 14 da Lei Complementar nº 123/2006 isenta, na fonte e na declaração, o valor pago ao sócio da empresa do Simples. Ficam de fora dessa isenção o pró-labore, o aluguel e o serviço. O § 1º limita a isenção ao resultado dos percentuais do art. 15 da [Lei nº 9.249/1995](https://www.planalto.gov.br/ccivil_03/leis/l9249.htm) sobre a receita, menos o Simples do período. Para serviço em geral esse percentual é 32%. O § 2º afasta esse limite quando a empresa mantém escrituração e evidencia lucro maior. Os R$ 213.104,94 e os R$ 197.604,00 pressupõem essa escrituração. Sem ela, o excedente é rendimento tributável no ajuste anual.
 
-No Anexo III, o DAS mensal é 17.520 ÷ 12 = R$ 1.460. O que sobra da nota, depois desse DAS e do pró-labore, é 20.000 − 1.460 − 5.600 = R$ 12.940 no mês. No Anexo V, o DAS mensal é 38.700 ÷ 12 = R$ 3.225, e 20.000 − 3.225 − 2.800 = R$ 13.975. Os dois meses ficam abaixo de R$ 50.000. A retenção de 10% da Lei nº 15.270/2025, quando a mesma empresa paga mais de R$ 50.000 de lucro no mês à mesma pessoa, está em [Dividendos passam a ser tributados?](/artigos/dividendos-lei-15270-pj/). A calculadora não aplica esses 10% no Simples.
+No Anexo III, o limite é 240.000 × 32% − 17.520 = **R$ 59.280**. O lucro distribuído é 12.940 × 12 = **R$ 155.280**. Sem escrituração, o excedente é 155.280 − 59.280 = **R$ 96.000**. Somado ao pró-labore de R$ 67.200, a renda do ajuste é R$ 163.200, acima de R$ 88.200, então a redução anual não se aplica. O desconto simplificado para no teto de R$ 17.640. A base fica em R$ 145.560, e o imposto da faixa de 27,5% é 145.560 × 27,5% − 10.904,66 = **R$ 29.124,34**. A fonte já reteve R$ 2.746,32. O imposto a mais é R$ 26.378,02, e o ano cai para 212.341,68 − 26.378,02 = **R$ 185.963,66**.
+
+No Anexo V, o limite é 240.000 × 32% − 38.700 = **R$ 38.100**. O lucro distribuído é 20.000 − 3.225 − 2.800 = R$ 13.975 no mês, ou **R$ 167.700** no ano. O excedente é R$ 129.600. Com o pró-labore de R$ 33.600, a renda do ajuste também é R$ 163.200, e o IR devido repete os R$ 29.124,34, porque o desconto simplificado de R$ 17.640 continua maior que o INSS de R$ 3.696. Não houve retenção mensal. O ano cai para 197.604,00 − 29.124,34 = **R$ 168.479,66**.
+
+No Anexo III, o DAS mensal é 17.520 ÷ 12 = R$ 1.460. O que sobra da nota, depois desse DAS e do pró-labore, é 20.000 − 1.460 − 5.600 = R$ 12.940 no mês. No Anexo V, o DAS mensal é 38.700 ÷ 12 = R$ 3.225, e 20.000 − 3.225 − 2.800 = R$ 13.975. Os dois meses ficam abaixo de R$ 50.000. A retenção de 10% do art. 6º-A da Lei nº 9.250/1995, incluído pela Lei nº 15.270/2025, quando a mesma empresa paga mais de R$ 50.000 de lucro no mês à mesma pessoa, está em [Dividendos passam a ser tributados?](/artigos/dividendos-lei-15270-pj/). A calculadora aplica esses 10% no Simples quando a média mensal do lucro passa de R$ 50.000. Neste exemplo a retenção é zero. O crédito dessa retenção na tributação mínima anual não entra na conta.
 
 ## Como levar os números para a calculadora
 
-Na calculadora [PJ x CLT](/pj-vs-clt/), use nota de R$ 20.000, contador zero e doze meses com faturamento. No Simples Anexo III, coloque pró-labore de R$ 5.600. No Simples Anexo V, coloque R$ 2.800. O DAS, o INSS, o IR e o líquido do ano repetem as contas acima.
+Na calculadora [PJ x CLT](/pj-vs-clt/), use nota de R$ 20.000, contador zero e doze meses com faturamento. No Simples Anexo III, coloque pró-labore de R$ 5.600. No Simples Anexo V, coloque R$ 2.800. Com **Tenho contabilidade completa** marcado, o DAS, o INSS, o IR e o líquido do ano repetem os R$ 213.104,94 e os R$ 197.604,00. Sem a opção, a tela aplica o limite do § 1º e repete os R$ 185.963,66 e os R$ 168.479,66.
 
 Se o Anexo III for preenchido com razão abaixo de 28%, a tela avisa que a atividade sujeita ao fator não se enquadra nesse anexo. Se o Anexo V for preenchido com razão de 28% ou mais, a tela avisa que a atividade sujeita ao fator pode ir para o Anexo III. O regime marcado na tela continua o que foi escolhido. O aviso só informa.
 
