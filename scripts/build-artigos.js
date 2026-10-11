@@ -50,8 +50,22 @@ function dataValida(iso) {
   return dt.getUTCFullYear() === y && dt.getUTCMonth() === mo - 1 && dt.getUTCDate() === d;
 }
 
+function hojeSaoPaulo(agora) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Sao_Paulo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(agora || new Date());
+}
+
+function dataComFuso(iso) {
+  if (!dataValida(iso)) throw new Error('data inválida: ' + iso);
+  return iso + 'T00:00:00-03:00';
+}
+
 function dataPt(iso) {
-  const p = iso.split('-');
+  const p = String(iso).slice(0, 10).split('-');
   return Number(p[2]) + ' de ' + MESES[Number(p[1]) - 1] + ' de ' + p[0];
 }
 
@@ -310,8 +324,8 @@ function jsonLd(artigo) {
     '@type': 'Article',
     headline: artigo.title,
     description: artigo.description,
-    datePublished: artigo.date,
-    dateModified: artigo.updated,
+    datePublished: dataComFuso(artigo.date),
+    dateModified: dataComFuso(artigo.updated),
     inLanguage: 'pt-BR',
     author: { '@type': 'Organization', name: artigo.author },
     publisher: { '@type': 'Organization', name: 'Quanto Vira', url: SITE + '/' },
@@ -335,7 +349,7 @@ function htmlArtigo(artigo) {
     description: artigo.description,
     canonical: SITE + '/artigos/' + artigo.slug + '/',
     ogType: 'article',
-    extraHead: '\n<meta property="article:published_time" content="' + artigo.date + '">\n<meta property="article:modified_time" content="' + artigo.updated + '">',
+    extraHead: '\n<meta property="article:published_time" content="' + dataComFuso(artigo.date) + '">\n<meta property="article:modified_time" content="' + dataComFuso(artigo.updated) + '">',
     jsonLd: jsonLd(artigo),
     main: main
   });
@@ -386,7 +400,7 @@ function sitemap(artigos) {
     linhas.push('  <url><loc>' + SITE + p + '</loc></url>');
   });
   artigos.slice().sort(function (a, b) { return a.slug < b.slug ? -1 : 1; }).forEach(function (a) {
-    linhas.push('  <url><loc>' + SITE + '/artigos/' + a.slug + '/</loc><lastmod>' + a.updated + '</lastmod></url>');
+    linhas.push('  <url><loc>' + SITE + '/artigos/' + a.slug + '/</loc><lastmod>' + dataComFuso(a.updated) + '</lastmod></url>');
   });
   linhas.push('</urlset>', '');
   return linhas.join('\n');
@@ -443,5 +457,7 @@ module.exports = {
   renderMarkdown: renderMarkdown,
   validar: validar,
   dataPt: dataPt,
+  hojeSaoPaulo: hojeSaoPaulo,
+  dataComFuso: dataComFuso,
   AUTOR_PADRAO: AUTOR_PADRAO
 };

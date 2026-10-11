@@ -127,27 +127,37 @@ t('ajuste anual: desconto é 20% limitado a R$ 17.640', () => {
   assert.strictEqual(noTeto.devido, 18161.01);
 });
 
-t('CLT de R$ 10 mil: INSS do terço no teto e restituição anual', () => {
+t('CLT de R$ 10 mil: férias com terço num só pagamento e restituição no ano seguinte', () => {
   const c = P.calcClt({ salarioClt: 10000, vrVa: 0, planoSaude: 0, plr: 0 }, regras);
   assert.strictEqual(c.inssMensal, 988.09);
   assert.strictEqual(c.irMensal, 1569.55);
   assert.strictEqual(c.inssTerco, 0);
-  assert.strictEqual(c.irTerco, 0);
+  assert.strictEqual(c.feriasBruto, 13333.33);
+  assert.strictEqual(c.irFerias, 2486.21);
+  assert.strictEqual(c.reducaoFerias, 0);
+  assert.strictEqual(c.irRetidoAjuste, 19751.26);
   assert.strictEqual(c.rendimentosAjuste, 123333.33);
   assert.strictEqual(c.irAnualDevido, 18161.01);
-  assert.strictEqual(c.ajusteAnual, -673.59);
+  assert.strictEqual(c.ajusteAnual, -1590.25);
+  assert.strictEqual(c.caixaNoAno, 99167.35);
   assert.strictEqual(c.caixa, 100757.6);
   assert.strictEqual(c.fgts, 10666.67);
   assert.strictEqual(c.liquidoEquivalente, 111424.27);
+  assert.ok(c.avisos.some((a) => a.indexOf('não foi confirmada') >= 0));
 });
 
-t('CLT de R$ 8 mil: INSS do terço só até o teto e restituição', () => {
+t('CLT de R$ 8 mil: INSS do terço só até o teto e restituição das férias', () => {
   const c = P.calcClt({ salarioClt: 8000, vrVa: 0, planoSaude: 0, plr: 0 }, regras);
   assert.strictEqual(c.inssMensal, 921.51);
   assert.strictEqual(c.inssTerco, 66.58);
+  assert.strictEqual(c.feriasBruto, 10666.67);
+  assert.strictEqual(c.irFerias, 1752.88);
+  assert.strictEqual(c.reducaoFerias, 0);
   assert.strictEqual(c.irAnualDevido, 11377.67);
-  assert.strictEqual(c.ajusteAnual, -1076.53);
+  assert.strictEqual(c.ajusteAnual, -1791.56);
+  assert.strictEqual(c.caixaNoAno, 80413.38);
   assert.strictEqual(c.caixa, 82204.94);
+  assert.strictEqual(c.liquidoEquivalente, 90738.27);
 });
 
 t('Simples sem contabilidade limita a isenção a 32% da receita menos o DAS', () => {
