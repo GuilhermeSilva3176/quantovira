@@ -37,6 +37,8 @@
   <label>Pró-labore mensal (R$)<input type="number" id="proLabore" value="3920" min="0" step="50"></label>
   <p class="hint">No Simples Anexo III, o pró-labore costuma ser pelo menos 28% da nota. No MEI ele não gera outro INSS.</p>
   <label>Contador (R$/mês)<input type="number" id="custoContador" value="0" min="0" step="50"></label>
+  <label class="check"><input type="checkbox" id="contabilidadeCompleta"> Tenho contabilidade completa</label>
+  <p class="hint">No Simples e no MEI, sem esta opção, a isenção do lucro fica em 32% da receita menos o DAS (LC nº 123, art. 14, § 1º). Marcada, vale o § 2º: a escrituração afasta esse limite.</p>
   <label>Férias sem faturar no PJ (dias)<input type="number" id="feriasDias" value="0" min="0" max="360" step="1"></label>
   <p class="hint">Cada 30 dias tira um mês de receita. O pró-labore e o contador continuam nos 12 meses.</p>
   <label>ISS no Lucro Presumido (%)<input type="number" id="iss" value="5" min="2" max="5" step="0.01"></label>
@@ -67,7 +69,7 @@
   <ol class="steps">
     <li>Coloque o salário bruto e o que a empresa paga por fora: vale-refeição, plano de saúde e PLR.</li>
     <li>Coloque o valor da nota mensal e o regime: MEI, Simples ou Lucro Presumido.</li>
-    <li>Informe o pró-labore, o contador e quantos dias no ano você ficaria sem faturar.</li>
+    <li>Informe o pró-labore, o contador, se a empresa tem contabilidade completa e quantos dias no ano você ficaria sem faturar.</li>
     <li>Clique em <strong>Calcular</strong>. Compare o que sobra no ano e veja a nota que empata os dois lados.</li>
   </ol>
   <p>Exemplo, com os valores que já vêm na tela: salário de R$ 8.000 e nota de R$ 14.000 no Simples Anexo III, com pró-labore de R$ 3.920 (28% da nota). O resultado mostra o ano inteiro dos dois lados e a nota mensal que deixa o PJ empatado com o CLT.</p>
@@ -75,8 +77,8 @@
     <summary>Detalhes técnicos</summary>
     <h2>O que entra na conta</h2>
     <p>No CLT, o equivalente anual é o salário líquido de doze meses, mais o 13º e o terço de férias já com INSS e IR, mais VR/VA, plano de saúde e PLR líquida, mais o FGTS de 8%. O FGTS não cai na conta corrente; por isso a tabela também mostra o caixa sem ele.</p>
-    <p>O INSS do empregado é progressivo, com teto de R$ 8.475,55. O IR usa a tabela mensal de 2026 e a redução da Lei nº 15.270/2025: rendimento tributável até R$ 5.000 fica com imposto zero, e entre R$ 5.000,01 e R$ 7.350 a redução diminui até acabar. A fonte pagadora escolhe o maior entre o desconto simplificado de R$ 607,20 e o INSS. Aqui não há dependente.</p>
-    <p>No PJ, a receita cai nos dias sem faturar. O MEI de serviços paga DAS fixo de R$ 86,05 por mês (R$ 81,05 de INSS e R$ 5 de ISS). No Simples, a alíquota efetiva é (receita de 12 meses × alíquota nominal − parcela a deduzir) ÷ receita de 12 meses, nos Anexos III e V. O Fator R é o pró-labore de doze meses dividido pela receita; a lei pede 28% para atividade que depende dele ir ao Anexo III. No Lucro Presumido de serviços, a presunção é 32%, com IRPJ de 15%, adicional de 10% acima de R$ 60 mil de base no trimestre, CSLL de 9%, PIS de 0,65%, COFINS de 3%, ISS informado por você, INSS patronal de 20% sobre o pró-labore inteiro e 11% do segurado até o teto.</p>
+    <p>O INSS do empregado é progressivo, com teto de R$ 8.475,55. No mês das férias, o INSS do terço é só o que ainda cabe abaixo desse teto. O IR mensal usa a tabela de 2026 e a redução da Lei nº 15.270/2025: rendimento tributável até R$ 5.000 fica com imposto zero, e entre R$ 5.000,01 e R$ 7.350 a redução diminui até acabar. A fonte pagadora escolhe o maior entre o desconto simplificado de R$ 607,20 e o INSS. Aqui não há dependente. O ajuste anual compara o IR da tabela anual, com desconto simplificado de 20% limitado a R$ 17.640, sobre os doze salários e o terço. O 13º e a PLR ficam de fora. A diferença entra como restituição ou como imposto a mais.</p>
+    <p>No PJ, a receita cai nos dias sem faturar. O MEI de serviços paga DAS fixo de R$ 86,05 por mês (R$ 81,05 de INSS e R$ 5 de ISS). No Simples, a alíquota efetiva é (receita de 12 meses × alíquota nominal − parcela a deduzir) ÷ receita de 12 meses, nos Anexos III e V. O Fator R é o pró-labore de doze meses dividido pela receita; a lei pede 28% para atividade que depende dele ir ao Anexo III. Sem contabilidade completa, a isenção do lucro fica em 32% da receita menos o DAS. O que passa disso entra no ajuste anual, junto com o pró-labore. No Lucro Presumido de serviços, a presunção é 32%, com IRPJ de 15%, adicional de 10% acima de R$ 60 mil de base no trimestre, CSLL de 9%, PIS de 0,65%, COFINS de 3%, ISS informado por você, INSS patronal de 20% sobre o pró-labore inteiro e 11% do segurado até o teto. Lucro cuja média mensal passa de R$ 50 mil tem retenção de 10% no Lucro Presumido, no Simples e no MEI.</p>
     <h2>Limitações</h2>
     <ul id="limites"></ul>
     <h2>Fontes</h2>

@@ -91,7 +91,7 @@
     var perdaAcoes = 0;
     if (isentoAcoes) {
       if (resAcoes > 0) avisos.push('O lucro das ações está isento: as vendas do mês não passam de R$ 20 mil. Esse lucro não abate o prejuízo acumulado.');
-      if (resAcoes < 0) avisos.push('O prejuízo das ações neste mês de vendas até R$ 20 mil não foi somado ao saldo. Essa compensação não foi confirmada.');
+      if (resAcoes < 0) avisos.push('O prejuízo das ações neste mês de vendas até R$ 20 mil não foi somado ao saldo. A página de compensações da Receita permite compensar perda de operação comum em meses seguintes, mas não diz se a perda de um mês com vendas de até R$ 20 mil entra nesse saldo. Essa compensação não foi confirmada.');
     } else {
       ganhoAcoes = resAcoes > 0 ? resAcoes : 0;
       perdaAcoes = resAcoes < 0 ? -resAcoes : 0;

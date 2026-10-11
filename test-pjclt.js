@@ -116,6 +116,87 @@ t('ponto de equilíbrio iguala o equivalente anual', () => {
   assert.ok(umAbaixo.liquidoEquivalente < r.clt.liquidoEquivalente);
 });
 
+t('ajuste anual: desconto é 20% limitado a R$ 17.640', () => {
+  const baixo = P.memoriaIrAnual(50400, 0, regras);
+  assert.strictEqual(baixo.simplificado, 10080);
+  assert.strictEqual(baixo.base, 40320);
+  assert.strictEqual(baixo.impostoTabela, 1318.09);
+  assert.strictEqual(baixo.devido, 0);
+  const noTeto = P.memoriaIrAnual(123333.33, 11857.08, regras);
+  assert.strictEqual(noTeto.simplificado, 17640);
+  assert.strictEqual(noTeto.devido, 18161.01);
+});
+
+t('CLT de R$ 10 mil: INSS do terço no teto e restituição anual', () => {
+  const c = P.calcClt({ salarioClt: 10000, vrVa: 0, planoSaude: 0, plr: 0 }, regras);
+  assert.strictEqual(c.inssMensal, 988.09);
+  assert.strictEqual(c.irMensal, 1569.55);
+  assert.strictEqual(c.inssTerco, 0);
+  assert.strictEqual(c.irTerco, 0);
+  assert.strictEqual(c.rendimentosAjuste, 123333.33);
+  assert.strictEqual(c.irAnualDevido, 18161.01);
+  assert.strictEqual(c.ajusteAnual, -673.59);
+  assert.strictEqual(c.caixa, 100757.6);
+  assert.strictEqual(c.fgts, 10666.67);
+  assert.strictEqual(c.liquidoEquivalente, 111424.27);
+});
+
+t('CLT de R$ 8 mil: INSS do terço só até o teto e restituição', () => {
+  const c = P.calcClt({ salarioClt: 8000, vrVa: 0, planoSaude: 0, plr: 0 }, regras);
+  assert.strictEqual(c.inssMensal, 921.51);
+  assert.strictEqual(c.inssTerco, 66.58);
+  assert.strictEqual(c.irAnualDevido, 11377.67);
+  assert.strictEqual(c.ajusteAnual, -1076.53);
+  assert.strictEqual(c.caixa, 82204.94);
+});
+
+t('Simples sem contabilidade limita a isenção a 32% da receita menos o DAS', () => {
+  const pj = P.calcPj({
+    regime: 'simples-iii', valorPjMensal: 10000, proLabore: 2800,
+    custoContador: 0, feriasDias: 0
+  }, regras);
+  assert.strictEqual(pj.das, 7200);
+  assert.strictEqual(pj.limiteIsencao, 31200);
+  assert.strictEqual(pj.lucroDistribuido, 79200);
+  assert.strictEqual(pj.excedenteTributavel, 48000);
+  assert.strictEqual(pj.irDividendos, 0);
+  assert.strictEqual(pj.irAnualDevido, 6416.53);
+  assert.strictEqual(pj.liquidoEquivalente, 102687.47);
+  const livros = P.calcPj({
+    regime: 'simples-iii', valorPjMensal: 10000, proLabore: 2800,
+    custoContador: 0, feriasDias: 0, contabilidadeCompleta: true
+  }, regras);
+  assert.strictEqual(livros.excedenteTributavel, 0);
+  assert.strictEqual(livros.irAnualDevido, 0);
+  assert.strictEqual(livros.liquidoEquivalente, 109104);
+});
+
+t('Fator R: pró-labore de R$ 5.600 tem restituição anual de R$ 763,26', () => {
+  const anual = P.memoriaIrAnual(67200, 7392, regras);
+  assert.strictEqual(anual.simplificado, 13440);
+  assert.strictEqual(anual.reducao, 2007.09);
+  assert.strictEqual(anual.devido, 1983.06);
+  const pj = P.calcPj({
+    regime: 'simples-iii', valorPjMensal: 20000, proLabore: 5600,
+    custoContador: 0, feriasDias: 0, contabilidadeCompleta: true
+  }, regras);
+  assert.strictEqual(pj.irProLabore, 2746.32);
+  assert.strictEqual(pj.ajusteAnual, -763.26);
+  assert.strictEqual(pj.liquidoEquivalente, 213104.94);
+});
+
+t('Simples com lucro mensal acima de R$ 50 mil retém 10%', () => {
+  const pj = P.calcPj({
+    regime: 'simples-iii', valorPjMensal: 80000, proLabore: 1621,
+    custoContador: 0, feriasDias: 0, contabilidadeCompleta: true
+  }, regras);
+  assert.strictEqual(pj.irDividendos, P.round2(pj.lucroDistribuido * 0.1));
+  assert.ok(pj.lucroDistribuido / 12 > 50000);
+  assert.ok(pj.avisos.some((a) => a.indexOf('pergunta 10') >= 0));
+  assert.ok(regras.dividendosPf.aplicaEm.indexOf('simples-iii') >= 0);
+  assert.ok(regras.dividendosPf.fontePerguntas.indexOf('manual_padrao_rfb_per_tributacao_sutri_v2.pdf') >= 0);
+});
+
 t('JSON traz fonte e ano, e lista o que não foi verificado', () => {
   ['inssEmpregado', 'irpf', 'mei', 'simples', 'lucroPresumido', 'fgts', 'iss'].forEach((k) => {
     assert.ok(regras[k].fonte || regras[k].fonteDas || regras[k].fonteIrpj, k);

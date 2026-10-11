@@ -1,6 +1,6 @@
 (function () {
   var regras;
-  var campos = ['salarioClt', 'vrVa', 'planoSaude', 'plr', 'valorPjMensal', 'proLabore', 'custoContador', 'feriasDias', 'iss'];
+  var campos = ['salarioClt', 'vrVa', 'planoSaude', 'plr', 'valorPjMensal', 'proLabore', 'custoContador', 'feriasDias', 'iss', 'contabilidadeCompleta'];
   function num(id) {
     var v = parseFloat(document.getElementById(id).value);
     return isFinite(v) ? v : 0;
@@ -16,6 +16,7 @@
       proLabore: num('proLabore'),
       custoContador: num('custoContador'),
       feriasDias: num('feriasDias'),
+      contabilidadeCompleta: document.getElementById('contabilidadeCompleta').checked,
       issAliquota: num('iss') / 100
     };
   }
@@ -49,6 +50,7 @@
     html += linha('Terço de férias', c.terco, 0);
     html += linha('INSS', -(c.inssAnualSalarios + c.inss13 + c.inssTerco), -(p.inssSegurado + p.inssPatronal));
     html += linha('IR do trabalho, 13º, férias e pró-labore', -(c.irAnualSalarios + c.ir13 + c.irTerco), -p.irProLabore);
+    html += linha('Ajuste anual do IR', -c.ajusteAnual, -p.ajusteAnual);
     html += linha('IR da PLR ou dos dividendos', -c.plrIr, -p.irDividendos);
     html += linha('DAS, PIS, COFINS, ISS, IRPJ e CSLL', 0, -impostosPj);
     html += linha('Contador', 0, -p.contador);
@@ -57,7 +59,7 @@
     html += linha('FGTS de 8%', c.fgts, 0);
     html += linha('Equivalente anual', c.liquidoEquivalente, p.liquidoEquivalente);
     document.getElementById('linhas').innerHTML = html;
-    var avisos = p.avisos.slice();
+    var avisos = (c.avisos || []).concat(p.avisos);
     if (!p.valido) avisos.unshift('Este regime não cobre a receita informada. O número acima não substitui o enquadramento real.');
     document.getElementById('avisos').innerHTML = avisos.map(function (a) { return '<li>' + a + '</li>'; }).join('');
   }
@@ -75,6 +77,9 @@
     document.getElementById('equilibrio').textContent = 'Não foi possível carregar as regras de 2026.';
   });
   document.getElementById('f').addEventListener('submit', function (e) { e.preventDefault(); calcular(); });
-  campos.forEach(function (id) { document.getElementById(id).addEventListener('input', calcular); });
+  campos.forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', calcular);
+  });
   document.getElementById('regime').addEventListener('change', calcular);
 })();

@@ -52,6 +52,26 @@
   function irrfMensal(rendimento, deducaoLegal, regras) {
     return memoriaIrrf(rendimento, deducaoLegal, regras).devido;
   }
+  function memoriaIrAnual(rendimento, inssDedutivel, regras) {
+    var ir = regras.irpf;
+    var red = ir.reducaoAnual;
+    var bruto = Math.max(0, rendimento || 0);
+    var simplificado = Math.min(bruto * ir.percentualDescontoSimplificadoAnual, ir.descontoSimplificadoAnual);
+    var deducao = Math.max(inssDedutivel || 0, simplificado);
+    var base = Math.max(0, bruto - deducao);
+    var impostoTabelaValor = impostoTabela(base, ir.tabelaAnual);
+    var reducao = 0;
+    if (bruto <= red.faixaZeraAte) reducao = Math.min(impostoTabelaValor, red.reducaoMaximaParaZerar);
+    else if (bruto <= red.faixaParcialAte) reducao = Math.min(impostoTabelaValor, Math.max(0, red.constante - red.coeficiente * bruto));
+    return {
+      simplificado: round2(simplificado),
+      deducao: round2(deducao),
+      base: round2(base),
+      impostoTabela: round2(impostoTabelaValor),
+      reducao: round2(reducao),
+      devido: round2(Math.max(0, impostoTabelaValor - reducao))
+    };
+  }
   function irExclusivo(valor, tabela) {
     return round2(impostoTabela(valor, tabela));
   }
@@ -79,13 +99,20 @@
     var inss13 = inssEmpregado(decimo, regras);
     var ir13 = irrfMensal(decimo, inss13, regras);
     var terco = round2(salario / 3);
-    var inssTerco = inssEmpregado(terco, regras);
+    var inssTerco = round2(Math.max(0, inssEmpregado(salario + terco, regras) - inssMes));
     var irTerco = irrfMensal(terco, inssTerco, regras);
     var plrIr = irExclusivo(plr, regras.plr.tabelaAnual);
     var beneficios = round2((vr + saude) * 12);
     var fgtsBase = round2(salario * 12 + decimo + terco);
     var fgts = round2(fgtsBase * regras.fgts.aliquota);
-    var caixa = round2(liquidoMes * 12 + (decimo - inss13 - ir13) + (terco - inssTerco - irTerco) + beneficios + (plr - plrIr));
+    var rendimentosAjuste = round2(salario * 12 + terco);
+    var anual = memoriaIrAnual(rendimentosAjuste, round2(inssMes * 12 + inssTerco), regras);
+    var irRetidoAjuste = round2(irMes * 12 + irTerco);
+    var ajusteAnual = round2(anual.devido - irRetidoAjuste);
+    var avisos = [];
+    if (ajusteAnual < 0) avisos.push('No ajuste anual, o desconto simplificado devolve IR retido sobre salários e terço de férias. O 13º e a PLR ficam de fora dessa conta.');
+    else if (ajusteAnual > 0) avisos.push('No ajuste anual, o IR dos salários e do terço de férias fica maior que o retido no mês. O 13º e a PLR ficam de fora dessa conta.');
+    var caixa = round2(liquidoMes * 12 + (decimo - inss13 - ir13) + (terco - inssTerco - irTerco) + beneficios + (plr - plrIr) - ajusteAnual);
     return {
       salarioMensal: salario,
       inssMensal: inssMes,
@@ -103,9 +130,52 @@
       plrIr: plrIr,
       beneficios: beneficios,
       fgts: fgts,
+      rendimentosAjuste: rendimentosAjuste,
+      irAnualDevido: anual.devido,
+      ajusteAnual: ajusteAnual,
+      avisos: avisos,
       caixa: caixa,
       liquidoEquivalente: round2(caixa + fgts)
     };
+  }
+  function isencaoLucroSimples(receita, das, proAnual, contador, regras, contabilidadeCompleta) {
+    var lucro = round2(receita - das - proAnual - contador);
+    var limite = round2(Math.max(0, receita * regras.simples.isencaoLucros.percentualPresuncaoServicos - das));
+    var isento = contabilidadeCompleta ? Math.max(0, lucro) : Math.min(Math.max(0, lucro), limite);
+    return {
+      lucro: lucro,
+      limite: limite,
+      isento: round2(isento),
+      excedente: round2(Math.max(0, lucro - isento))
+    };
+  }
+  function aplicarDividendos(out, lucro, regras, simples) {
+    if (lucro > 0 && lucro / 12 > regras.dividendosPf.limiteMensal) {
+      out.irDividendos = round2(lucro * regras.dividendosPf.aliquotaSobreOTotal);
+      var base = 'Retenção de 10% sobre o lucro distribuído: a média mensal passa de R$ 50 mil. ';
+      var simplesTxt = simples ? 'O perguntas e respostas da Receita, pergunta 10, aplica essa retenção também ao Simples. ' : '';
+      out.avisos.push(base + simplesTxt + 'O crédito dela na tributação mínima anual não entra nesta conta.');
+    }
+  }
+  function aplicarIsencaoSimples(out, dist, contabilidadeCompleta) {
+    out.contabilidadeCompleta = !!contabilidadeCompleta;
+    out.lucroDistribuido = dist.lucro;
+    out.limiteIsencao = dist.limite;
+    out.lucroIsento = dist.isento;
+    out.excedenteTributavel = dist.excedente;
+    if (contabilidadeCompleta) {
+      out.avisos.push('Contabilidade completa marcada: o § 2º do art. 14 da LC nº 123/2006 afasta o limite de 32% da receita menos o DAS.');
+    } else if (dist.excedente > 0) {
+      out.avisos.push('Sem contabilidade completa, a isenção de lucro do Simples fica em 32% da receita menos o DAS (LC nº 123/2006, art. 14, § 1º). O que passa desse limite entra no ajuste anual.');
+    }
+  }
+  function aplicarAjusteProLabore(out, rendimento, regras, incluiExcedente) {
+    var anual = memoriaIrAnual(rendimento, out.inssSegurado, regras);
+    out.irAnualDevido = anual.devido;
+    out.ajusteAnual = round2(anual.devido - out.irProLabore);
+    var assunto = incluiExcedente ? 'o IR do pró-labore e do lucro que passou do limite do Simples' : 'o IR do pró-labore';
+    if (out.ajusteAnual < 0) out.avisos.push('No ajuste anual, ' + assunto + ' fica menor que o retido no mês.');
+    else if (out.ajusteAnual > 0) out.avisos.push('No ajuste anual, ' + assunto + ' fica maior que o retido no mês.');
   }
   function calcPj(input, regras) {
     var regime = input.regime || 'simples-iii';
@@ -138,6 +208,13 @@
       inssSegurado: 0,
       irProLabore: 0,
       irDividendos: 0,
+      ajusteAnual: 0,
+      irAnualDevido: 0,
+      lucroDistribuido: 0,
+      limiteIsencao: null,
+      lucroIsento: null,
+      excedenteTributavel: 0,
+      contabilidadeCompleta: !!input.contabilidadeCompleta,
       fatorR: null,
       aliquotaEfetiva: null,
       valido: true,
@@ -152,7 +229,11 @@
         avisos.push('Receita acima do limite do MEI (R$ 81.000 no ano). O DAS fixo deixa de ser a regra; o desenquadramento não foi recalculado.');
       }
       avisos.push('DAS de serviços: INSS de R$ 81,05 + ISS de R$ 5. ICMS de R$ 1 não entra. O pró-labore não gera outro INSS: o do titular já está no DAS.');
-      out.liquidoEquivalente = round2(receita - out.das - contador);
+      var distMei = isencaoLucroSimples(receita, out.das, 0, contador, regras, input.contabilidadeCompleta);
+      aplicarIsencaoSimples(out, distMei, input.contabilidadeCompleta);
+      aplicarDividendos(out, distMei.lucro, regras, true);
+      aplicarAjusteProLabore(out, distMei.excedente, regras, true);
+      out.liquidoEquivalente = round2(receita - out.das - contador - out.irDividendos - out.ajusteAnual);
       return out;
     }
     var inssSegMensal = round2(Math.min(proMensal, teto) * regras.inssContribuinteIndividual.aliquotaDescontadaPelaEmpresa);
@@ -177,7 +258,11 @@
       if (out.fatorR != null && regime === 'simples-v' && out.fatorR >= regras.simples.fatorR) {
         avisos.push('Fator R de ' + (out.fatorR * 100).toFixed(1).replace('.', ',') + '% alcança 28%. Atividade sujeita ao fator pode ir para o Anexo III.');
       }
-      out.liquidoEquivalente = round2(receita - out.das - contador - out.inssSegurado - out.irProLabore);
+      var dist = isencaoLucroSimples(receita, out.das, proAnual, contador, regras, input.contabilidadeCompleta);
+      aplicarIsencaoSimples(out, dist, input.contabilidadeCompleta);
+      aplicarDividendos(out, dist.lucro, regras, true);
+      aplicarAjusteProLabore(out, round2(proAnual + dist.excedente), regras, true);
+      out.liquidoEquivalente = round2(receita - out.das - contador - out.inssSegurado - out.irProLabore - out.irDividendos - out.ajusteAnual);
       return out;
     }
     var lp = regras.lucroPresumido;
@@ -196,17 +281,17 @@
     out.csll = round2(base * lp.csll);
     out.inssPatronal = round2(proAnual * regras.inssPatronal.aliquota);
     var lucro = receita - out.pis - out.cofins - out.iss - out.irpj - out.csll - out.inssPatronal - contador - proAnual;
-    if (lucro > 0) {
-      var porMes = lucro / 12;
-      if (porMes > regras.dividendosPf.limiteMensal) out.irDividendos = round2(lucro * regras.dividendosPf.aliquotaSobreOTotal);
-    } else if (proAnual > 0) {
+    out.lucroDistribuido = round2(lucro);
+    if (lucro > 0) aplicarDividendos(out, lucro, regras, false);
+    else if (proAnual > 0) {
       avisos.push('O pró-labore e os tributos passam da receita. O líquido fica menor porque a empresa não cobre essa retirada.');
     }
     if ((input.feriasDias || 0) > 0) {
       avisos.push('Com férias sem faturar, o adicional de IRPJ ainda reparte a receita em quatro trimestres iguais.');
     }
     avisos.push('ISS de ' + (issAliq * 100).toFixed(2).replace('.', ',') + '% é a alíquota informada. O padrão de 5% é o teto da LC nº 116/2003, não a alíquota do município.');
-    out.liquidoEquivalente = round2(receita - out.pis - out.cofins - out.iss - out.irpj - out.csll - out.inssPatronal - contador - out.inssSegurado - out.irProLabore - out.irDividendos);
+    aplicarAjusteProLabore(out, proAnual, regras, false);
+    out.liquidoEquivalente = round2(receita - out.pis - out.cofins - out.iss - out.irpj - out.csll - out.inssPatronal - contador - out.inssSegurado - out.irProLabore - out.irDividendos - out.ajusteAnual);
     return out;
   }
   function breakEven(input, regras, alvo) {
@@ -241,6 +326,7 @@
     round2: round2,
     inssEmpregado: inssEmpregado,
     memoriaIrrf: memoriaIrrf,
+    memoriaIrAnual: memoriaIrAnual,
     irrfMensal: irrfMensal,
     irExclusivo: irExclusivo,
     aliquotaEfetiva: aliquotaEfetiva,

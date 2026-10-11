@@ -52,13 +52,14 @@
 
   <div class="panel" id="panel-acoes" role="tabpanel" aria-labelledby="tab-acoes">
     <p class="paneltitle">Mercado comum <button type="button" class="info" aria-expanded="false" aria-controls="tip-acoes" aria-label="Informação sobre ações">i</button></p>
-    <p class="tip" id="tip-acoes" hidden>Prejuízo com sinal de menos. Vendas até R$ 20 mil isentam o lucro das ações.</p>
+    <p class="tip" id="tip-acoes" hidden>Prejuízo com sinal de menos. Vendas até R$ 20 mil isentam o lucro das ações. Uma perda nesse mês não entra no saldo: a Receita não confirmou essa compensação.</p>
     <div class="fields">
       <label>Vendas no mês<input type="number" id="acoesVendas" value="60000" min="0" step="0.01"></label>
       <label>Lucro ou prejuízo<input type="number" id="acoesResultado" value="9967" step="0.01"></label>
       <label>Prejuízo acumulado<input type="number" id="acoesPrejuizo" value="0" min="0" step="0.01"></label>
       <label>IRRF retido<input type="number" id="acoesIrrf" value="3" min="0" step="0.01"></label>
     </div>
+    <p class="hint">Não confirmado: se as vendas de ações do mês ficam até R$ 20 mil, a calculadora não soma uma perda desse mês ao saldo dos meses seguintes. A página de compensações da Receita não trata esse caso.</p>
   </div>
 
   <div class="panel" id="panel-day" role="tabpanel" aria-labelledby="tab-day" hidden>
