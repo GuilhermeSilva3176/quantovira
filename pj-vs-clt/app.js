@@ -49,7 +49,7 @@
     html += linha('13º', c.decimo, 0);
     html += linha('Terço de férias', c.terco, 0);
     html += linha('INSS', -(c.inssAnualSalarios + c.inss13 + c.inssTerco), -(p.inssSegurado + p.inssPatronal));
-    html += linha('IR do trabalho, 13º, férias e pró-labore', -(c.irAnualSalarios + c.ir13 + c.irTerco), -p.irProLabore);
+    html += linha('IR do trabalho, 13º, férias e pró-labore', -(c.irAnualSalarios + c.ir13 + c.irFerias), -p.irProLabore);
     html += linha('Ajuste anual do IR', -c.ajusteAnual, -p.ajusteAnual);
     html += linha('IR da PLR ou dos dividendos', -c.plrIr, -p.irDividendos);
     html += linha('DAS, PIS, COFINS, ISS, IRPJ e CSLL', 0, -impostosPj);

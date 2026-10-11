@@ -124,27 +124,27 @@ Dividendo de empresa no Brasil segue outra lei. A partir de 2026, a regra dele e
 
 ## O que a calculadora faz com esses números
 
-A calculadora [IR de investimentos](/ir-investimentos/) tem a aba Aplicações no exterior. Os campos são o rendimento do ano, as perdas a compensar, o imposto pago fora e a caixa de acordo ou reciprocidade. O resultado **Exterior na declaração anual (15%)** é o imposto depois do abatimento. A tela avisa que isso entra na declaração, e que não é DARF mensal.
+A calculadora [IR de investimentos](/ir-investimentos/) tem a aba Aplicações no exterior. Há três pares de rendimento e imposto pago naquele rendimento, mais as perdas a compensar e a caixa de acordo ou reciprocidade. O resultado **Exterior na declaração anual (15%)** é o imposto depois do abatimento. A tela avisa que isso entra na declaração, e que não é DARF mensal.
 
-Para repetir o exemplo principal:
+Para repetir o exemplo principal, separe a venda do dividendo:
 
-- Rendimentos no ano: 3000
+- Rendimento 1: 2400, imposto pago no rendimento 1: 0
+- Rendimento 2: 600, imposto pago no rendimento 2: 70
 - Perdas a compensar: 800
-- Imposto pago fora: 70
 - Caixa de acordo ou reciprocidade: marcada
 
-A base é R$ 2.200,00. Os 15% são R$ 330,00. O crédito é R$ 70,00. O devido é **R$ 260,00**.
+A base é R$ 2.200,00. Os 15% são R$ 330,00. O crédito do dividendo é R$ 70,00, abaixo do teto de R$ 90,00. O devido é **R$ 260,00**.
+
+Se o imposto pago no rendimento 2 for 120, o art. 4º, § 1º, limita o crédito a R$ 90,00. O devido fica **R$ 240,00**. A tela avisa que o imposto pago passou do IR brasileiro daquele rendimento.
 
 Para a perda que sobra:
 
-- Rendimentos no ano: 500
+- Rendimento 1: 500
 - Perdas a compensar: 1200
-- Imposto pago fora: 0
+- Imposto pago no rendimento 1: 0
 
 O imposto do ano é **R$ 0,00**. A linha Perda no exterior que sobra mostra **R$ 700,00**.
 
-A tela aplica o teto do imposto pago fora sobre os 15% da base inteira. No exemplo de R$ 70,00, esse teto e o teto do art. 4º, § 1º, dão o mesmo crédito. Se o imposto pago sobre o dividendo fosse R$ 120,00, a lei aceitaria só R$ 90,00. A tela, com 120 no campo único, abateria os R$ 120,00 e mostraria R$ 210,00, porque 120 é menor que 330. Para acompanhar a lei, o campo recebe o crédito aceito, R$ 90,00, e o devido fica R$ 240,00.
-
-A tela também não separa o imposto de uma aplicação do imposto de outra, nem compensa a perda que sobrou com lucro de controlada. Cripto marcado como no exterior entra na mesma soma anual de 15%. Para conferir só este exemplo, deixe a aba de cripto no Brasil e em zero.
+Cada crédito para na diferença entre o IR com aquele rendimento e o IR sem ele. O imposto pago num rendimento não reduz o IR de outro. A tela não compensa a perda que sobrou com lucro de controlada. Cripto marcado como no exterior entra na mesma soma anual de 15%, sem imposto pago próprio. Para conferir só este exemplo, deixe a aba de cripto no Brasil e em zero.
 
 Este texto é educativo. Não é recomendação de investimento, nem consultoria financeira, jurídica ou tributária. A lei, a instrução, o manual da declaração e o documento da corretora prevalecem.

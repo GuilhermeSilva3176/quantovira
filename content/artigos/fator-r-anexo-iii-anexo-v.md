@@ -2,12 +2,14 @@
 title: "Simples Nacional Anexo III x Anexo V e o Fator R: como o pró-labore muda o imposto do PJ de tecnologia"
 description: "Com a folha em 28% da receita, o serviço de tecnologia pode ficar no Anexo III. Veja as tabelas da LC 123 e um exemplo com nota de R$ 20 mil."
 date: 2026-10-10
-updated: 2026-10-11
+updated: 2026-10-10
 author: Equipe Quanto Vira
 calculadora: pj-vs-clt
 fontes:
   - nome: Lei Complementar nº 123/2006 (texto consolidado)
     url: https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm
+  - nome: Resolução CGSN nº 140/2018 (texto consolidado)
+    url: https://www.legisweb.com.br/legislacao/?id=360430
   - nome: Lei Complementar nº 214/2025
     url: https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm
   - nome: Decreto nº 3.048/1999
@@ -83,6 +85,8 @@ Na primeira faixa a parcela é zero, e a alíquota efetiva fica igual à nominal
 A nota é R$ 20.000 em cada um dos doze meses. A receita do ano é 20.000 × 12 = **R$ 240.000**. Esse valor está na segunda faixa, de R$ 180.000,01 a R$ 360.000,00. O contador do exemplo é R$ 0. A empresa não tem empregado, então a folha do exemplo é só o pró-labore.
 
 A lei pede os doze meses anteriores. O exemplo, como a calculadora, mede a razão e a faixa na receita do próprio ano simulado, com todos os meses iguais.
+
+Empresa com menos de 13 meses de atividade não mede a folha em doze meses cheios. O art. 26, § 4º, da [Resolução CGSN nº 140/2018](https://www.legisweb.com.br/legislacao/?id=360430) diz: "Na hipótese de a ME ou EPP ter menos de 13 (treze) meses de atividade, adotar-se-ão, para a determinação da folha de salários anualizada, incluídos encargos, os mesmos critérios para a determinação da receita bruta total acumulada, estabelecidos no art. 22, no que couber." O § 6º, no mês de início, fixa o fator r em 0,28 quando há folha e a receita do período é zero, em 0,01 quando há receita e a folha é zero, e na divisão da folha pela receita quando os dois são positivos. O § 7º, nos períodos seguintes, repete esses extremos sobre a folha e a receita dos doze meses anteriores ao período, definidas no § 5º como FS12 e RBT12r. Essa redação foi lida na compilação anotada da LegisWeb, que atribui o § 4º à Resolução CGSN nº 142/2018 e os §§ 5º a 7º à Resolução CGSN nº 145/2019. A página do normas da Receita não abriu nesta revisão. A Resolução CGSN nº 190/2026 muda esses parágrafos a partir de 2027.
 
 ### Pró-labore de R$ 5.600, razão de 28%
 
@@ -217,6 +221,6 @@ Um mês sem nota muda a receita, a faixa e a razão. Trinta dias sem faturar, na
 
 Folha com empregado soma a remuneração e, pelo § 24, a contribuição patronal e o FGTS que tiverem sido recolhidos. Esses valores podem alterar a razão. Distribuição de lucro fica de fora, pelo § 26.
 
-A partir de 1º de janeiro de 2027, o art. 519 da [Lei Complementar nº 214/2025](https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm) manda aplicar aos Anexos I a V da LC nº 123 a redação dos Anexos XVIII a XXII da própria LC nº 214. O art. 544, III, na redação da Lei Complementar nº 227/2026, põe o efeito desse art. 519, e também do art. 517, em 1º de janeiro de 2027. Em 2026 seguem as tabelas deste texto. O art. 517 também reescreve a janela dos §§ 5º-K e 24: a partir de 2027, a folha e a receita da razão passam a ser as dos doze meses anteriores ao mês anterior ao período de apuração. O percentual de 28% dos §§ 5º-J e 5º-M permanece no texto consolidado da LC nº 123.
+A partir de 1º de janeiro de 2027, o art. 519 da [Lei Complementar nº 214/2025](https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm) manda aplicar aos Anexos I a V da LC nº 123 a redação dos Anexos XVIII a XXII da própria LC nº 214. O art. 544, III, na redação da Lei Complementar nº 227/2026, põe o efeito desse art. 519, e também do art. 517, em 1º de janeiro de 2027. Em 2026 seguem as tabelas deste texto. O art. 517 também reescreve a janela dos §§ 5º-K e 24: a partir de 2027, a folha e a receita da razão passam a ser as dos doze meses anteriores ao mês anterior ao período de apuração. O percentual de 28% dos §§ 5º-J e 5º-M permanece no texto consolidado da LC nº 123. Na mesma data, a compilação da Resolução CGSN nº 140 passa a redação da Resolução CGSN nº 190/2026: a anualização da folha vale para quem tem mais de 2 e menos de 14 meses, e o fator r dos dois primeiros meses de atividade fica em 0,28. Em 2026 segue o texto dos §§ 4º a 7º citado no exemplo.
 
 **Aviso.** Este texto é um exemplo para estudar a conta. Não é recomendação de investimento, nem recomendação para fixar pró-labore, escolher anexo ou mudar de regime. A atividade, os doze meses anteriores e o PGDAS-D fecham o caso real.

@@ -2,7 +2,7 @@
 title: "FIRE para PJ: a escolha entre PJ e CLT encurta o caminho?"
 description: "Com salário e nota de R$ 8 mil, gasto de R$ 6 mil e a meta de 3,5% do simulador, o exemplo mostra o que sobra para investir em cada regime."
 date: 2026-10-10
-updated: 2026-10-11
+updated: 2026-10-10
 author: Equipe Quanto Vira
 calculadora: simulador-fire
 fontes:
@@ -28,6 +28,8 @@ fontes:
     url: https://www.planalto.gov.br/ccivil_03/leis/l4090.htm
   - nome: Constituição Federal, art. 7º
     url: https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm
+  - nome: Decreto nº 9.580/2018 (RIR/2018), art. 682
+    url: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9580.htm
 ---
 
 Um salário de R$ 8.000,00 como CLT, no exemplo deste texto, deixa R$ 6.040,64 no mês depois de INSS e Imposto de Renda. Quem gasta R$ 6.000,00 guarda R$ 40,64 desse mês. A nota de R$ 8.000,00 como PJ, no Simples Nacional do Anexo III e com escrituração contábil completa, deixa R$ 7.273,60 por mês, e o que passa do mesmo gasto é R$ 1.273,60. Sem essa escrituração, o art. 14, § 1º, reduz o ano, e o que passa do gasto fica em R$ 13.829,24. A nota de R$ 14.000,00 que já vem na calculadora [PJ x CLT](/pj-vs-clt/) deixa R$ 6.728,80 por mês acima desse gasto quando a escrituração afasta o limite, e R$ 65.085,26 no ano quando o limite se aplica.
@@ -95,9 +97,7 @@ O limite do desconto simplificado mensal é R$ 607,20. A dedução por dependent
 
 O art. 3º-A da Lei nº 9.250/1995, incluído pela Lei nº 15.270/2025, zera o imposto até R$ 5.000,00 de rendimentos tributáveis no mês e diminui o imposto entre R$ 5.000,01 e R$ 7.350,00. O salário de R$ 8.000,00 passa de R$ 7.350,00. O § 2º deixa essa faixa sem redução. A conta dessa redução, em salários que cabem nela, está em [Isenção de IR até R$ 5 mil em 2026](/artigos/isencao-ir-5-mil-2026-clt-pro-labore/).
 
-Líquido do mês: 8.000,00 − 921,51 − 1.037,85 = **R$ 6.040,64**.
-
-Doze meses: 6.040,64 × 12 = **R$ 72.487,68**.
+Líquido de um mês comum: 8.000,00 − 921,51 − 1.037,85 = **R$ 6.040,64**. Onze meses usam essa conta. O mês das férias entra abaixo, com o salário e o terço no mesmo pagamento.
 
 ### 13º e terço de férias
 
@@ -115,11 +115,23 @@ A página do INSS separa o 13º do salário do mês. O terço de férias não re
 
 Em mês separado, a parcela teria INSS de R$ 215,69: 1.621,00 × 7,5% = 121,575, e 1.045,67 × 9% = 94,1103, que somam 215,6853. Em separado, 921,51 + 215,69 = R$ 1.137,20. A diferença para o teto é 1.137,20 − 988,09 = **R$ 149,11**. A soma do ano usa os R$ 66,58.
 
-No Imposto de Renda, o INSS de R$ 66,58 perde para o desconto simplificado de R$ 607,20.
+O [Decreto nº 9.580/2018, art. 682, § 1º](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9580.htm), manda calcular o IR das férias à parte dos outros rendimentos do mês. A base é o salário de férias mais o terço, não o terço sozinho.
 
-2.666,67 − 607,20 = 2.059,47. Esse valor está na faixa até R$ 2.428,80, de alíquota zero. O rendimento também está até R$ 5.000,00, onde a redução zera o imposto. O IR do terço é **R$ 0**.
+8.000,00 + 2.666,67 = **R$ 10.666,67**.
 
-Líquido do terço: 2.666,67 − 66,58 = **R$ 2.600,09**.
+O INSS dessa soma para no teto, **R$ 988,09**. Ele é maior que o desconto simplificado de R$ 607,20, então a dedução é o INSS.
+
+10.666,67 − 988,09 = 9.678,58. A faixa é a de 27,5%.
+
+9.678,58 × 27,5% = 2.661,6095.
+
+2.661,6095 − 908,73 = 1.752,8795, que fecha em **R$ 1.752,88**.
+
+O pagamento passa de R$ 7.350. A redução mensal da Lei nº 15.270 seria zero. A página de exemplos dessa lei não fala de férias, e o uso da redução nesse cálculo separado não foi confirmado. Neste exemplo o valor é zero de qualquer forma.
+
+Líquido das férias: 10.666,67 − 988,09 − 1.752,88 = **R$ 7.925,70**.
+
+Os outros onze meses: 6.040,64 × 11 = **R$ 66.447,04**.
 
 ### FGTS e caixa
 
@@ -129,13 +141,13 @@ A base junta doze salários, o 13º e o terço: 96.000,00 + 8.000,00 + 2.666,67 
 
 8% de 106.666,67 = 8.533,3336, que fecha em **R$ 8.533,33**.
 
-Caixa, depois de INSS e IR mensais: 72.487,68 + 6.040,64 + 2.600,09 = **R$ 81.128,41**.
+Caixa, depois de INSS e IR no ano: 66.447,04 + 6.040,64 + 7.925,70 = **R$ 80.413,38**.
 
 O ajuste anual olha os doze salários e o terço: 96.000,00 + 2.666,67 = **R$ 98.666,67**. O 13º tem cobrança exclusiva na fonte e fica de fora. O desconto simplificado anual é 20% dos rendimentos, limitado a R$ 17.640. Vinte por cento de R$ 98.666,67 passam do teto, então o desconto é **R$ 17.640**. O INSS desses rendimentos é 921,51 × 12 + 66,58 = **R$ 11.124,70**, menor que o desconto. A base fica em 98.666,67 − 17.640 = R$ 81.026,67. Na faixa de 27,5% da [tabela anual](https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026), o imposto é 81.026,67 × 27,5% − 10.904,66 = **R$ 11.377,67**. A renda passa de R$ 88.200, então a redução anual não se aplica.
 
-A fonte reteve 1.037,85 × 12 = **R$ 12.454,20**. O IR do terço foi zero. A restituição é 12.454,20 − 11.377,67 = **R$ 1.076,53**.
+A fonte reteve 1.037,85 × 11 + 1.752,88 = **R$ 13.169,23**. A restituição é 13.169,23 − 11.377,67 = **R$ 1.791,56**. Ela chega no ano seguinte.
 
-Caixa, com a restituição: 81.128,41 + 1.076,53 = **R$ 82.204,94**.
+Caixa do ano-calendário, antes dessa restituição: **R$ 80.413,38**. Com a restituição, 80.413,38 + 1.791,56 = **R$ 82.204,94**. O que a fonte retém a mais nas férias volta no ajuste, então o líquido do ano, já com a devolução, não muda.
 
 Com o FGTS: 82.204,94 + 8.533,33 = **R$ 90.738,27**.
 
@@ -179,9 +191,9 @@ O art. 6º-A da Lei nº 9.250/1995, incluído pela Lei nº 15.270/2025, retém 1
 
 O gasto do ano é R$ 72.000,00. Cada regime guarda o que passa disso.
 
-No CLT, o mês deixa 6.040,64 − 6.000,00 = **R$ 40,64**. Em doze meses, 40,64 × 12 = **R$ 487,68**. O 13º líquido de R$ 6.040,64, o terço de R$ 2.600,09 e a restituição de R$ 1.076,53 entram por cima, se o gasto continuar em R$ 6.000,00.
+No CLT, um mês comum deixa 6.040,64 − 6.000,00 = **R$ 40,64**. Em onze meses, 40,64 × 11 = **R$ 447,04**. O mês das férias deixa 7.925,70 − 6.000,00 = **R$ 1.925,70**. O 13º líquido de R$ 6.040,64 entra por cima, se o gasto continuar em R$ 6.000,00. A soma desses três é 447,04 + 1.925,70 + 6.040,64 = **R$ 8.413,38**. É o que dá para aplicar no ano em que a restituição ainda não chegou.
 
-82.204,94 − 72.000,00 = **R$ 10.204,94** no ano. É o caixa com a restituição menos os R$ 72.000,00. Sem a restituição e ainda com o INSS separado do terço, o aporte seria R$ 8.979,30. A restituição sozinha o levaria a R$ 10.055,83. O teto do INSS acrescenta os R$ 149,11 que faltam até R$ 10.204,94.
+80.413,38 − 72.000,00 = **R$ 8.413,38**. Com a restituição de R$ 1.791,56, que entra no ano seguinte, o aporte fica em 8.413,38 + 1.791,56 = **R$ 10.204,94**. Sem o teto do INSS, o ano perderia os R$ 149,11 e ficaria em R$ 10.055,83 já com a restituição. A soma de 65 anos mais abaixo usa os R$ 10.204,94 em todos os anos: ela conta a restituição no mesmo ano em que o imposto foi retido. O primeiro ano, sozinho, fica R$ 1.791,56 abaixo disso. Do segundo ano em diante, a restituição do ano anterior repõe esse valor.
 
 O FGTS de R$ 8.533,33 fica na conta vinculada. Somado ao caixa, 90.738,27 − 72.000,00 = **R$ 18.738,27**. O simulador não tem campo de FGTS. O aporte da tela é dinheiro que dá para aplicar.
 

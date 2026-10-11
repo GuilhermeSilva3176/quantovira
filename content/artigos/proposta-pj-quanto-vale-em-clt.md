@@ -2,7 +2,7 @@
 title: "Proposta de R$ 10 mil como PJ: quanto ela vale em CLT?"
 description: "Exemplo de um ano com 13º, férias, FGTS, INSS e IR de 2026 para comparar uma nota de R$ 10 mil com um salário CLT."
 date: 2026-10-10
-updated: 2026-10-11
+updated: 2026-10-10
 author: Equipe Quanto Vira
 calculadora: pj-vs-clt
 fontes:
@@ -10,6 +10,8 @@ fontes:
     url: https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm
   - nome: "Constituição Federal, art. 7º"
     url: https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm
+  - nome: "Decreto nº 9.580/2018 (RIR/2018), art. 682"
+    url: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9580.htm
   - nome: "Lei nº 4.090/1962 (13º salário)"
     url: https://www.planalto.gov.br/ccivil_03/leis/l4090.htm
   - nome: "Lei nº 8.036/1990 (FGTS)"
@@ -32,7 +34,7 @@ fontes:
     url: https://www.planalto.gov.br/ccivil_03/decreto/d3048compilado.htm
 ---
 
-Uma nota de R$ 10.000 por mês como PJ, com escrituração contábil completa, deixa R$ 109.104 no ano. Sem essa escrituração, o art. 14, § 1º, da Lei Complementar nº 123/2006 deixa R$ 48.000 do lucro fora da isenção, e o ano do PJ cai para R$ 102.687,47. Um CLT de R$ 10.000, com o INSS do terço no teto e a restituição do ajuste anual, chega a R$ 100.757,60 no caixa e a R$ 111.424,27 com o FGTS.
+Uma nota de R$ 10.000 por mês como PJ, com escrituração contábil completa, deixa R$ 109.104 no ano. Sem essa escrituração, o art. 14, § 1º, da Lei Complementar nº 123/2006 deixa R$ 48.000 do lucro fora da isenção, e o ano do PJ cai para R$ 102.687,47. Um CLT de R$ 10.000, com o INSS do terço no teto, fica com R$ 99.167,35 no caixa do ano. A restituição de R$ 1.590,25 chega no ano seguinte e leva esse caixa a R$ 100.757,60. Com o FGTS, R$ 111.424,27.
 
 Esse desenho é um só: Simples Nacional no Anexo III, pró-labore de R$ 2.800, doze notas no ano, contador de R$ 0, e um CLT sem vale-refeição, plano de saúde nem PLR. Contador de R$ 0 não garante a escrituração do § 2º. Outro regime ou um benefício muda o ano. Dá para trocar os valores na calculadora [PJ x CLT](/pj-vs-clt/).
 
@@ -87,9 +89,9 @@ Base: 10.000,00 − 988,09 = 9.011,91. A faixa é a de 27,5%.
 
 A redução do art. 3º-A da Lei nº 9.250/1995, incluído pela Lei nº 15.270/2025, zera o imposto quando os rendimentos tributáveis do mês ficam até R$ 5.000, e diminui o imposto entre R$ 5.000,01 e R$ 7.350, pela conta R$ 978,62 − (0,133145 × rendimentos). O salário de R$ 10.000 passa de R$ 7.350. O § 2º deixa essa faixa sem redução. O imposto do mês permanece R$ 1.569,55.
 
-Líquido do mês: 10.000,00 − 988,09 − 1.569,55 = **R$ 7.442,36**.
+Líquido de um mês comum: 10.000,00 − 988,09 − 1.569,55 = **R$ 7.442,36**.
 
-Doze meses: 7.442,36 × 12 = **R$ 89.308,32**.
+Onze meses usam esse líquido. O mês das férias entra em seguida, com o salário e o terço no mesmo pagamento.
 
 ### 13º
 
@@ -101,25 +103,31 @@ O § 3º do art. 3º-A manda usar a mesma redução no 13º. O rendimento també
 
 Líquido do 13º: 10.000,00 − 988,09 − 1.569,55 = **R$ 7.442,36**.
 
-### Terço de férias
+### Férias com o terço
 
 10.000,00 ÷ 3 = 3.333,333..., que fecha em **R$ 3.333,33**.
 
-A página do INSS manda calcular o 13º em separado do salário do mês. O terço de férias não recebe essa regra na mesma página. Se o terço sair no mesmo mês do salário, o teto de R$ 8.475,55 vale para a soma. O salário de R$ 10.000 já está nesse teto, e o INSS do mês é R$ 988,09. O INSS extra do terço é **R$ 0**. A calculadora [PJ x CLT](/pj-vs-clt/) usa essa diferença.
+O [Decreto nº 9.580/2018, art. 682, § 1º](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9580.htm), manda calcular o IR das férias à parte dos outros rendimentos do mês. A base é o valor das férias pago ao empregado, mais o abono de um terço da Constituição. Não é o terço sozinho.
 
-Em mês separado, a mesma parcela teria INSS de R$ 288,60: 1.621,00 × 7,5% = 121,575, 1.281,84 × 9% = 115,3656, e 430,49 × 12% = 51,6588, que somam 288,5994. A soma do ano não usa esses R$ 288,60.
+Salário de férias mais terço: 10.000,00 + 3.333,33 = **R$ 13.333,33**.
 
-No Imposto de Renda, o desconto simplificado de R$ 607,20 é a dedução, porque não há INSS extra nesta parcela. A base usa o desconto simplificado.
+A página do INSS manda calcular o 13º em separado do salário do mês. O terço de férias não recebe essa regra na mesma página. Se o terço sair no mesmo mês do salário, o teto de R$ 8.475,55 vale para a soma. O salário de R$ 10.000 já está nesse teto, e o INSS do mês é R$ 988,09. O INSS da soma também para em **R$ 988,09**. O INSS extra do terço é **R$ 0**. A calculadora [PJ x CLT](/pj-vs-clt/) usa essa diferença.
 
-3.333,33 − 607,20 = 2.726,13. A faixa é a de 7,5%, com parcela de R$ 182,16.
+Em mês separado, a parcela do terço teria INSS de R$ 288,60: 1.621,00 × 7,5% = 121,575, 1.281,84 × 9% = 115,3656, e 430,49 × 12% = 51,6588, que somam 288,5994. A soma do ano não usa esses R$ 288,60.
 
-2.726,13 × 7,5% = 204,45975.
+No Imposto de Renda, o INSS de R$ 988,09 é a dedução, porque passa do desconto simplificado de R$ 607,20.
 
-204,45975 − 182,16 = 22,29975, que fecha em R$ 22,30.
+13.333,33 − 988,09 = 12.345,24. A faixa é a de 27,5%, com parcela de R$ 908,73.
 
-O rendimento de R$ 3.333,33 está até R$ 5.000. A redução zera o imposto e fica limitada aos R$ 22,30 da tabela. O IR do terço é **R$ 0**.
+12.345,24 × 27,5% = 3.394,941.
 
-Líquido do terço: 3.333,33 − 0 = **R$ 3.333,33**.
+3.394,941 − 908,73 = 2.486,211, que fecha em **R$ 2.486,21**.
+
+O pagamento passa de R$ 7.350. A redução mensal da Lei nº 15.270 seria zero. A página de exemplos dessa lei não fala de férias, e o uso da redução nesse cálculo separado não foi confirmado. Neste exemplo o valor é zero de qualquer forma.
+
+Líquido das férias: 13.333,33 − 988,09 − 2.486,21 = **R$ 9.859,03**.
+
+Os outros onze meses seguem o líquido de R$ 7.442,36: 7.442,36 × 11 = **R$ 81.865,96**.
 
 ### FGTS
 
@@ -133,13 +141,13 @@ A base junta doze salários, o 13º e o terço.
 
 ### Soma do ano
 
-Depois de INSS e IR mensais: 89.308,32 + 7.442,36 + 3.333,33 = **R$ 100.084,01**.
+Depois de INSS e IR no ano: 81.865,96 + 7.442,36 + 9.859,03 = **R$ 99.167,35**.
 
 O ajuste anual entra em seguida. Os rendimentos sujeitos a ele são os doze salários e o terço, 120.000 + 3.333,33 = **R$ 123.333,33**. O 13º tem cobrança exclusiva na fonte e fica de fora. O desconto simplificado anual é 20% dos rendimentos, limitado a R$ 17.640. Vinte por cento de R$ 123.333,33 passam do teto, então o desconto é **R$ 17.640**. O INSS desses mesmos rendimentos é 988,09 × 12 = **R$ 11.857,08**, menor que o desconto. A base fica em 123.333,33 − 17.640 = R$ 105.693,33. Na faixa de 27,5% da [tabela anual](https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026), o imposto é 105.693,33 × 27,5% − 10.904,66 = **R$ 18.161,01**. A renda passa de R$ 88.200, então a redução anual não se aplica.
 
-A fonte reteve 1.569,55 × 12 = **R$ 18.834,60**. O IR do terço foi zero. A restituição é 18.834,60 − 18.161,01 = **R$ 673,59**.
+A fonte reteve 1.569,55 × 11 + 2.486,21 = **R$ 19.751,26**. A restituição é 19.751,26 − 18.161,01 = **R$ 1.590,25**. Ela chega no ano seguinte.
 
-Caixa, com a restituição: 100.084,01 + 673,59 = **R$ 100.757,60**.
+Caixa do ano-calendário, antes dessa restituição: **R$ 99.167,35**. Com a restituição, 99.167,35 + 1.590,25 = **R$ 100.757,60**. O que a fonte retém a mais nas férias volta no ajuste, então o líquido do ano, já com a devolução, não muda.
 
 Com o FGTS: 100.757,60 + 10.666,67 = **R$ 111.424,27**.
 
@@ -202,9 +210,9 @@ Os anos, neste desenho:
 
 Com escrituração, o FGTS põe o CLT R$ 2.320,27 acima da proposta: 111.424,27 − 109.104,00. No dinheiro que dá para gastar, a proposta fica R$ 8.346,40 acima do CLT: 109.104,00 − 100.757,60. O FGTS de R$ 10.666,67 continua sendo a parcela que inverte a ordem, e ele permanece na conta vinculada.
 
-Sem escrituração, o caixa do PJ fica em R$ 102.687,47, R$ 1.929,87 acima do caixa do CLT: 102.687,47 − 100.757,60. Com o FGTS, o CLT fica R$ 8.736,80 acima: 111.424,27 − 102.687,47. O limite do § 1º encolhe a vantagem do PJ no caixa e amplia a do CLT quando o depósito entra na comparação.
+Sem escrituração, o caixa do PJ fica em R$ 102.687,47. Já com a restituição do ano seguinte, isso é R$ 1.929,87 acima do caixa do CLT: 102.687,47 − 100.757,60. No ano-calendário, antes dessa restituição, a diferença é 102.687,47 − 99.167,35 = **R$ 3.520,12**. Com o FGTS, o CLT fica R$ 8.736,80 acima: 111.424,27 − 102.687,47. O limite do § 1º encolhe a vantagem do PJ no caixa e amplia a do CLT quando o depósito entra na comparação.
 
-O salário CLT que alcança os R$ 109.104 com FGTS, já com o teto do INSS no terço e com a restituição, é **R$ 9.783,83**. O INSS continua no teto, R$ 988,09. A base do IR mensal é 9.783,83 − 988,09 = 8.795,74. A faixa de 27,5% dá 8.795,74 × 27,5% − 908,73 = 1.510,0985, que fecha em R$ 1.510,10. O rendimento passa de R$ 7.350, então a redução mensal para. O líquido do mês é 9.783,83 − 988,09 − 1.510,10 = R$ 7.285,64. O terço é 9.783,83 ÷ 3 = R$ 3.261,28, sem INSS extra e com IR zero. O ajuste anual devolve R$ 693,37. O caixa fica em R$ 98.667,97 e o FGTS em R$ 10.436,09. A soma é **R$ 109.104,06**, seis centavos acima da proposta com escrituração. O salário de R$ 9.783,82 fecha o ano em R$ 109.103,93.
+O salário CLT que alcança os R$ 109.104 com FGTS, já com o teto do INSS no terço e com a restituição do ano seguinte, é **R$ 9.783,83**. O INSS continua no teto, R$ 988,09. A base do IR mensal é 9.783,83 − 988,09 = 8.795,74. A faixa de 27,5% dá 8.795,74 × 27,5% − 908,73 = 1.510,0985, que fecha em R$ 1.510,10. O rendimento passa de R$ 7.350, então a redução mensal para. O líquido do mês é 9.783,83 − 988,09 − 1.510,10 = R$ 7.285,64. O terço é 9.783,83 ÷ 3 = R$ 3.261,28, sem INSS extra. As férias com o terço são 9.783,83 + 3.261,28 = R$ 13.045,11. O IR desse pagamento é (13.045,11 − 988,09) × 27,5% − 908,73 = R$ 2.406,95. A fonte retém 1.510,10 × 11 + 2.406,95 = R$ 19.018,05. O ajuste devolve **R$ 1.590,22** no ano seguinte. O caixa do ano-calendário fica em R$ 97.077,75. Com a restituição, R$ 98.667,97. O FGTS é R$ 10.436,09. A soma é **R$ 109.104,06**, seis centavos acima da proposta com escrituração. O salário de R$ 9.783,82 fecha o ano em R$ 109.103,93.
 
 Para o seu número, abra a calculadora [PJ x CLT](/pj-vs-clt/) e preencha o salário, a nota, o regime, o pró-labore, o contador, a contabilidade completa e os dias sem faturar. Sem a opção marcada, a tela usa o limite do § 1º.
 

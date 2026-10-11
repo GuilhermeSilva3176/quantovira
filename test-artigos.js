@@ -70,6 +70,9 @@ t('front matter lê fontes, rascunho e autor padrão', () => {
   assert.strictEqual(lido.data.fontes[1].nome, 'Banco Central');
   assert.strictEqual(B.validar('quanto-guardar', lido.data).author, B.AUTOR_PADRAO);
   assert.strictEqual(B.dataPt('2026-10-10'), '10 de outubro de 2026');
+  assert.strictEqual(B.hojeSaoPaulo(new Date('2026-10-11T02:07:00Z')), '2026-10-10');
+  assert.strictEqual(B.hojeSaoPaulo(new Date('2026-10-11T03:00:00Z')), '2026-10-11');
+  assert.strictEqual(B.dataComFuso('2026-10-10'), '2026-10-10T00:00:00-03:00');
   assert.strictEqual(B.parseFrontMatter(rascunho).data.draft, true);
 });
 
@@ -114,7 +117,8 @@ t('o build publica o artigo, ignora o rascunho e é idempotente', () => {
   assert.ok(!pj.includes('quanto-guardar'));
   const mapa = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
   assert.ok(mapa.includes('https://quantovira.com.br/artigos/'));
-  assert.ok(mapa.includes('https://quantovira.com.br/artigos/quanto-guardar/</loc><lastmod>2026-10-12</lastmod>'));
+  assert.ok(mapa.includes('https://quantovira.com.br/artigos/quanto-guardar/</loc><lastmod>2026-10-12T00:00:00-03:00</lastmod>'));
+  assert.ok(paginaArtigo.includes('article:modified_time" content="2026-10-12T00:00:00-03:00"'));
   assert.ok(mapa.includes('https://quantovira.com.br/simulador-fire/'));
   assert.ok(!mapa.includes('escondido'));
   const antes = fs.readFileSync(path.join(root, 'artigos', 'quanto-guardar', 'index.html'), 'utf8');
