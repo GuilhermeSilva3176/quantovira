@@ -4,7 +4,7 @@ const OG_IMAGE = SITE + '/assets/og.png';
 const OG_IMAGE_ALT = 'Quanto Vira — calculadoras financeiras gratuitas para o Brasil';
 
 const NAV =
-  '<a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a>';
+  '<a href="/ferramentas/">Ferramentas</a><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a>';
 
 const HEADER =
   '<header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a><nav>'
@@ -64,7 +64,7 @@ function orgWebSiteJsonLd() {
         '@id': SITE + '/#website',
         url: SITE + '/',
         name: 'Quanto Vira',
-        description: 'Calculadoras financeiras gratuitas: FIRE, PJ x CLT e IR de investimentos.',
+        description: 'Calculadoras financeiras gratuitas: renda fixa, ações, FIRE, PJ x CLT e IR de investimentos.',
         publisher: { '@id': SITE + '/#organization' },
         inLanguage: 'pt-BR'
       }

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Comparador CDB, LCI, Tesouro e poupança | Quanto Vira</title>
+<meta name="description" content="Compare renda fixa no mesmo prazo: líquido de IR regressivo e rentabilidade real após a inflação.">
+<link rel="canonical" href="https://quantovira.com.br/renda-fixa/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+<meta property="og:title" content="Comparador CDB, LCI, Tesouro e poupança | Quanto Vira">
+<meta property="og:description" content="Compare renda fixa no mesmo prazo: líquido de IR regressivo e rentabilidade real após a inflação.">
+<meta property="og:url" content="https://quantovira.com.br/renda-fixa/">
+<meta property="og:site_name" content="Quanto Vira">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://quantovira.com.br/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quanto Vira — calculadoras financeiras gratuitas para o Brasil">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Comparador CDB, LCI, Tesouro e poupança | Quanto Vira">
+<meta name="twitter:description" content="Compare renda fixa no mesmo prazo: líquido de IR regressivo e rentabilidade real após a inflação.">
+<meta name="twitter:image" content="https://quantovira.com.br/assets/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Comparador de renda fixa","url":"https://quantovira.com.br/renda-fixa/","description":"CDB, LCI/LCA, Tesouro e poupança com imposto e inflação.","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"isAccessibleForFree":true,"inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Quanto Vira","url":"https://quantovira.com.br/"}}</script>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a><nav><a href="/ferramentas/">Ferramentas</a><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a></nav></div></header>
+<main class="wrap">
+<h1>Comparador de renda fixa</h1>
+<p class="lead">CDB, LCI/LCA, Tesouro e poupança no mesmo prazo — com imposto de renda e ganho real depois da inflação.</p>
+<div class="grid formwide">
+<form id="f" class="card">
+  <h2>Investimento</h2>
+  <label>Valor aplicado (R$)<input type="number" id="valor" value="50000" min="0" step="1000"></label>
+  <label>Prazo (dias)<input type="number" id="dias" value="400" min="1" max="3650" step="1"></label>
+  <label>CDB (% do CDI)<input type="number" id="pctCdiCdb" value="100" min="0" max="200" step="1"></label>
+  <label>LCI/LCA (% do CDI)<input type="number" id="pctCdiLci" value="90" min="0" max="200" step="1"></label>
+  <label>Tesouro (% ao ano)<input type="number" id="tesouroAa" value="11" min="0" max="30" step="0.1"></label>
+  <p class="hint" id="taxasHint">Carregando taxas de referência…</p>
+  <button type="submit">Comparar</button>
+  <button type="button" id="copy" class="sec">Copiar link</button>
+  <p class="hint" id="copyMsg" aria-live="polite"></p>
+</form>
+<section class="card">
+  <h2>Quanto sobra líquido</h2>
+  <div class="tablewrap">
+  <table class="cmp">
+    <thead><tr><th>Opção</th><th>Ganho líquido</th><th>Total</th><th>Real*</th></tr></thead>
+    <tbody id="linhas"></tbody>
+  </table>
+  </div>
+  <p class="hint">* Rentabilidade real no período, descontando IPCA de 12 meses. IR regressivo de 2026 no CDB e no Tesouro; LCI/LCA isentas para pessoa física.</p>
+</section>
+</div>
+<article class="card article">
+  <h2>Como usar</h2>
+  <ol class="steps">
+    <li>Digite o valor e por quantos dias o dinheiro ficaria aplicado.</li>
+    <li>Ajuste o percentual do CDI do CDB e da LCI/LCA, e a taxa ao ano do Tesouro.</li>
+    <li>A poupança usa a regra vigente (Selic e TR). As taxas de mercado vêm de fontes públicas atualizadas na calculadora.</li>
+  </ol>
+  <p class="byline">Por Equipe Quanto Vira</p>
+  <p class="disclaimer"><strong>Aviso:</strong> simulação educativa. Não considera IOF, taxas de custódia nem spread de compra e venda.</p>
+</article>
+</main>
+<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>
+<script src="/assets/tool-params.js" defer></script>
+<script src="/assets/ferramentas.js" defer></script>
+<script src="/renda-fixa/app.js" defer></script>
+</body>
+</html>

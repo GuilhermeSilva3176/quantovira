@@ -10,7 +10,7 @@ const PAGES = [
   {
     file: 'index.html',
     title: 'Quanto Vira | Calculadoras financeiras gratuitas para o Brasil',
-    description: 'Simulador FIRE com dados históricos, comparador PJ x CLT e calculadora de IR de investimentos — gratuito, sem cadastro e sem rastreamento.',
+    description: 'Calculadoras de juros compostos, renda fixa, ações, FIRE, PJ x CLT e IR — gratuito, sem cadastro e sem rastreamento.',
     canonical: S.SITE + '/',
     ogType: 'website',
     jsonLd: S.orgWebSiteJsonLd()
@@ -39,6 +39,115 @@ const PAGES = [
       name: 'Comparador PJ x CLT',
       url: S.SITE + '/pj-vs-clt/',
       description: 'Compare quanto sobra no ano como empregado CLT e como PJ com as regras tributárias de 2026.'
+    })
+  },
+  {
+    file: 'ferramentas/index.html',
+    title: 'Calculadoras e ferramentas | Quanto Vira',
+    description: 'Hub de calculadoras: renda fixa, ações, impostos, carreira e planejamento financeiro com regras do Brasil.',
+    canonical: S.SITE + '/ferramentas/',
+    ogType: 'website',
+    ogDescription: 'Juros compostos, comparador de renda fixa, preço teto, FIRE, PJ x CLT e mais — tudo gratuito.',
+    jsonLd: S.webAppJsonLd({
+      name: 'Ferramentas Quanto Vira',
+      url: S.SITE + '/ferramentas/',
+      description: 'Hub de calculadoras financeiras educativas para o Brasil.'
+    })
+  },
+  {
+    file: 'juros-compostos/index.html',
+    title: 'Calculadora de juros compostos com aportes | Quanto Vira',
+    description: 'Simule quanto um valor inicial e aportes mensais podem virar com juros compostos. Gratuito, com link para compartilhar.',
+    canonical: S.SITE + '/juros-compostos/',
+    ogType: 'website',
+    jsonLd: S.webAppJsonLd({
+      name: 'Juros compostos',
+      url: S.SITE + '/juros-compostos/',
+      description: 'Calculadora de juros compostos com aportes mensais.'
+    })
+  },
+  {
+    file: 'renda-fixa/index.html',
+    title: 'Comparador CDB, LCI, Tesouro e poupança | Quanto Vira',
+    description: 'Compare renda fixa no mesmo prazo: líquido de IR regressivo e rentabilidade real após a inflação.',
+    canonical: S.SITE + '/renda-fixa/',
+    ogType: 'website',
+    jsonLd: S.webAppJsonLd({
+      name: 'Comparador de renda fixa',
+      url: S.SITE + '/renda-fixa/',
+      description: 'CDB, LCI/LCA, Tesouro e poupança com imposto e inflação.'
+    })
+  },
+  {
+    file: 'poupanca/index.html',
+    title: 'Simulador de poupança 2026 | Quanto Vira',
+    description: 'Calcule o rendimento da poupança com a regra da Selic e da TR — acima ou abaixo de 8,5% ao ano.',
+    canonical: S.SITE + '/poupanca/',
+    ogType: 'website',
+    jsonLd: S.webAppJsonLd({
+      name: 'Simulador de poupança',
+      url: S.SITE + '/poupanca/',
+      description: 'Simulador da poupança com regras oficiais de remuneração.'
+    })
+  },
+  {
+    file: 'preco-teto/index.html',
+    title: 'Preço teto Bazin e Graham | Quanto Vira',
+    description: 'Calcule preço teto por dividendos (Bazin) e por lucro e patrimônio (Graham). Rendimento editável.',
+    canonical: S.SITE + '/preco-teto/',
+    ogType: 'website',
+    jsonLd: S.webAppJsonLd({
+      name: 'Preço teto',
+      url: S.SITE + '/preco-teto/',
+      description: 'Preço teto Bazin e Graham para ações.'
+    })
+  },
+  {
+    file: 'preco-medio/index.html',
+    title: 'Calculadora de preço médio | Quanto Vira',
+    description: 'Média de preço em várias compras do mesmo ativo. Quantidade total e custo.',
+    canonical: S.SITE + '/preco-medio/',
+    ogType: 'website',
+    jsonLd: S.webAppJsonLd({
+      name: 'Preço médio',
+      url: S.SITE + '/preco-medio/',
+      description: 'Calculadora de preço médio de ações.'
+    })
+  },
+  {
+    file: 'dividend-yield/index.html',
+    title: 'Calculadora de dividend yield | Quanto Vira',
+    description: 'Dividendos do ano divididos pelo preço da ação, em percentual.',
+    canonical: S.SITE + '/dividend-yield/',
+    ogType: 'website',
+    jsonLd: S.webAppJsonLd({
+      name: 'Dividend yield',
+      url: S.SITE + '/dividend-yield/',
+      description: 'Calculadora de dividend yield.'
+    })
+  },
+  {
+    file: 'rentabilidade-real/index.html',
+    title: 'Rentabilidade real (Fisher) | Quanto Vira',
+    description: 'Converta rentabilidade nominal em real descontando a inflação com a fórmula de Fisher.',
+    canonical: S.SITE + '/rentabilidade-real/',
+    ogType: 'website',
+    jsonLd: S.webAppJsonLd({
+      name: 'Rentabilidade real',
+      url: S.SITE + '/rentabilidade-real/',
+      description: 'Rentabilidade real com equação de Fisher.'
+    })
+  },
+  {
+    file: 'taxa-equivalente/index.html',
+    title: 'Taxa mensal e anual equivalente | Quanto Vira',
+    description: 'Converta taxa mensal em anual e vice-versa com juros compostos.',
+    canonical: S.SITE + '/taxa-equivalente/',
+    ogType: 'website',
+    jsonLd: S.webAppJsonLd({
+      name: 'Taxa equivalente',
+      url: S.SITE + '/taxa-equivalente/',
+      description: 'Conversão entre taxa mensal e anual.'
     })
   },
   {

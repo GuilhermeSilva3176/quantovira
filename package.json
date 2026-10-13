@@ -2,7 +2,7 @@
   "name": "quantovira",
   "private": true,
   "scripts": {
-    "test": "node test.js && node test-params.js && node test-pjclt.js && node test-ir.js && node test-artigos.js",
+    "test": "node test.js && node test-params.js && node test-pjclt.js && node test-ir.js && node test-artigos.js && node test-ferramentas.js",
     "build:artigos": "node scripts/build-artigos.js"
   }
 }

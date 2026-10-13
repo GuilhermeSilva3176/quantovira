@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Calculadora de preço médio | Quanto Vira</title>
+<meta name="description" content="Média de preço em várias compras do mesmo ativo. Quantidade total e custo.">
+<link rel="canonical" href="https://quantovira.com.br/preco-medio/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+<meta property="og:title" content="Calculadora de preço médio | Quanto Vira">
+<meta property="og:description" content="Média de preço em várias compras do mesmo ativo. Quantidade total e custo.">
+<meta property="og:url" content="https://quantovira.com.br/preco-medio/">
+<meta property="og:site_name" content="Quanto Vira">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://quantovira.com.br/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quanto Vira — calculadoras financeiras gratuitas para o Brasil">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de preço médio | Quanto Vira">
+<meta name="twitter:description" content="Média de preço em várias compras do mesmo ativo. Quantidade total e custo.">
+<meta name="twitter:image" content="https://quantovira.com.br/assets/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Preço médio","url":"https://quantovira.com.br/preco-medio/","description":"Calculadora de preço médio de ações.","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"isAccessibleForFree":true,"inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Quanto Vira","url":"https://quantovira.com.br/"}}</script>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a><nav><a href="/ferramentas/">Ferramentas</a><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a></nav></div></header>
+<main class="wrap">
+<h1>Preço médio de compras</h1>
+<p class="lead">Comprou o mesmo ativo em dias diferentes? Some as quantidades e descubra o preço médio pago.</p>
+<div class="grid">
+<form id="f" class="card">
+  <h2>Compras</h2>
+  <div class="fields">
+    <label>Qtd 1<input type="number" id="q1" value="100" min="0" step="1"></label>
+    <label>Preço 1 (R$)<input type="number" id="p1" value="28.5" min="0" step="0.01"></label>
+    <label>Qtd 2<input type="number" id="q2" value="50" min="0" step="1"></label>
+    <label>Preço 2 (R$)<input type="number" id="p2" value="32" min="0" step="0.01"></label>
+    <label>Qtd 3<input type="number" id="q3" value="0" min="0" step="1"></label>
+    <label>Preço 3 (R$)<input type="number" id="p3" value="0" min="0" step="0.01"></label>
+    <label>Qtd 4<input type="number" id="q4" value="0" min="0" step="1"></label>
+    <label>Preço 4 (R$)<input type="number" id="p4" value="0" min="0" step="0.01"></label>
+  </div>
+  <button type="submit">Calcular</button>
+  <button type="button" id="copy" class="sec">Copiar link</button>
+  <p class="hint" id="copyMsg" aria-live="polite"></p>
+</form>
+<section class="card results">
+  <h2>Resultado</h2>
+  <div class="kpis">
+    <div><span id="kMedio">–</span><small>Preço médio</small></div>
+    <div><span id="kQtd">–</span><small>Quantidade total</small></div>
+    <div><span id="kCusto">–</span><small>Custo total</small></div>
+  </div>
+</section>
+</div>
+<article class="card article">
+  <h2>Como usar</h2>
+  <ol class="steps">
+    <li>Em cada linha, informe quantas cotas ou ações comprou e o preço pago naquela compra.</li>
+    <li>Deixe em zero as linhas que não usar.</li>
+    <li>O preço médio é o custo total dividido pela quantidade.</li>
+  </ol>
+  <p class="byline">Por Equipe Quanto Vira</p>
+</article>
+</main>
+<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>
+<script src="/assets/tool-params.js" defer></script>
+<script src="/assets/ferramentas.js" defer></script>
+<script src="/preco-medio/app.js" defer></script>
+</body>
+</html>

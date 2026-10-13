@@ -1,0 +1,11 @@
+{
+  "ano": 2026,
+  "dataReferencia": "2026-10-10",
+  "descricao": "Taxas de referência para as calculadoras de renda fixa e poupança. Valores em percentual ao ano, exceto TR mensal.",
+  "cdi_aa": 13.74,
+  "selic_aa": 13.75,
+  "tr_mensal": 0.12,
+  "ipca_12m": 4.58,
+  "fonte": "Banco Central do Brasil (SGS 432 meta Selic, SGS 4391 CDI, SGS 226 TR, SGS 13522 IPCA 12 meses) e comunicado do IBGE de setembro de 2026, consultados em 10/10/2026.",
+  "urlFonte": "https://www.bcb.gov.br/"
+}

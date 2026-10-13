@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Calculadora de juros compostos com aportes | Quanto Vira</title>
+<meta name="description" content="Simule quanto um valor inicial e aportes mensais podem virar com juros compostos. Gratuito, com link para compartilhar.">
+<link rel="canonical" href="https://quantovira.com.br/juros-compostos/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+<meta property="og:title" content="Calculadora de juros compostos com aportes | Quanto Vira">
+<meta property="og:description" content="Simule quanto um valor inicial e aportes mensais podem virar com juros compostos. Gratuito, com link para compartilhar.">
+<meta property="og:url" content="https://quantovira.com.br/juros-compostos/">
+<meta property="og:site_name" content="Quanto Vira">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://quantovira.com.br/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quanto Vira — calculadoras financeiras gratuitas para o Brasil">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de juros compostos com aportes | Quanto Vira">
+<meta name="twitter:description" content="Simule quanto um valor inicial e aportes mensais podem virar com juros compostos. Gratuito, com link para compartilhar.">
+<meta name="twitter:image" content="https://quantovira.com.br/assets/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Juros compostos","url":"https://quantovira.com.br/juros-compostos/","description":"Calculadora de juros compostos com aportes mensais.","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"isAccessibleForFree":true,"inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Quanto Vira","url":"https://quantovira.com.br/"}}</script>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a><nav><a href="/ferramentas/">Ferramentas</a><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a></nav></div></header>
+<main class="wrap">
+<h1>Juros compostos com aportes mensais</h1>
+<p class="lead">Veja quanto o dinheiro pode crescer quando você guarda um valor hoje e acrescenta um pouco todo mês.</p>
+<div class="grid">
+<form id="f" class="card">
+  <h2>Seus números</h2>
+  <label>Valor que você já tem (R$)<input type="number" id="valorInicial" value="10000" min="0" step="100"></label>
+  <label>Aporte mensal (R$)<input type="number" id="aporteMensal" value="500" min="0" step="50"></label>
+  <label>Taxa de juros ao ano (%)<input type="number" id="taxaAnualPct" value="12" min="0" max="100" step="0.1"></label>
+  <label>Por quantos meses<input type="number" id="meses" value="60" min="1" max="600" step="1"></label>
+  <button type="submit">Calcular</button>
+  <button type="button" id="copy" class="sec">Copiar link</button>
+  <p class="hint" id="copyMsg" aria-live="polite"></p>
+</form>
+<section class="card results">
+  <h2>Resultado</h2>
+  <div class="kpis">
+    <div><span id="kMontante">–</span><small>Total no fim</small></div>
+    <div><span id="kAportes">–</span><small>Do seu bolso</small></div>
+    <div><span id="kRend">–</span><small>Só de juros</small></div>
+  </div>
+  <p class="hint" id="explain"></p>
+</section>
+</div>
+<article class="card article">
+  <h2>Como usar</h2>
+  <ol class="steps">
+    <li>Informe o que você já tem guardado e quanto pretende colocar por mês.</li>
+    <li>Coloque a taxa ao ano que você quer testar (por exemplo, 12%).</li>
+    <li>Escolha o prazo em meses e clique em <strong>Calcular</strong>.</li>
+  </ol>
+  <p class="byline">Por Equipe Quanto Vira</p>
+  <p class="disclaimer"><strong>Aviso:</strong> simulação educativa. Não garante rentabilidade futura.</p>
+</article>
+</main>
+<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>
+<script src="/assets/tool-params.js" defer></script>
+<script src="/assets/ferramentas.js" defer></script>
+<script src="/juros-compostos/app.js" defer></script>
+</body>
+</html>
