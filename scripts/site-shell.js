@@ -7,8 +7,9 @@ const NAV =
   '<a href="/ferramentas/">Ferramentas</a><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a>';
 
 const HEADER =
-  '<header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a><nav>'
-  + NAV + '</nav></div></header>';
+  '<header class="top"><div class="wrap top-inner"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a>'
+  + '<button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu"><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span></button>'
+  + '<nav id="site-nav" class="site-nav" aria-label="Principal">' + NAV + '</nav></div><div class="nav-backdrop" hidden></div></header>';
 
 const FOOTER =
   '<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>';
@@ -96,7 +97,7 @@ function webAppJsonLd(opts) {
 function headBlock(opts) {
   const json = opts.jsonLd ? jsonLdScript(opts.jsonLd) : (opts.jsonLdRaw || '');
   return '<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="index,follow">\n'
-    + socialMeta(opts) + json + '\n<link rel="stylesheet" href="/assets/style.css">';
+    + socialMeta(opts) + json + '\n<link rel="stylesheet" href="/assets/style.css">\n<script src="/assets/site-nav.js" defer></script>';
 }
 
 module.exports = {
