@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Preço teto Bazin e Graham | Quanto Vira</title>
+<meta name="description" content="Calcule preço teto por dividendos (Bazin) e por lucro e patrimônio (Graham). Rendimento editável.">
+<link rel="canonical" href="https://quantovira.com.br/preco-teto/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+<meta property="og:title" content="Preço teto Bazin e Graham | Quanto Vira">
+<meta property="og:description" content="Calcule preço teto por dividendos (Bazin) e por lucro e patrimônio (Graham). Rendimento editável.">
+<meta property="og:url" content="https://quantovira.com.br/preco-teto/">
+<meta property="og:site_name" content="Quanto Vira">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://quantovira.com.br/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quanto Vira — calculadoras financeiras gratuitas para o Brasil">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Preço teto Bazin e Graham | Quanto Vira">
+<meta name="twitter:description" content="Calcule preço teto por dividendos (Bazin) e por lucro e patrimônio (Graham). Rendimento editável.">
+<meta name="twitter:image" content="https://quantovira.com.br/assets/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Preço teto","url":"https://quantovira.com.br/preco-teto/","description":"Preço teto Bazin e Graham para ações.","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"isAccessibleForFree":true,"inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Quanto Vira","url":"https://quantovira.com.br/"}}</script>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a><nav><a href="/ferramentas/">Ferramentas</a><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a></nav></div></header>
+<main class="wrap">
+<h1>Preço teto da ação</h1>
+<p class="lead">Dois jeitos clássicos de pensar um preço máximo: pelos dividendos (Bazin) ou pelo lucro e patrimônio (Graham).</p>
+<div class="grid">
+<form id="f" class="card">
+  <h2>Bazin (dividendos)</h2>
+  <label>Dividendo por ação no ano (R$)<input type="number" id="dpa" value="1.2" min="0" step="0.01"></label>
+  <label>Rendimento desejado ao ano (%)<input type="number" id="yieldPct" value="6" min="0.1" max="50" step="0.1"></label>
+  <p class="hint">Preço teto = dividendo ÷ rendimento. O padrão é 6% ao ano.</p>
+  <h2>Graham</h2>
+  <label>Lucro por ação — LPA (R$)<input type="number" id="lpa" value="2" min="0" step="0.01"></label>
+  <label>Valor patrimonial por ação — VPA (R$)<input type="number" id="vpa" value="10" min="0" step="0.01"></label>
+  <p class="hint">Preço teto = √(22,5 × LPA × VPA)</p>
+  <button type="submit">Calcular</button>
+  <button type="button" id="copy" class="sec">Copiar link</button>
+  <p class="hint" id="copyMsg" aria-live="polite"></p>
+</form>
+<section class="card results">
+  <h2>Preços de referência</h2>
+  <div class="kpis">
+    <div><span id="kBazin">–</span><small>Teto Bazin</small></div>
+    <div><span id="kGraham">–</span><small>Teto Graham</small></div>
+    <div><span id="kCmp">–</span><small>Preço atual (opcional)</small></div>
+  </div>
+  <label>Preço de mercado hoje (R$)<input type="number" id="precoAtual" value="" min="0" step="0.01" placeholder="opcional"></label>
+  <p class="hint" id="explain"></p>
+</section>
+</div>
+<article class="card article">
+  <h2>Como usar</h2>
+  <ol class="steps">
+    <li>Para Bazin, use o dividendo total que a empresa pagou por ação nos últimos 12 meses.</li>
+    <li>Para Graham, pegue LPA e VPA do último balanço.</li>
+    <li>Compare com o preço de hoje para ver se está acima ou abaixo desses tetos.</li>
+  </ol>
+  <p class="byline">Por Equipe Quanto Vira</p>
+  <p class="disclaimer"><strong>Aviso:</strong> referência educativa, não recomendação de compra ou venda.</p>
+</article>
+</main>
+<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>
+<script src="/assets/tool-params.js" defer></script>
+<script src="/assets/ferramentas.js" defer></script>
+<script src="/preco-teto/app.js" defer></script>
+</body>
+</html>

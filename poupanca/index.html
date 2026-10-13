@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Simulador de poupança 2026 | Quanto Vira</title>
+<meta name="description" content="Calcule o rendimento da poupança com a regra da Selic e da TR — acima ou abaixo de 8,5% ao ano.">
+<link rel="canonical" href="https://quantovira.com.br/poupanca/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+<meta property="og:title" content="Simulador de poupança 2026 | Quanto Vira">
+<meta property="og:description" content="Calcule o rendimento da poupança com a regra da Selic e da TR — acima ou abaixo de 8,5% ao ano.">
+<meta property="og:url" content="https://quantovira.com.br/poupanca/">
+<meta property="og:site_name" content="Quanto Vira">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://quantovira.com.br/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quanto Vira — calculadoras financeiras gratuitas para o Brasil">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Simulador de poupança 2026 | Quanto Vira">
+<meta name="twitter:description" content="Calcule o rendimento da poupança com a regra da Selic e da TR — acima ou abaixo de 8,5% ao ano.">
+<meta name="twitter:image" content="https://quantovira.com.br/assets/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Simulador de poupança","url":"https://quantovira.com.br/poupanca/","description":"Simulador da poupança com regras oficiais de remuneração.","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"isAccessibleForFree":true,"inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Quanto Vira","url":"https://quantovira.com.br/"}}</script>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a><nav><a href="/ferramentas/">Ferramentas</a><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a></nav></div></header>
+<main class="wrap">
+<h1>Simulador de poupança</h1>
+<p class="lead">A poupança rende de um jeito quando a Selic está alta e de outro quando está baixa. Veja quanto seu dinheiro pode virar.</p>
+<div class="grid">
+<form id="f" class="card">
+  <h2>Seus números</h2>
+  <label>Valor depositado (R$)<input type="number" id="valor" value="10000" min="0" step="100"></label>
+  <label>Tempo (meses)<input type="number" id="meses" value="12" min="1" max="360" step="1"></label>
+  <p class="hint" id="taxasHint">Carregando Selic e TR…</p>
+  <button type="submit">Calcular</button>
+  <button type="button" id="copy" class="sec">Copiar link</button>
+  <p class="hint" id="copyMsg" aria-live="polite"></p>
+</form>
+<section class="card results">
+  <h2>Resultado</h2>
+  <div class="kpis">
+    <div><span id="kMontante">–</span><small>Saldo final</small></div>
+    <div><span id="kRend">–</span><small>Rendimento</small></div>
+    <div><span id="kTaxa">–</span><small>Taxa ao mês</small></div>
+  </div>
+  <p class="hint" id="explain"></p>
+</section>
+</div>
+<article class="card article">
+  <h2>Como usar</h2>
+  <ol class="steps">
+    <li>Informe quanto você colocaria na poupança e por quantos meses.</li>
+    <li>A calculadora aplica a regra oficial: se a Selic estiver acima de 8,5% ao ano, entra 0,5% ao mês mais a TR; senão, 70% da Selic mais a TR.</li>
+    <li>O imposto de renda não incide sobre a poupança para pessoa física.</li>
+  </ol>
+  <p class="byline">Por Equipe Quanto Vira</p>
+  <p class="disclaimer"><strong>Aviso:</strong> simulação educativa. O rendimento real depende da Selic e da TR de cada mês.</p>
+</article>
+</main>
+<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>
+<script src="/assets/tool-params.js" defer></script>
+<script src="/assets/ferramentas.js" defer></script>
+<script src="/poupanca/app.js" defer></script>
+</body>
+</html>
