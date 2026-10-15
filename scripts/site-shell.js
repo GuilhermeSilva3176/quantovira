@@ -11,8 +11,10 @@ const HEADER =
   + '<button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu"><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span></button>'
   + '<nav id="site-nav" class="site-nav" aria-label="Principal">' + NAV + '</nav></div><div class="nav-backdrop" hidden></div></header>';
 
+const FOOTER_TAGLINE = 'Sem cadastro · dados das calculadoras ficam no seu navegador';
+
 const FOOTER =
-  '<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cookies e sem rastreamento.</footer>';
+  '<footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · ' + FOOTER_TAGLINE + '.</footer>';
 
 function escapeHtml(s) {
   return String(s)
@@ -97,7 +99,7 @@ function webAppJsonLd(opts) {
 function headBlock(opts) {
   const json = opts.jsonLd ? jsonLdScript(opts.jsonLd) : (opts.jsonLdRaw || '');
   return '<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="index,follow">\n'
-    + socialMeta(opts) + json + '\n<link rel="stylesheet" href="/assets/style.css">\n<script src="/assets/site-nav.js" defer></script>';
+    + socialMeta(opts) + json + '\n<link rel="stylesheet" href="/assets/style.css">\n<script src="/assets/site-nav.js" defer></script>\n<script src="/assets/cookie-consent.js" defer></script>';
 }
 
 module.exports = {
@@ -106,6 +108,7 @@ module.exports = {
   NAV: NAV,
   HEADER: HEADER,
   FOOTER: FOOTER,
+  FOOTER_TAGLINE: FOOTER_TAGLINE,
   escapeHtml: escapeHtml,
   headBlock: headBlock,
   orgWebSiteJsonLd: orgWebSiteJsonLd,

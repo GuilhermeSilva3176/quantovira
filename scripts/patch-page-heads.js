@@ -10,7 +10,7 @@ const PAGES = [
   {
     file: 'index.html',
     title: 'Quanto Vira | Calculadoras financeiras gratuitas para o Brasil',
-    description: 'Calculadoras de juros compostos, renda fixa, ações, FIRE, PJ x CLT e IR — gratuito, sem cadastro e sem rastreamento.',
+    description: 'Calculadoras de juros compostos, renda fixa, ações, FIRE, PJ x CLT e IR — gratuito, sem cadastro; dados das simulações ficam no seu navegador.',
     canonical: S.SITE + '/',
     ogType: 'website',
     jsonLd: S.orgWebSiteJsonLd()
@@ -166,7 +166,7 @@ const PAGES = [
   {
     file: 'sobre/index.html',
     title: 'Sobre o Quanto Vira | Calculadoras financeiras gratuitas',
-    description: 'Conheça o Quanto Vira: calculadoras educativas com dados públicos do Brasil, sem cadastro, sem cookies e sem rastreamento.',
+    description: 'Conheça o Quanto Vira: calculadoras educativas com dados públicos do Brasil, sem cadastro e com simulações salvas só no seu navegador.',
     canonical: S.SITE + '/sobre/',
     ogType: 'website'
   },
@@ -180,7 +180,7 @@ const PAGES = [
   {
     file: 'privacidade/index.html',
     title: 'Privacidade | Quanto Vira',
-    description: 'Política de privacidade do Quanto Vira: sem cookies de rastreamento, sem cadastro e sem coleta de dados pessoais nas calculadoras.',
+    description: 'Política de privacidade do Quanto Vira: sem cadastro, dados das calculadoras no navegador e informações sobre cookies de anúncios (Google AdSense).',
     canonical: S.SITE + '/privacidade/',
     ogType: 'website'
   },
