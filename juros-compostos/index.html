@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
 <title>Calculadora de juros compostos com aportes | Quanto Vira</title>
-<meta name="description" content="Simule quanto um valor inicial e aportes mensais podem virar com juros compostos. Gratuito, com link para compartilhar.">
+<meta name="description" content="Simule juros compostos com aportes mensais. Veja a fórmula M = C(1+i)^n, a diferença para os juros simples e como ler o resultado.">
 <link rel="canonical" href="https://quantovira.com.br/juros-compostos/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
 <meta property="og:title" content="Calculadora de juros compostos com aportes | Quanto Vira">
-<meta property="og:description" content="Simule quanto um valor inicial e aportes mensais podem virar com juros compostos. Gratuito, com link para compartilhar.">
+<meta property="og:description" content="Simule juros compostos com aportes mensais. Veja a fórmula M = C(1+i)^n, a diferença para os juros simples e como ler o resultado.">
 <meta property="og:url" content="https://quantovira.com.br/juros-compostos/">
 <meta property="og:site_name" content="Quanto Vira">
 <meta property="og:locale" content="pt_BR">
@@ -22,9 +22,9 @@
 <meta property="og:image:alt" content="Quanto Vira — calculadoras financeiras gratuitas para o Brasil">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Calculadora de juros compostos com aportes | Quanto Vira">
-<meta name="twitter:description" content="Simule quanto um valor inicial e aportes mensais podem virar com juros compostos. Gratuito, com link para compartilhar.">
+<meta name="twitter:description" content="Simule juros compostos com aportes mensais. Veja a fórmula M = C(1+i)^n, a diferença para os juros simples e como ler o resultado.">
 <meta name="twitter:image" content="https://quantovira.com.br/assets/og.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Juros compostos","url":"https://quantovira.com.br/juros-compostos/","description":"Calculadora de juros compostos com aportes mensais.","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"isAccessibleForFree":true,"inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Quanto Vira","url":"https://quantovira.com.br/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Juros compostos","url":"https://quantovira.com.br/juros-compostos/","description":"Calculadora de juros compostos com aportes mensais. Mostra o total, o que saiu do bolso e os juros.","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"isAccessibleForFree":true,"inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Quanto Vira","url":"https://quantovira.com.br/"}}</script>
 <link rel="stylesheet" href="/assets/style.css">
 <script src="/assets/site-nav.js" defer></script>
 <script src="/assets/cookie-consent.js" defer></script>
@@ -59,11 +59,72 @@
   <h2>Como usar</h2>
   <ol class="steps">
     <li>Informe o que você já tem guardado e quanto pretende colocar por mês.</li>
-    <li>Coloque a taxa ao ano que você quer testar (por exemplo, 12%).</li>
-    <li>Escolha o prazo em meses e clique em <strong>Calcular</strong>.</li>
+    <li>Coloque a taxa ao ano que você quer testar. O 12% que já vem no campo é um exemplo, para a conta não abrir vazia.</li>
+    <li>Escolha o prazo em meses e clique em <strong>Calcular</strong>. O link copia esses números.</li>
   </ol>
+  <p>Exemplo, com os valores que já vêm na tela: R$ 10.000 agora, R$ 500 por mês, 12% ao ano e 60 meses. Esse 12% é a taxa do teste.</p>
+
+  <h2>A fórmula de juros compostos</h2>
+  <p>Juros compostos incidem sobre o saldo. O juro de um período entra na base do período seguinte. Sem aporte no meio do caminho, a fórmula de juros compostos é <strong>M = C(1+i)^n</strong>, ou, escrito por extenso, M = C × (1 + i)<sup>n</sup>.</p>
+  <p>M é o montante, o valor no fim. C é o capital inicial. i é a taxa de um período em forma decimal: 10% vira 0,10. n é a quantidade de períodos. A taxa e o prazo usam a mesma unidade. Com i ao ano, n entra em anos. Com i ao mês, n entra em meses.</p>
+  <p>Exemplo com números escolhidos para a conta fechar. Capital de R$ 1.000, taxa de 10% ao ano, prazo de 3 anos. Os 10% são um número de exemplo, para a aritmética ficar redonda.</p>
+  <p>(1 + 0,10)<sup>3</sup> = 1,10 × 1,10 × 1,10 = 1,331. M = 1.000 × 1,331 = <strong>R$ 1.331</strong>.</p>
+  <p>O mesmo caminho, ano a ano:</p>
+  <ul>
+    <li>Ano 1: juro de 1.000 × 0,10 = R$ 100. Saldo de R$ 1.100.</li>
+    <li>Ano 2: juro de 1.100 × 0,10 = R$ 110. Saldo de R$ 1.210.</li>
+    <li>Ano 3: juro de 1.210 × 0,10 = R$ 121. Saldo de R$ 1.331.</li>
+  </ul>
+  <p>No segundo ano o juro sobe porque os R$ 100 do primeiro ano também rendem 10%. A fórmula M = C(1+i)^n cobre o capital inicial. O aporte de cada mês é outra parcela. A calculadora desta página junta as duas. A leitura dos três números da tela está em <a href="#como-ler">Como ler o resultado</a>.</p>
+
+  <h2>Diferença entre juros simples e juros compostos</h2>
+  <p>No juro simples, a taxa incide sempre sobre o capital inicial. O juro é J = C × i × n, e o montante é M = C × (1 + i × n).</p>
+  <p>Com os mesmos R$ 1.000, 10% ao ano e 3 anos: J = 1.000 × 0,10 × 3 = R$ 300. O montante é 1.000 + 300 = <strong>R$ 1.300</strong>. Cada ano o juro simples fica em R$ 100, porque a base continua em R$ 1.000.</p>
+  <p>No juro composto, a base é o saldo do período anterior. O mesmo exemplo termina em R$ 1.331, como na fórmula acima.</p>
+  <div class="tablewrap">
+  <table class="cmp">
+    <thead>
+      <tr><th>Ano</th><th>Juros simples</th><th>Juros compostos</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>R$ 100, saldo R$ 1.100</td><td>R$ 100, saldo R$ 1.100</td></tr>
+      <tr><td>2</td><td>R$ 100, saldo R$ 1.200</td><td>R$ 110, saldo R$ 1.210</td></tr>
+      <tr><td>3</td><td>R$ 100, saldo R$ 1.300</td><td>R$ 121, saldo R$ 1.331</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>A diferença é de R$ 31, e esse valor é juro sobre juro. No segundo ano, os R$ 100 do primeiro ano rendem R$ 10. No terceiro ano, os R$ 210 de juros já acumulados (100 + 110) rendem R$ 21. A soma 10 + 21 dá 31. No primeiro período os dois regimes coincidem: ainda não existe juro anterior para render. Com n = 1, (1 + i) e (1 + i × 1) são o mesmo número.</p>
+
+  <h2 id="como-ler">Como ler o resultado</h2>
+  <p>A tela mostra três números e uma frase.</p>
+  <ul>
+    <li><strong>Total no fim</strong> é o saldo depois do último mês.</li>
+    <li><strong>Do seu bolso</strong> é tudo o que entrou: o valor que você já tem mais cada aporte mensal. Com os números iniciais da página, 10.000 + 500 × 60 = R$ 40.000.</li>
+    <li><strong>Só de juros</strong> é o total menos o que saiu do bolso.</li>
+  </ul>
+  <p>Com esses valores, a conta fecha em R$ 57.794,05. A tela arredonda para o real mais próximo e mostra total de R$ 57.794, bolso de R$ 40.000 e juros de R$ 17.794. A frase escreve o prazo, a taxa ao ano e a taxa ao mês com três casas: “Em 60 meses, com 12% ao ano (cerca de 0.949% ao mês), o total seria R$ 57.794.” O ponto de 0.949 é o texto da tela.</p>
+  <p>Os 12% ao ano entram como taxa ao mês equivalente, (1 + 0,12)<sup>1/12</sup> − 1, cerca de 0,948879% ao mês. Doze meses dessa taxa voltam aos 12%. Dividir 12 por 12 dá 1% ao mês. R$ 1.000 a 1% ao mês, por 12 meses e sem aporte, viram 1.000 × (1,01)<sup>12</sup>. (1,01)<sup>12</sup> = 1,12682503, e o montante é R$ 1.126,83, um ganho de 12,682503% no ano. Os mesmos R$ 1.000 a 12% ao ano, nesta calculadora, por 12 meses e sem aporte, terminam em R$ 1.120,00.</p>
+  <p>Em cada mês o saldo rende primeiro e o aporte entra depois. O aporte daquele mês começa a render no mês seguinte. Conferência com R$ 1.000, aporte de R$ 100, 12% ao ano e 2 meses, na mesma taxa de cerca de 0,948879% ao mês:</p>
+  <ul>
+    <li>Mês 1: juro de R$ 9,49. Com o aporte, o saldo vai a R$ 1.109,49.</li>
+    <li>Mês 2: juro de R$ 10,53 sobre R$ 1.109,49. Com o outro aporte, o saldo vai a R$ 1.220,02.</li>
+  </ul>
+  <p>Do bolso saíram 1.000 + 100 + 100 = R$ 1.200. Os juros somam R$ 20,02. Sem centavos, a tela mostra R$ 1.220, R$ 1.200 e R$ 20. Imposto de Renda, inflação, IOF e taxa de administração ficam fora dos três números.</p>
+
+  <h2>Dúvidas comuns</h2>
+  <p><strong>A fórmula M = C(1+i)^n vale com aporte todo mês?</strong> Ela vale para o capital inicial. Cada aporte segue a mesma fórmula pelos meses que ainda faltam, e o do último mês fica sem juro. A calculadora faz isso mês a mês: multiplica o saldo por (1 + i) e depois soma o aporte. Com a taxa já em base mensal, as duas partes juntas são M = valor inicial × (1 + i)<sup>n</sup> + aporte × [((1 + i)<sup>n</sup> − 1) ÷ i]. Com os valores iniciais da página, o resultado é o mesmo R$ 57.794,05. Com a taxa em zero, o total é o valor inicial mais os aportes, e a divisão por i fica de fora.</p>
+  <p><strong>Dá para informar uma taxa ao mês?</strong> O campo pede a taxa ao ano. Para testar 1% ao mês, digite a equivalente (1,01)<sup>12</sup> − 1 = 12,682503. Com 12 no campo, a frase mostra cerca de 0.949% ao mês.</p>
+  <p><strong>O 12% já preenchido é uma taxa de mercado?</strong> É o exemplo do passo a passo. A simulação usa o número do campo. A página deixa a Selic e o CDI de fora.</p>
+  <p><strong>O total já desconta Imposto de Renda e inflação?</strong> O total é o saldo bruto da taxa digitada. O comparador de renda fixa aplica o Imposto de Renda regressivo e a inflação em CDB, LCI, LCA, Tesouro e poupança. A calculadora de rentabilidade real tira a inflação de uma taxa ao ano. Os links estão na seção seguinte.</p>
+  <p><strong>Por que outra calculadora mostra outro valor?</strong> Aqui a taxa ao ano vira (1 + taxa)<sup>1/12</sup> − 1, e o aporte entra depois do juro do mês. Dividir a taxa anual por 12, ou render o juro sobre o saldo que já inclui o aporte do mês, produz outro resultado.</p>
+
+  <h2>Renda fixa, inflação e a regra dos 4%</h2>
+  <p>O comparador de <a href="/renda-fixa/">renda fixa</a> coloca CDB, LCI/LCA, Tesouro e poupança no mesmo prazo, já com o Imposto de Renda regressivo e o ganho depois da inflação.</p>
+  <p>A calculadora de <a href="/rentabilidade-real/">rentabilidade real</a> tira a inflação de uma taxa ao ano pela fórmula de Fisher: (1 + nominal) ÷ (1 + inflação) − 1.</p>
+  <p>Juros compostos descrevem o crescimento de uma reserva. A retirada lá na frente é outra conta. O artigo <a href="/artigos/regra-dos-4-por-cento-brasil/">Regra dos 4% funciona no Brasil?</a> explica essa regra com juro real e Imposto de Renda.</p>
+
   <p class="byline">Por Equipe Quanto Vira</p>
-  <p class="disclaimer"><strong>Aviso:</strong> simulação educativa. Não garante rentabilidade futura.</p>
+  <p class="disclaimer"><strong>Aviso:</strong> simulação educativa. Não é recomendação de investimento nem consultoria financeira. A taxa é a que você digita. O resultado não garante rentabilidade futura e não desconta Imposto de Renda, inflação, IOF nem taxa de administração.</p>
 </article>
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
