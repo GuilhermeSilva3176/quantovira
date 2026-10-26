@@ -1,8 +1,8 @@
 ---
-title: "Vender ações até R$ 20 mil no mês é isento? A regra e as armadilhas"
-description: "A soma das vendas de ações no mês até R$ 20 mil isenta o lucro. Day trade, ETF de índice de ações e venda de cota de FII ficam de fora."
+title: "Venda de ações até R$ 20 mil é isenta? Regra e exceções"
+description: "Venda de ações até R$ 20 mil no mês tem lucro isento de IR. Veja o que entra na soma, o que acontece se passar e as exceções: day trade, ETF e FII."
 date: 2026-10-10
-updated: 2026-10-11
+updated: 2026-10-24
 author: Equipe Quanto Vira
 calculadora: ir-investimentos
 fontes:
