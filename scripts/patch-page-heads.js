@@ -57,19 +57,19 @@ const PAGES = [
   {
     file: 'juros-compostos/index.html',
     title: 'Calculadora de juros compostos com aportes | Quanto Vira',
-    description: 'Simule quanto um valor inicial e aportes mensais podem virar com juros compostos. Gratuito, com link para compartilhar.',
+    description: 'Simule juros compostos com aportes mensais. Veja a fórmula M = C(1+i)^n, a diferença para os juros simples e como ler o resultado.',
     canonical: S.SITE + '/juros-compostos/',
     ogType: 'website',
     jsonLd: S.webAppJsonLd({
       name: 'Juros compostos',
       url: S.SITE + '/juros-compostos/',
-      description: 'Calculadora de juros compostos com aportes mensais.'
+      description: 'Calculadora de juros compostos com aportes mensais. Mostra o total, o que saiu do bolso e os juros.'
     })
   },
   {
     file: 'renda-fixa/index.html',
-    title: 'Comparador CDB, LCI, Tesouro e poupança | Quanto Vira',
-    description: 'Compare renda fixa no mesmo prazo: líquido de IR regressivo e rentabilidade real após a inflação.',
+    title: 'Calculadora de renda fixa: compare CDB, LCI e Tesouro | Quanto Vira',
+    description: 'Simule CDB, LCI/LCA, Tesouro e poupança no mesmo prazo. Veja ganho líquido de IR, saldo total e rentabilidade real após IPCA.',
     canonical: S.SITE + '/renda-fixa/',
     ogType: 'website',
     jsonLd: S.webAppJsonLd({
@@ -80,8 +80,8 @@ const PAGES = [
   },
   {
     file: 'poupanca/index.html',
-    title: 'Simulador de poupança 2026 | Quanto Vira',
-    description: 'Calcule o rendimento da poupança com a regra da Selic e da TR — acima ou abaixo de 8,5% ao ano.',
+    title: 'Calculadora de poupança: rendimento com Selic e TR | Quanto Vira',
+    description: 'Informe valor depositado e meses na poupança. Veja saldo final, rendimento total e taxa ao mês com as regras oficiais de Selic e TR.',
     canonical: S.SITE + '/poupanca/',
     ogType: 'website',
     jsonLd: S.webAppJsonLd({
@@ -92,8 +92,8 @@ const PAGES = [
   },
   {
     file: 'preco-teto/index.html',
-    title: 'Preço teto Bazin e Graham | Quanto Vira',
-    description: 'Calcule preço teto por dividendos (Bazin) e por lucro e patrimônio (Graham). Rendimento editável.',
+    title: 'Calculadora de preço teto: Bazin e Graham para ações | Quanto Vira',
+    description: 'Calcule preço teto Bazin pelos dividendos e Graham por LPA e VPA. Compare com o preço de mercado para ver margem de segurança.',
     canonical: S.SITE + '/preco-teto/',
     ogType: 'website',
     jsonLd: S.webAppJsonLd({
@@ -104,8 +104,8 @@ const PAGES = [
   },
   {
     file: 'preco-medio/index.html',
-    title: 'Calculadora de preço médio | Quanto Vira',
-    description: 'Média de preço em várias compras do mesmo ativo. Quantidade total e custo.',
+    title: 'Calculadora de preço médio de ações | Quanto Vira',
+    description: 'Some até quatro compras do mesmo ativo com quantidade e preço. Veja preço médio, quantidade total e custo total investido.',
     canonical: S.SITE + '/preco-medio/',
     ogType: 'website',
     jsonLd: S.webAppJsonLd({
@@ -116,8 +116,8 @@ const PAGES = [
   },
   {
     file: 'dividend-yield/index.html',
-    title: 'Calculadora de dividend yield | Quanto Vira',
-    description: 'Dividendos do ano divididos pelo preço da ação, em percentual.',
+    title: 'Calculadora de dividend yield de ações e FIIs | Quanto Vira',
+    description: 'Informe os dividendos pagos no ano e o preço da ação ou FII. Veja o dividend yield em percentual sobre o preço que você informou.',
     canonical: S.SITE + '/dividend-yield/',
     ogType: 'website',
     jsonLd: S.webAppJsonLd({
@@ -128,8 +128,8 @@ const PAGES = [
   },
   {
     file: 'rentabilidade-real/index.html',
-    title: 'Rentabilidade real (Fisher) | Quanto Vira',
-    description: 'Converta rentabilidade nominal em real descontando a inflação com a fórmula de Fisher.',
+    title: 'Calculadora de rentabilidade real: ganho real acima do IPCA | Quanto Vira',
+    description: 'Informe a rentabilidade nominal ao ano e a inflação (IPCA). Veja o ganho real ao ano pela fórmula de Fisher, acima da inflação.',
     canonical: S.SITE + '/rentabilidade-real/',
     ogType: 'website',
     jsonLd: S.webAppJsonLd({
@@ -140,8 +140,8 @@ const PAGES = [
   },
   {
     file: 'taxa-equivalente/index.html',
-    title: 'Taxa mensal e anual equivalente | Quanto Vira',
-    description: 'Converta taxa mensal em anual e vice-versa com juros compostos.',
+    title: 'Calculadora de taxa equivalente: juros mensais em anuais | Quanto Vira',
+    description: 'Converta taxa de juros mensal em anual (ou anual em mensal) com capitalização composta. Veja a taxa equivalente na hora.',
     canonical: S.SITE + '/taxa-equivalente/',
     ogType: 'website',
     jsonLd: S.webAppJsonLd({
