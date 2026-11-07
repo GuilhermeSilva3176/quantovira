@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const S = require('./site-shell.js');
+const ogLib = require('./og-lib.js');
 const SITE = S.SITE;
 const AUTOR_PADRAO = 'Equipe Quanto Vira';
 const ULTIMOS_ARTIGOS_HOME = 6;
@@ -322,8 +323,10 @@ function layout(opts) {
   const head = S.headBlock({
     title: opts.title,
     description: opts.description,
+    ogDescription: opts.ogDescription,
     canonical: opts.canonical,
     ogType: opts.ogType,
+    ogImageAlt: opts.ogImageAlt,
     extraHead: opts.extraHead,
     jsonLdRaw: opts.jsonLd ? '\n<script type="application/ld+json">' + opts.jsonLd + '</script>' : '',
     jsonLd: opts.jsonLdObject || null
@@ -368,6 +371,7 @@ function htmlArtigo(artigo, todosArtigos) {
     description: artigo.description,
     canonical: SITE + '/artigos/' + artigo.slug + '/',
     ogType: 'article',
+    ogImageAlt: ogLib.ogAltText(artigo.title, 'Artigo'),
     extraHead: '\n<meta property="article:published_time" content="' + dataComFuso(artigo.date) + '">\n<meta property="article:modified_time" content="' + dataComFuso(artigo.updated) + '">',
     jsonLd: jsonLd(artigo),
     main: main
@@ -392,6 +396,7 @@ function htmlLista(artigos) {
     description: 'Textos educativos do Quanto Vira sobre independência financeira, PJ x CLT e IR de investimentos.',
     canonical: SITE + '/artigos/',
     ogType: 'website',
+    ogImageAlt: ogLib.ogAltText('Artigos educativos', 'Artigos'),
     main: main
   });
 }

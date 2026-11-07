@@ -18,8 +18,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Gerar artigos
-        run: node scripts/build-artigos.js
+      - name: Fontes e Chrome
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core
+      - uses: browser-actions/setup-chrome@v1
+
+      - name: Gerar artigos e imagens OG
+        run: npm run build
 
       - name: Testes
         run: npm test

@@ -2,6 +2,7 @@
 Calculadoras financeiras estáticas. Primeira ferramenta: `/simulador-fire/` (Monte Carlo com IPCA, CDI e Ibovespa de 1995 a 2025, dados em `data/historico.json`; respostas brutas das APIs em `data/raw/`).
 
 - Testes: `npm test` (Node, sem dependências)
+- Build: `npm run build` — artigos, metadados das páginas estáticas e imagens OG (`assets/og-pages/`, 1200×630). Requer Chrome headless (`CHROME`, padrão `/usr/local/bin/google-chrome`). O `assets/og.png` genérico continua como fallback de marca.
 - Artigos: `npm run build:artigos` lê `content/artigos/*.md` e gera `/artigos/`. Arquivo com `draft: true` não é publicado.
 - Local: `python3 -m http.server 8080` na raiz e abrir http://localhost:8080/
 - Deploy: GitHub Pages a partir da branch `main`, raiz `/`. O domínio está no arquivo `CNAME`.

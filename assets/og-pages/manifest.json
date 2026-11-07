@@ -1,0 +1,134 @@
+{
+  "https://quantovira.com.br/": {
+    "rel": "assets/og-pages/home.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/home.png"
+  },
+  "https://quantovira.com.br/simulador-fire/": {
+    "rel": "assets/og-pages/simulador-fire.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/simulador-fire.png"
+  },
+  "https://quantovira.com.br/pj-vs-clt/": {
+    "rel": "assets/og-pages/pj-vs-clt.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/pj-vs-clt.png"
+  },
+  "https://quantovira.com.br/ir-investimentos/": {
+    "rel": "assets/og-pages/ir-investimentos.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/ir-investimentos.png"
+  },
+  "https://quantovira.com.br/ferramentas/": {
+    "rel": "assets/og-pages/ferramentas.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/ferramentas.png"
+  },
+  "https://quantovira.com.br/juros-compostos/": {
+    "rel": "assets/og-pages/juros-compostos.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/juros-compostos.png"
+  },
+  "https://quantovira.com.br/renda-fixa/": {
+    "rel": "assets/og-pages/renda-fixa.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/renda-fixa.png"
+  },
+  "https://quantovira.com.br/poupanca/": {
+    "rel": "assets/og-pages/poupanca.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/poupanca.png"
+  },
+  "https://quantovira.com.br/preco-teto/": {
+    "rel": "assets/og-pages/preco-teto.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/preco-teto.png"
+  },
+  "https://quantovira.com.br/dividend-yield/": {
+    "rel": "assets/og-pages/dividend-yield.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/dividend-yield.png"
+  },
+  "https://quantovira.com.br/preco-medio/": {
+    "rel": "assets/og-pages/preco-medio.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/preco-medio.png"
+  },
+  "https://quantovira.com.br/rentabilidade-real/": {
+    "rel": "assets/og-pages/rentabilidade-real.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/rentabilidade-real.png"
+  },
+  "https://quantovira.com.br/taxa-equivalente/": {
+    "rel": "assets/og-pages/taxa-equivalente.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/taxa-equivalente.png"
+  },
+  "https://quantovira.com.br/sobre/": {
+    "rel": "assets/og-pages/sobre.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/sobre.png"
+  },
+  "https://quantovira.com.br/contato/": {
+    "rel": "assets/og-pages/contato.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/contato.png"
+  },
+  "https://quantovira.com.br/privacidade/": {
+    "rel": "assets/og-pages/privacidade.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/privacidade.png"
+  },
+  "https://quantovira.com.br/fontes/": {
+    "rel": "assets/og-pages/fontes.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/fontes.png"
+  },
+  "https://quantovira.com.br/artigos/": {
+    "rel": "assets/og-pages/artigos.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos.png"
+  },
+  "https://quantovira.com.br/artigos/come-cotas-maio-novembro-fundo/": {
+    "rel": "assets/og-pages/artigos/come-cotas-maio-novembro-fundo.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/come-cotas-maio-novembro-fundo.png"
+  },
+  "https://quantovira.com.br/artigos/dividendos-fii-isencao-100-cotistas/": {
+    "rel": "assets/og-pages/artigos/dividendos-fii-isencao-100-cotistas.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/dividendos-fii-isencao-100-cotistas.png"
+  },
+  "https://quantovira.com.br/artigos/dividendos-lei-15270-pj/": {
+    "rel": "assets/og-pages/artigos/dividendos-lei-15270-pj.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/dividendos-lei-15270-pj.png"
+  },
+  "https://quantovira.com.br/artigos/fator-r-anexo-iii-anexo-v/": {
+    "rel": "assets/og-pages/artigos/fator-r-anexo-iii-anexo-v.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/fator-r-anexo-iii-anexo-v.png"
+  },
+  "https://quantovira.com.br/artigos/fire-pj-ou-clt/": {
+    "rel": "assets/og-pages/artigos/fire-pj-ou-clt.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/fire-pj-ou-clt.png"
+  },
+  "https://quantovira.com.br/artigos/inss-pro-labore-teto-aposentadoria/": {
+    "rel": "assets/og-pages/artigos/inss-pro-labore-teto-aposentadoria.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/inss-pro-labore-teto-aposentadoria.png"
+  },
+  "https://quantovira.com.br/artigos/ir-etf-acoes-exterior-15-por-cento/": {
+    "rel": "assets/og-pages/artigos/ir-etf-acoes-exterior-15-por-cento.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/ir-etf-acoes-exterior-15-por-cento.png"
+  },
+  "https://quantovira.com.br/artigos/isencao-20-mil-acoes-day-trade-etf-fii/": {
+    "rel": "assets/og-pages/artigos/isencao-20-mil-acoes-day-trade-etf-fii.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/isencao-20-mil-acoes-day-trade-etf-fii.png"
+  },
+  "https://quantovira.com.br/artigos/isencao-ir-5-mil-2026-clt-pro-labore/": {
+    "rel": "assets/og-pages/artigos/isencao-ir-5-mil-2026-clt-pro-labore.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/isencao-ir-5-mil-2026-clt-pro-labore.png"
+  },
+  "https://quantovira.com.br/artigos/lci-lca-cri-cra-isentos-cdb-taxa-equivalente/": {
+    "rel": "assets/og-pages/artigos/lci-lca-cri-cra-isentos-cdb-taxa-equivalente.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/lci-lca-cri-cra-isentos-cdb-taxa-equivalente.png"
+  },
+  "https://quantovira.com.br/artigos/mei-pode-ti-consultoria-limite-2026/": {
+    "rel": "assets/og-pages/artigos/mei-pode-ti-consultoria-limite-2026.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/mei-pode-ti-consultoria-limite-2026.png"
+  },
+  "https://quantovira.com.br/artigos/proposta-pj-quanto-vale-em-clt/": {
+    "rel": "assets/og-pages/artigos/proposta-pj-quanto-vale-em-clt.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/proposta-pj-quanto-vale-em-clt.png"
+  },
+  "https://quantovira.com.br/artigos/quanto-preciso-para-viver-de-renda-tesouro-ipca/": {
+    "rel": "assets/og-pages/artigos/quanto-preciso-para-viver-de-renda-tesouro-ipca.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/quanto-preciso-para-viver-de-renda-tesouro-ipca.png"
+  },
+  "https://quantovira.com.br/artigos/regra-dos-4-por-cento-brasil/": {
+    "rel": "assets/og-pages/artigos/regra-dos-4-por-cento-brasil.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/regra-dos-4-por-cento-brasil.png"
+  },
+  "https://quantovira.com.br/artigos/tabela-regressiva-ir-renda-fixa/": {
+    "rel": "assets/og-pages/artigos/tabela-regressiva-ir-renda-fixa.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/tabela-regressiva-ir-renda-fixa.png"
+  }
+}
