@@ -4,10 +4,21 @@ const fs = require('fs');
 const path = require('path');
 const og = require('./scripts/og-lib.js');
 const S = require('./scripts/site-shell.js');
+const { resolveChrome } = require('./scripts/resolve-chrome.js');
 
 const root = __dirname;
 let ok = 0;
 const t = (n, f) => { f(); ok++; console.log('ok -', n); };
+
+t('resolveChrome honra CHROME e encontra binário local', () => {
+  const found = resolveChrome();
+  assert.ok(found, 'Chrome/Chromium disponível neste ambiente');
+  const prev = process.env.CHROME;
+  process.env.CHROME = found;
+  assert.strictEqual(resolveChrome(), found);
+  if (prev === undefined) delete process.env.CHROME;
+  else process.env.CHROME = prev;
+});
 
 t('canonical mapeia para PNG em assets/og-pages', () => {
   assert.strictEqual(og.canonicalToOgRel('https://quantovira.com.br/juros-compostos/'), 'assets/og-pages/juros-compostos.png');

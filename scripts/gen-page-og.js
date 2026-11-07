@@ -4,12 +4,12 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const og = require('./og-lib.js');
+const { resolveChrome } = require('./resolve-chrome.js');
 
 const root = path.resolve(__dirname, '..');
-const chrome = process.env.CHROME || '/usr/local/bin/google-chrome';
 const tmpDir = path.join(__dirname, '.og-tmp');
 
-function shot(htmlPath, out, w, h, profile) {
+function shot(chrome, htmlPath, out, w, h, profile) {
   fs.mkdirSync(path.dirname(profile), { recursive: true });
   const args = [
     '--headless=new',
@@ -49,8 +49,9 @@ function shot(htmlPath, out, w, h, profile) {
 }
 
 async function main() {
-  if (!fs.existsSync(chrome)) {
-    console.error('Chrome não encontrado em ' + chrome + ' (defina CHROME)');
+  const chrome = resolveChrome();
+  if (!chrome) {
+    console.error('Chrome/Chromium não encontrado. Defina CHROME com o caminho do binário (no Actions, use chrome-path do setup-chrome).');
     process.exit(1);
   }
   const pages = og.discoverPages(root);
@@ -58,13 +59,14 @@ async function main() {
   fs.mkdirSync(path.join(root, og.OG_PAGES_DIR), { recursive: true });
 
   const manifest = {};
+  console.log('chrome:', chrome);
   for (const page of pages) {
     const out = path.join(root, page.rel);
     fs.mkdirSync(path.dirname(out), { recursive: true });
     const htmlPath = path.join(tmpDir, page.rel.replace(/\//g, '_') + '.html');
     fs.writeFileSync(htmlPath, og.renderOgHtml(page));
     if (fs.existsSync(out)) fs.unlinkSync(out);
-    await shot(htmlPath, out, 1200, 630, path.join(tmpDir, 'chrome-' + page.rel.replace(/\//g, '_')));
+    await shot(chrome, htmlPath, out, 1200, 630, path.join(tmpDir, 'chrome-' + page.rel.replace(/\//g, '_')));
     manifest[page.canonical] = { rel: page.rel, ogUrl: page.ogUrl };
     console.log('og', page.rel);
   }

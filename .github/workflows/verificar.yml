@@ -20,10 +20,19 @@ jobs:
 
       - name: Fontes e Chrome
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core
-      - uses: browser-actions/setup-chrome@v1
+      - name: Instalar Chrome
+        uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
+        with:
+          install-dependencies: true
 
       - name: Gerar artigos e imagens OG
-        run: npm run build
+        env:
+          CHROME: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: |
+          echo "CHROME=$CHROME"
+          "$CHROME" --version
+          npm run build
 
       - name: Testes
         run: npm test

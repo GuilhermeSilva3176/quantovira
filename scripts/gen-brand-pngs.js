@@ -6,7 +6,7 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const assets = path.join(root, 'assets');
-const chrome = process.env.CHROME || '/usr/local/bin/google-chrome';
+const { resolveChrome } = require('./resolve-chrome.js');
 const ogHtml = path.join(__dirname, 'brand-og.html');
 
 function shot(url, out, w, h) {
@@ -20,8 +20,9 @@ function shot(url, out, w, h) {
   ], { stdio: 'inherit' });
 }
 
-if (!fs.existsSync(chrome)) {
-  console.error('Chrome não encontrado em ' + chrome);
+const chrome = resolveChrome();
+if (!chrome) {
+  console.error('Chrome/Chromium não encontrado (defina CHROME).');
   process.exit(1);
 }
 
