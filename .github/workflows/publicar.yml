@@ -25,8 +25,18 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Gerar páginas
-        run: node scripts/build-artigos.js
+      - name: Fontes e Chrome
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core
+      - name: Instalar Chrome
+        uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
+        with:
+          install-dependencies: true
+
+      - name: Gerar páginas e imagens OG
+        env:
+          CHROME: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: npm run build
 
       - name: Commit das páginas geradas
         run: |

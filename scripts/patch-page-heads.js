@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const S = require('./site-shell.js');
+const ogLib = require('./og-lib.js');
 
 const root = path.resolve(__dirname, '..');
 
@@ -193,6 +194,10 @@ const PAGES = [
   }
 ];
 
+function stripSuffix(t) {
+  return String(t).replace(/\s*\|\s*Quanto Vira\s*$/i, '').trim();
+}
+
 function patchHead(html, meta) {
   const head = S.headBlock({
     title: meta.title,
@@ -200,6 +205,7 @@ function patchHead(html, meta) {
     ogDescription: meta.ogDescription,
     canonical: meta.canonical,
     ogType: meta.ogType,
+    ogImageAlt: meta.ogImageAlt || ogLib.ogAltText(stripSuffix(meta.title), ogLib.pageKind(meta.canonical).kicker),
     jsonLd: meta.jsonLd || null
   });
   const reHead = /<head>[\s\S]*?<\/head>/;

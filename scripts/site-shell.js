@@ -2,6 +2,21 @@
 const SITE = 'https://quantovira.com.br';
 const OG_IMAGE = SITE + '/assets/og.png';
 const OG_IMAGE_ALT = 'Quanto Vira — calculadoras financeiras gratuitas para o Brasil';
+const OG_PAGES_DIR = 'assets/og-pages';
+
+function canonicalToOgRel(canonical) {
+  const u = new URL(canonical);
+  let p = u.pathname.replace(/^\/|\/$/g, '');
+  if (!p) return OG_PAGES_DIR + '/home.png';
+  return OG_PAGES_DIR + '/' + p + '.png';
+}
+
+function ogImageForCanonical(canonical, altHint) {
+  const rel = canonicalToOgRel(canonical);
+  const url = SITE + '/' + rel;
+  const alt = altHint || OG_IMAGE_ALT;
+  return { url: url, rel: rel, alt: alt };
+}
 
 const NAV =
   '<a href="/ferramentas/">Ferramentas</a><a href="/simulador-fire/">Simulador FIRE</a><a href="/pj-vs-clt/">PJ x CLT</a><a href="/ir-investimentos/">IR</a><a href="/artigos/">Artigos</a><a href="/sobre/">Sobre</a>';
@@ -40,7 +55,12 @@ function socialMeta(opts) {
   const ogType = opts.ogType || 'website';
   let extra = opts.extraHead || '';
   if (!extra.includes('og:image')) {
-    extra += '\n<meta property="og:image" content="' + OG_IMAGE + '">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:image:alt" content="' + escapeHtml(OG_IMAGE_ALT) + '">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="' + title + '">\n<meta name="twitter:description" content="' + ogDescription + '">\n<meta name="twitter:image" content="' + OG_IMAGE + '">';
+    const og = opts.ogImage
+      ? { url: opts.ogImage, alt: opts.ogImageAlt || OG_IMAGE_ALT }
+      : (opts.canonical ? ogImageForCanonical(opts.canonical, opts.ogImageAlt) : { url: OG_IMAGE, alt: OG_IMAGE_ALT });
+    const ogImg = escapeHtml(og.url);
+    const ogAlt = escapeHtml(og.alt);
+    extra += '\n<meta property="og:image" content="' + ogImg + '">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:image:type" content="image/png">\n<meta property="og:image:alt" content="' + ogAlt + '">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="' + title + '">\n<meta name="twitter:description" content="' + ogDescription + '">\n<meta name="twitter:image" content="' + ogImg + '">';
   }
   return '<title>' + title + '</title>\n<meta name="description" content="' + description + '">\n<link rel="canonical" href="' + url + '">\n'
     + iconLinks() + '\n<meta property="og:title" content="' + title + '">\n<meta property="og:description" content="' + ogDescription + '">\n<meta property="og:url" content="' + url + '">\n<meta property="og:site_name" content="Quanto Vira">\n<meta property="og:locale" content="pt_BR">\n<meta property="og:type" content="' + ogType + '">' + extra;
@@ -105,6 +125,9 @@ function headBlock(opts) {
 module.exports = {
   SITE: SITE,
   OG_IMAGE: OG_IMAGE,
+  OG_PAGES_DIR: OG_PAGES_DIR,
+  canonicalToOgRel: canonicalToOgRel,
+  ogImageForCanonical: ogImageForCanonical,
   NAV: NAV,
   HEADER: HEADER,
   FOOTER: FOOTER,
