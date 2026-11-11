@@ -1,0 +1,70 @@
+{
+  "calculadoras": {
+    "juros-compostos": {
+      "nome": "Juros compostos",
+      "icone": "×",
+      "descricaoCurta": "Veja quanto aportes mensais podem virar ao longo do tempo",
+      "relacionadas": ["renda-fixa", "rentabilidade-real", "taxa-equivalente"]
+    },
+    "renda-fixa": {
+      "nome": "Comparador de renda fixa",
+      "icone": "▤",
+      "descricaoCurta": "Compare CDB, LCI, Tesouro e poupança no mesmo prazo",
+      "relacionadas": ["rentabilidade-real", "juros-compostos", "taxa-equivalente"]
+    },
+    "poupanca": {
+      "nome": "Poupança",
+      "icone": "◇",
+      "descricaoCurta": "Simule o rendimento com as regras de Selic e TR",
+      "relacionadas": ["renda-fixa", "juros-compostos", "rentabilidade-real"]
+    },
+    "rentabilidade-real": {
+      "nome": "Rentabilidade real",
+      "icone": "↑",
+      "descricaoCurta": "Descubra o ganho acima da inflação (Fisher)",
+      "relacionadas": ["renda-fixa", "juros-compostos", "taxa-equivalente"]
+    },
+    "taxa-equivalente": {
+      "nome": "Taxa equivalente",
+      "icone": "↔",
+      "descricaoCurta": "Converta taxa mensal em anual, e o contrário",
+      "relacionadas": ["juros-compostos", "renda-fixa", "rentabilidade-real"]
+    },
+    "preco-teto": {
+      "nome": "Preço teto",
+      "icone": "⊘",
+      "descricaoCurta": "Bazin e Graham para achar um preço de referência",
+      "relacionadas": ["dividend-yield", "preco-medio", "rentabilidade-real"]
+    },
+    "preco-medio": {
+      "nome": "Preço médio",
+      "icone": "≈",
+      "descricaoCurta": "Média de várias compras do mesmo ativo",
+      "relacionadas": ["dividend-yield", "preco-teto", "ir-investimentos"]
+    },
+    "dividend-yield": {
+      "nome": "Dividend yield",
+      "icone": "%",
+      "descricaoCurta": "Veja quanto a ação paga em proventos",
+      "relacionadas": ["preco-teto", "preco-medio", "ir-investimentos"]
+    },
+    "pj-vs-clt": {
+      "nome": "PJ x CLT",
+      "icone": "⚖",
+      "descricaoCurta": "Compare o líquido anual como empregado e como PJ",
+      "relacionadas": ["simulador-fire", "ir-investimentos", "juros-compostos"]
+    },
+    "ir-investimentos": {
+      "nome": "IR de investimentos",
+      "icone": "§",
+      "descricaoCurta": "Estime imposto em ações, FIIs, ETFs e mais",
+      "relacionadas": ["preco-medio", "dividend-yield", "renda-fixa"]
+    },
+    "simulador-fire": {
+      "nome": "Simulador FIRE",
+      "icone": "◎",
+      "descricaoCurta": "Probabilidade de viver da renda com dados do Brasil",
+      "relacionadas": ["juros-compostos", "renda-fixa", "rentabilidade-real"]
+    }
+  }
+}
