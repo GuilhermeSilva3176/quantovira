@@ -165,4 +165,18 @@ t('patch-breadcrumbs 2x não altera HTML', () => {
   assert.strictEqual(mid, after);
 });
 
+t('390px sem overflow horizontal (doc e main)', () => {
+  const { resolveChrome } = require('./scripts/resolve-chrome.js');
+  if (!resolveChrome()) {
+    console.log('  (pulado: sem Chrome)');
+    return;
+  }
+  const run = execFileSync('node', ['scripts/breadcrumb-overflow-check.js'], {
+    cwd: root,
+    encoding: 'utf8',
+    stdio: ['pipe', 'pipe', 'pipe']
+  });
+  assert.ok(/página\(s\) sem overflow/.test(run), run);
+});
+
 console.log('\n' + ok + ' testes breadcrumbs ok');

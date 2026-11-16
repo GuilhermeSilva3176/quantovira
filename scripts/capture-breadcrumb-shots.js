@@ -1,15 +1,12 @@
 #!/usr/bin/env node
-/* Capturas mobile (390px) da trilha — HTTP na raiz; valida CSS antes de salvar. */
+/* Capturas mobile (390px) da trilha — HTTP na raiz; valida CSS e overflow. */
 const fs = require('fs');
 const path = require('path');
-const http = require('http');
-const { spawn, spawnSync } = require('child_process');
-const { resolveChrome } = require('./resolve-chrome.js');
+const vp = require('./breadcrumb-viewport.js');
 
-const root = path.resolve(__dirname, '..');
+const root = vp.root;
 const outDir = process.argv[2] || path.join(root, 'artifacts', 'breadcrumbs');
-const depsDir = path.join(__dirname, '.capture-deps');
-const chrome = resolveChrome();
+const chrome = vp.resolveChrome();
 
 if (!chrome) {
   console.error('Chrome não encontrado — defina CHROME ou instale chromium.');
@@ -24,54 +21,8 @@ const shots = [
   }
 ];
 
-function ensurePuppeteer() {
-  const mod = path.join(depsDir, 'node_modules', 'puppeteer-core');
-  if (!fs.existsSync(mod)) {
-    fs.mkdirSync(depsDir, { recursive: true });
-    console.error('instalando puppeteer-core em', depsDir);
-    const r = spawnSync(
-      'npm',
-      ['install', 'puppeteer-core@24.2.0', '--prefix', depsDir, '--no-audit', '--no-fund'],
-      { stdio: 'inherit' }
-    );
-    if (r.status !== 0) throw new Error('npm install puppeteer-core falhou');
-  }
-  return require(mod);
-}
-
-function waitForServer(port) {
-  return new Promise(function (resolve, reject) {
-    let n = 0;
-    const tryOnce = function () {
-      const req = http.get('http://127.0.0.1:' + port + '/assets/style.css', function (res) {
-        res.resume();
-        if (res.statusCode === 200) resolve();
-        else if (++n >= 50) reject(new Error('CSS HTTP ' + res.statusCode));
-        else setTimeout(tryOnce, 100);
-      });
-      req.on('error', function () {
-        if (++n >= 50) reject(new Error('servidor na porta ' + port));
-        else setTimeout(tryOnce, 100);
-      });
-      req.setTimeout(2500, function () {
-        req.destroy();
-        if (++n >= 50) reject(new Error('timeout servidor'));
-        else setTimeout(tryOnce, 100);
-      });
-    };
-    tryOnce();
-  });
-}
-
-function startServer(port) {
-  return spawn('python3', ['-m', 'http.server', String(port), '--bind', '127.0.0.1'], {
-    cwd: root,
-    stdio: 'ignore'
-  });
-}
-
 async function captureAll(port) {
-  const puppeteer = ensurePuppeteer();
+  const puppeteer = vp.ensurePuppeteer();
   fs.mkdirSync(outDir, { recursive: true });
   const browser = await puppeteer.launch({
     executablePath: chrome,
@@ -80,7 +31,8 @@ async function captureAll(port) {
   });
   try {
     const page = await browser.newPage();
-    await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+    await vp.preparePage(page);
+    await page.setViewport(vp.VIEWPORT);
     for (let i = 0; i < shots.length; i++) {
       const shot = shots[i];
       await page.goto('http://127.0.0.1:' + port + shot.path, {
@@ -95,11 +47,14 @@ async function captureAll(port) {
         const header = document.querySelector('header.top');
         const logo = document.querySelector('.brand-mark');
         const breadcrumb = document.querySelector('nav.breadcrumb');
+        const banner = document.getElementById('cookie-consent');
+        const bannerHidden = !banner || banner.hidden;
         return {
           rules: rules,
           hdrBg: header ? getComputedStyle(header).backgroundColor : '',
           logoOk: !!(logo && (logo.naturalWidth || logo.width) > 0),
-          breadcrumb: !!breadcrumb
+          breadcrumb: !!breadcrumb,
+          bannerHidden: bannerHidden
         };
       });
       if (check.rules < 20) throw new Error(shot.path + ': CSS não aplicou (rules=' + check.rules + ')');
@@ -108,26 +63,27 @@ async function captureAll(port) {
       }
       if (!check.logoOk) throw new Error(shot.path + ': logo não carregou');
       if (!check.breadcrumb) throw new Error(shot.path + ': trilha ausente');
+      if (!check.bannerHidden) throw new Error(shot.path + ': banner de cookies visível');
+      const metrics = await vp.measureOverflow(page);
+      vp.assertNoOverflow(metrics, shot.path);
       const out = path.join(outDir, shot.out);
       await page.screenshot({ path: out, fullPage: false });
       if (fs.statSync(out).size < 15000) throw new Error(out + ': PNG pequeno demais');
-      console.log('ok ' + out + ' rules=' + check.rules + ' header=' + check.hdrBg);
+      console.log(
+        'ok ' + out + ' rules=' + check.rules
+        + ' doc=' + metrics.docScroll + ' main=' + metrics.mainScroll
+      );
     }
   } finally {
     await browser.close();
   }
+  const buildArtigos = require('./build-artigos.js');
+  const paths = vp.breadcrumbPaths(buildArtigos.lerArtigos(root).publicados);
+  await vp.checkPathsNoOverflow(paths, port, chrome);
+  console.log('ok overflow em ' + paths.length + ' páginas');
 }
 
-(async function () {
-  const port = 18083;
-  const server = startServer(port);
-  try {
-    await waitForServer(port);
-    await captureAll(port);
-  } finally {
-    server.kill('SIGTERM');
-  }
-})().catch(function (e) {
+vp.withHttpServer(captureAll).catch(function (e) {
   console.error(e.message || e);
   process.exit(1);
 });
