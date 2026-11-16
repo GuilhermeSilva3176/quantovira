@@ -24,7 +24,11 @@ const NAV =
 const HEADER =
   '<header class="top"><div class="wrap top-inner"><a class="brand" href="/" aria-label="Quanto Vira — início"><img class="brand-mark" src="/assets/logo.svg" alt="" width="32" height="32" decoding="async"><span class="brand-text">Quanto<span>Vira</span></span></a>'
   + '<button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu"><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span></button>'
-  + '<nav id="site-nav" class="site-nav" aria-label="Principal">' + NAV + '</nav></div><div class="nav-backdrop" hidden></div></header>';
+  + '<nav id="site-nav" class="site-nav" aria-label="Principal" aria-hidden="true">'
+  + '<div class="site-nav-head"><p class="site-nav-title">Menu</p>'
+  + '<button type="button" class="nav-close" aria-label="Fechar menu"><span aria-hidden="true">×</span></button></div>'
+  + NAV
+  + '</nav></div><div class="nav-backdrop" hidden></div></header>';
 
 const FOOTER_TAGLINE = 'Sem cadastro · dados das calculadoras ficam no seu navegador';
 
