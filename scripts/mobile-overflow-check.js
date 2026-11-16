@@ -2,6 +2,7 @@
 /* Todas as URLs do sitemap em 360px e 412px — documentElement.scrollWidth <= innerWidth. */
 const { pathsFromSitemap } = require('./sitemap-paths.js');
 const vp = require('./breadcrumb-viewport.js');
+const drawer = require('./drawer-test-lib.js');
 
 const WIDTHS = [360, 412];
 const chrome = vp.resolveChrome();
@@ -12,6 +13,17 @@ if (!chrome) {
 }
 
 const paths = pathsFromSitemap();
+
+async function checkDrawerAtWidth(page, port, w) {
+  await page.setViewport({ width: w, height: 844, deviceScaleFactor: 1 });
+  await page.goto('http://127.0.0.1:' + port + '/juros-compostos/', {
+    waitUntil: 'networkidle0',
+    timeout: 45000
+  });
+  await page.click('.nav-toggle');
+  await drawer.waitForDrawerSettled(page);
+  await drawer.assertDrawerInViewport(page, 'menu @' + w + 'px');
+}
 
 async function checkViewport(page, port, w, h, pathList) {
   await page.setViewport({ width: w, height: h, deviceScaleFactor: 1 });
@@ -52,6 +64,7 @@ async function checkViewport(page, port, w, h, pathList) {
       }
     }
   }
+  await checkDrawerAtWidth(page, port, w);
 }
 
 vp.withHttpServer(async function (port) {

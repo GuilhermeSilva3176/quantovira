@@ -17,7 +17,7 @@ t('sitemap com páginas esperadas', () => {
   assert.strictEqual(paths.length, 33, '33 URLs no sitemap');
 });
 
-t('360px e 412px sem overflow (sitemap)', () => {
+t('drawer no viewport + 360px e 412px sem overflow (sitemap)', () => {
   if (!resolveChrome()) {
     console.log('  (pulado: sem Chrome)');
     return;
