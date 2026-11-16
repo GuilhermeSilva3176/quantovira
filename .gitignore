@@ -2,3 +2,4 @@ node_modules/
 .DS_Store
 *.log
 scripts/.og-tmp/
+scripts/.breadcrumb-shot-profile-*/

@@ -482,6 +482,7 @@ if (require.main === module) {
 
 module.exports = {
   build: build,
+  lerArtigos: lerArtigos,
   parseFrontMatter: parseFrontMatter,
   renderMarkdown: renderMarkdown,
   validar: validar,
