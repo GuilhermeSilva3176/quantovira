@@ -50,10 +50,25 @@
 <div class="grid">
 <form id="f" class="card">
   <h2>Seus números</h2>
-  <label>Valor que você já tem (R$)<input type="number" id="valorInicial" value="10000" min="0" step="100"></label>
-  <label>Aporte mensal (R$)<input type="number" id="aporteMensal" value="500" min="0" step="50"></label>
-  <label>Taxa de juros ao ano (%)<input type="number" id="taxaAnualPct" value="12" min="0" max="100" step="0.1"></label>
-  <label>Por quantos meses<input type="number" id="meses" value="60" min="1" max="600" step="1"></label>
+  <label>Valor que você já tem
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="valorInicial" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="10000">
+    </span>
+  </label>
+  <label>Aporte mensal
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="aporteMensal" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="500">
+    </span>
+  </label>
+  <label>Taxa de juros ao ano
+    <span class="qv-input qv-input--percent">
+      <input type="text" inputmode="decimal" id="taxaAnualPct" data-qv-kind="percent" data-qv-min="0" data-qv-max="100" data-qv-step="0.1" data-qv-decimals="1" value="12">
+      <span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span>
+    </span>
+  </label>
+  <label>Por quantos meses<input type="text" inputmode="numeric" id="meses" data-qv-kind="integer" data-qv-min="1" data-qv-max="600" value="60"></label>
   <button type="submit">Calcular</button>
   <button type="button" id="copy" class="sec">Copiar link</button>
   <p class="hint" id="copyMsg" aria-live="polite"></p>
@@ -152,6 +167,7 @@
 </article>
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/tool-params.js" defer></script>
 <script src="/assets/ferramentas.js" defer></script>
 <script src="/juros-compostos/app.js" defer></script>

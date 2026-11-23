@@ -50,8 +50,13 @@
 <div class="grid">
 <form id="f" class="card">
   <h2>Seus números</h2>
-  <label>Valor depositado (R$)<input type="number" id="valor" value="10000" min="0" step="100"></label>
-  <label>Tempo (meses)<input type="number" id="meses" value="12" min="1" max="360" step="1"></label>
+  <label>Valor depositado
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="valor" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="10000">
+    </span>
+  </label>
+  <label>Tempo (meses)<input type="text" inputmode="numeric" id="meses" data-qv-kind="integer" data-qv-min="1" data-qv-max="360" value="12"></label>
   <p class="hint" id="taxasHint">Carregando Selic e TR…</p>
   <button type="submit">Calcular</button>
   <button type="button" id="copy" class="sec">Copiar link</button>
@@ -90,6 +95,7 @@
 </article>
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/tool-params.js" defer></script>
 <script src="/assets/ferramentas.js" defer></script>
 <script src="/poupanca/app.js" defer></script>

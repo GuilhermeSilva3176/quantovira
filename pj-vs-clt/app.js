@@ -2,7 +2,7 @@
   var regras;
   var campos = ['salarioClt', 'vrVa', 'planoSaude', 'plr', 'valorPjMensal', 'proLabore', 'custoContador', 'feriasDias', 'iss', 'contabilidadeCompleta'];
   function num(id) {
-    var v = parseFloat(document.getElementById(id).value);
+    var v = QvMoneyInput.readInput(document.getElementById(id));
     return isFinite(v) ? v : 0;
   }
   function ler() {

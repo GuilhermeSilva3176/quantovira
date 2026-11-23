@@ -51,15 +51,35 @@
 <div class="grid">
 <form id="f" class="card">
   <h2>Seus dados</h2>
-  <label>Idade atual<input type="number" id="idade" value="30" min="16" max="80"></label>
-  <label>Patrimônio atual (R$)<input type="number" id="patrimonio" value="50000" min="0" step="1000"></label>
-  <label>Aporte mensal (R$)<input type="number" id="aporteMensal" value="3000" min="0" step="100"></label>
-  <label>Gasto mensal desejado na independência (R$)<input type="number" id="gastoMensal" value="6000" min="100" step="100"></label>
-  <label>Taxa de retirada anual (%)<input type="number" id="taxaRetirada" value="3.5" min="1" max="10" step="0.1"></label>
+  <label>Idade atual<input type="text" inputmode="numeric" id="idade" data-qv-kind="integer" data-qv-min="16" data-qv-max="80" value="30"></label>
+  <label>Patrimônio atual
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="patrimonio" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="50000">
+    </span>
+  </label>
+  <label>Aporte mensal
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="aporteMensal" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="3000">
+    </span>
+  </label>
+  <label>Gasto mensal desejado na independência
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="gastoMensal" data-qv-kind="money" data-qv-min="100" data-qv-decimals="2" value="6000">
+    </span>
+  </label>
+  <label>Taxa de retirada anual
+    <span class="qv-input qv-input--percent">
+      <input type="text" inputmode="decimal" id="taxaRetirada" data-qv-kind="percent" data-qv-min="1" data-qv-max="10" data-qv-step="0.1" data-qv-decimals="1" value="3.5">
+      <span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span>
+    </span>
+  </label>
   <p class="hint">A meta é o gasto do ano dividido por essa taxa. <span id="metaTxt"></span></p>
   <label>Alocação em ações (Ibovespa): <b id="pctTxt">50%</b><input type="range" id="pctAcoes" value="50" min="0" max="100" step="5"></label>
   <p class="hint">O restante vai para renda fixa pós-fixada (CDI).</p>
-  <label>Simular até a idade<input type="number" id="idadeFinal" value="95" min="40" max="110"></label>
+  <label>Simular até a idade<input type="text" inputmode="numeric" id="idadeFinal" data-qv-kind="integer" data-qv-min="40" data-qv-max="110" value="95"></label>
   <label>Número de simulações<select id="nSims"><option>1000</option><option selected>5000</option><option>10000</option></select></label>
   <button type="submit">Simular</button>
   <button type="button" id="copy" class="sec">Copiar link da simulação</button>
@@ -139,6 +159,7 @@
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
 <script src="/assets/chart.umd.min.js" defer></script>
 <script src="/assets/sim.js" defer></script>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/params.js" defer></script>
 <script src="/simulador-fire/app.js" defer></script>
 </body>

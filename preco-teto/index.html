@@ -50,12 +50,32 @@
 <div class="grid">
 <form id="f" class="card">
   <h2>Bazin (dividendos)</h2>
-  <label>Dividendo por ação no ano (R$)<input type="number" id="dpa" value="1.2" min="0" step="0.01"></label>
-  <label>Rendimento desejado ao ano (%)<input type="number" id="yieldPct" value="6" min="0.1" max="50" step="0.1"></label>
+  <label>Dividendo por ação no ano
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="dpa" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="1.2">
+    </span>
+  </label>
+  <label>Rendimento desejado ao ano
+    <span class="qv-input qv-input--percent">
+      <input type="text" inputmode="decimal" id="yieldPct" data-qv-kind="percent" data-qv-min="0.1" data-qv-max="50" data-qv-step="0.1" data-qv-decimals="1" value="6">
+      <span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span>
+    </span>
+  </label>
   <p class="hint">Preço teto = dividendo ÷ rendimento. O padrão é 6% ao ano.</p>
   <h2>Graham</h2>
-  <label>Lucro por ação — LPA (R$)<input type="number" id="lpa" value="2" min="0" step="0.01"></label>
-  <label>Valor patrimonial por ação — VPA (R$)<input type="number" id="vpa" value="10" min="0" step="0.01"></label>
+  <label>Lucro por ação — LPA
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="lpa" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="2">
+    </span>
+  </label>
+  <label>Valor patrimonial por ação — VPA
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="vpa" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="10">
+    </span>
+  </label>
   <p class="hint">Preço teto = √(22,5 × LPA × VPA)</p>
   <button type="submit">Calcular</button>
   <button type="button" id="copy" class="sec">Copiar link</button>
@@ -68,7 +88,12 @@
     <div><span id="kGraham">–</span><small>Teto Graham</small></div>
     <div><span id="kCmp">–</span><small>Preço atual (opcional)</small></div>
   </div>
-  <label>Preço de mercado hoje (R$)<input type="number" id="precoAtual" value="" min="0" step="0.01" placeholder="opcional"></label>
+  <label>Preço de mercado hoje
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="precoAtual" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="" placeholder="opcional">
+    </span>
+  </label>
   <p class="hint" id="explain"></p>
 </section>
 </div>
@@ -95,6 +120,7 @@
 </article>
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/tool-params.js" defer></script>
 <script src="/assets/ferramentas.js" defer></script>
 <script src="/preco-teto/app.js" defer></script>

@@ -1,5 +1,14 @@
 /* Codifica/decodifica os parâmetros do simulador (URL e localStorage). Navegador e Node. */
 (function (root) {
+  var _mi;
+  try {
+    if (typeof require !== 'undefined') _mi = require('./money-input.js');
+  } catch (e) {}
+  function paramNumber(raw) {
+    if (typeof QvMoneyInput !== 'undefined') return QvMoneyInput.parseParamNumber(raw);
+    if (_mi) return _mi.parseParamNumber(raw);
+    return Number(raw);
+  }
   var FIELDS = {
     idade: { min: 16, max: 80, def: 30 },
     patrimonio: { min: 0, max: 1e10, def: 50000 },
@@ -12,7 +21,8 @@
   };
   function clean(key, raw) {
     var f = FIELDS[key]; if (!f || raw === null || raw === undefined || raw === '') return undefined;
-    var v = Number(raw); if (!isFinite(v)) return undefined;
+    var v = paramNumber(raw);
+    if (!isFinite(v)) return undefined;
     if (f.allowed) return f.allowed.indexOf(v) >= 0 ? v : undefined;
     return Math.min(f.max, Math.max(f.min, v));
   }

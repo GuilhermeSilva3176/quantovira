@@ -6,9 +6,9 @@
   function load(){
     var stored=null; try{stored=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){}
     var p=FireParams.merge(stored,FireParams.decode(location.search));
-    ids.forEach(function(i){el(i).value=p[i];});
+    ids.forEach(function(i){QvMoneyInput.setInputValue(el(i),p[i]);});
   }
-  function read(){var p={};ids.forEach(function(i){p[i]=parseFloat(el(i).value);});return p;}
+  function read(){var p={};ids.forEach(function(i){p[i]=QvMoneyInput.readInput(el(i));});return p;}
   function persist(p){
     try{localStorage.setItem(KEY,JSON.stringify(p));}catch(e){}
     history.replaceState(null,'',location.pathname+'?'+FireParams.encode(p));

@@ -14,7 +14,7 @@
   function num(id) {
     var el = document.getElementById(id);
     if (el.value === '') return id === 'atrasoSelic' ? null : 0;
-    var v = parseFloat(el.value);
+    var v = QvMoneyInput.readInput(el);
     return isFinite(v) ? v : 0;
   }
   function ler() {
@@ -44,7 +44,7 @@
       var el = document.getElementById(k);
       if (el.value === '') p[k] = k === 'atrasoSelic' ? null : 0;
       else {
-        var v = parseFloat(el.value);
+        var v = QvMoneyInput.readInput(el);
         p[k] = isFinite(v) ? v : (k === 'atrasoSelic' ? null : 0);
       }
     });
@@ -67,7 +67,7 @@
     if (!el) return false;
     if (el.type === 'checkbox') return el.checked;
     if (el.tagName === 'SELECT') return el.value !== PADRAO_SELECT[id];
-    var v = parseFloat(el.value);
+    var v = QvMoneyInput.readInput(el);
     return isFinite(v) && v !== 0;
   }
   function dots() {
@@ -91,7 +91,7 @@
   }
   function aplicar(p) {
     Object.keys(IrParams.NUM).forEach(function (k) {
-      document.getElementById(k).value = p[k] == null ? '' : String(p[k]);
+      QvMoneyInput.setInputValue(document.getElementById(k), p[k] == null ? '' : p[k]);
     });
     Object.keys(IrParams.ENUM).forEach(function (k) {
       if (k === 'aba') return;

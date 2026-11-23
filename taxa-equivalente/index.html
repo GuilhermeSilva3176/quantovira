@@ -54,7 +54,12 @@
     <option value="a2m">Anual → mensal</option>
     <option value="m2a">Mensal → anual</option>
   </select></label>
-  <label>Taxa de entrada (%)<input type="number" id="taxaEntrada" value="12" min="0" max="500" step="0.0001"></label>
+  <label>Taxa de entrada
+    <span class="qv-input qv-input--percent">
+      <input type="text" inputmode="decimal" id="taxaEntrada" data-qv-kind="percent" data-qv-min="0" data-qv-max="500" data-qv-step="0.0001" data-qv-decimals="4" value="12">
+      <span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span>
+    </span>
+  </label>
   <button type="submit">Converter</button>
   <button type="button" id="copy" class="sec">Copiar link</button>
   <p class="hint" id="copyMsg" aria-live="polite"></p>
@@ -89,6 +94,7 @@
 </article>
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/tool-params.js" defer></script>
 <script src="/assets/ferramentas.js" defer></script>
 <script src="/taxa-equivalente/app.js" defer></script>

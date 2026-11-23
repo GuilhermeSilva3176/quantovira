@@ -51,25 +51,65 @@
 <div class="grid formwide">
 <form id="f" class="card">
   <h2>Seus números</h2>
-  <label>Salário CLT bruto mensal (R$)<input type="number" id="salarioClt" value="8000" min="0" step="100"></label>
-  <label>VR/VA mensal (R$)<input type="number" id="vrVa" value="0" min="0" step="50"></label>
-  <label>Plano de saúde pago pela empresa (R$/mês)<input type="number" id="planoSaude" value="0" min="0" step="50"></label>
-  <label>PLR anual (R$)<input type="number" id="plr" value="0" min="0" step="100"></label>
-  <label>Valor mensal da nota PJ (R$)<input type="number" id="valorPjMensal" value="14000" min="0" step="100"></label>
+  <label>Salário CLT bruto mensal
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="salarioClt" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="8000">
+    </span>
+  </label>
+  <label>VR/VA mensal
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="vrVa" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="0">
+    </span>
+  </label>
+  <label>Plano de saúde pago pela empresa (R$/mês)
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="planoSaude" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="0">
+    </span>
+  </label>
+  <label>PLR anual
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="plr" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="0">
+    </span>
+  </label>
+  <label>Valor mensal da nota PJ
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="valorPjMensal" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="14000">
+    </span>
+  </label>
   <label>Regime da PJ<select id="regime">
     <option value="mei">MEI (serviços)</option>
     <option value="simples-iii" selected>Simples, Anexo III (Fator R)</option>
     <option value="simples-v">Simples, Anexo V</option>
     <option value="lucro-presumido">Lucro Presumido (serviços)</option>
   </select></label>
-  <label>Pró-labore mensal (R$)<input type="number" id="proLabore" value="3920" min="0" step="50"></label>
+  <label>Pró-labore mensal
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="proLabore" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="3920">
+    </span>
+  </label>
   <p class="hint">No Simples Anexo III, o pró-labore costuma ser pelo menos 28% da nota. No MEI ele não gera outro INSS.</p>
-  <label>Contador (R$/mês)<input type="number" id="custoContador" value="0" min="0" step="50"></label>
+  <label>Contador (R$/mês)
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="custoContador" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="0">
+    </span>
+  </label>
   <label class="check"><input type="checkbox" id="contabilidadeCompleta"> Tenho contabilidade completa</label>
   <p class="hint">No Simples e no MEI, sem esta opção, a isenção do lucro fica em 32% da receita menos o DAS (LC nº 123, art. 14, § 1º). Marcada, vale o § 2º: a escrituração afasta esse limite.</p>
-  <label>Férias sem faturar no PJ (dias)<input type="number" id="feriasDias" value="0" min="0" max="360" step="1"></label>
+  <label>Férias sem faturar no PJ (dias)<input type="text" inputmode="numeric" id="feriasDias" data-qv-kind="integer" data-qv-min="0" data-qv-max="360" value="0"></label>
   <p class="hint">Cada 30 dias tira um mês de receita. O pró-labore e o contador continuam nos 12 meses.</p>
-  <label>ISS no Lucro Presumido (%)<input type="number" id="iss" value="5" min="2" max="5" step="0.01"></label>
+  <label>ISS no Lucro Presumido
+    <span class="qv-input qv-input--percent">
+      <input type="text" inputmode="decimal" id="iss" data-qv-kind="percent" data-qv-min="2" data-qv-max="5" data-qv-step="0.01" data-qv-decimals="2" value="5">
+      <span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span>
+    </span>
+  </label>
   <p class="hint">Só muda a conta no Lucro Presumido. Use a alíquota da sua cidade, entre 2% e 5%. O 5% inicial é o máximo da lei, não o da sua cidade.</p>
   <button type="submit">Calcular</button>
 </form>
@@ -146,6 +186,7 @@
 <!-- artigos:fim -->
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/pjclt.js" defer></script>
 <script src="/pj-vs-clt/app.js" defer></script>
 </body>
