@@ -49,8 +49,13 @@
   function poupancaTaxaMensalPct(selicAa, trMensalPct) {
     var selic = selicAa / 100;
     var tr = trMensalPct / 100;
-    if (selic > 0.085) return (tr + 0.005) * 100;
-    return (tr + (selic * 0.7) / 12) * 100;
+    var extra;
+    if (selic > 0.085) {
+      extra = 0.005;
+    } else {
+      extra = Math.pow(1 + selic * 0.7, 1 / 12) - 1;
+    }
+    return ((1 + tr) * (1 + extra) - 1) * 100;
   }
 
   function rendimentoPeriodo(valor, taxaAnualPct, dias) {

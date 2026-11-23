@@ -23,14 +23,15 @@ t('juros compostos com aportes', () => {
   assert.ok(Math.abs(r.rendimento - (r.montante - r.totalAportes)) < 1e-9);
 });
 
-t('poupança: Selic alta usa 0,5% + TR', () => {
-  const m = F.poupancaTaxaMensalPct(13.75, 0.12);
-  assert.ok(Math.abs(m - (0.12 + 0.5)) < 1e-9);
+t('poupança: Selic alta compõe TR com 0,5% ao mês', () => {
+  const m = F.poupancaTaxaMensalPct(13.75, 0.1693);
+  assert.ok(Math.abs(m - 0.6701) < 0.00005);
 });
 
-t('poupança: Selic baixa usa 70% Selic + TR', () => {
+t('poupança: Selic baixa compõe TR com 70% da Selic ao mês', () => {
   const m = F.poupancaTaxaMensalPct(8, 0.1);
-  const esperado = (0.1 / 100 + (0.08 * 0.7) / 12) * 100;
+  const r = Math.pow(1 + 0.08 * 0.7, 1 / 12) - 1;
+  const esperado = ((1 + 0.001) * (1 + r) - 1) * 100;
   assert.ok(Math.abs(m - esperado) < 1e-9);
 });
 
