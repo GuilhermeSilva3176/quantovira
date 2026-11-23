@@ -10,11 +10,11 @@
     var stored = null;
     try { stored = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
     var p = P.merge(stored, P.decode(location.search));
-    Object.keys(FIELDS).forEach(function (k) { el(k).value = p[k]; });
+    Object.keys(FIELDS).forEach(function (k) { QvMoneyInput.setInputValue(el(k), p[k]); });
   }
   function read() {
     var p = {};
-    Object.keys(FIELDS).forEach(function (k) { p[k] = parseFloat(el(k).value); });
+    Object.keys(FIELDS).forEach(function (k) { p[k] = QvMoneyInput.readInput(el(k)); });
     return p;
   }
   function persist(p) {

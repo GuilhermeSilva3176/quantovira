@@ -66,7 +66,7 @@
       <option value="11">Novembro</option>
       <option value="12">Dezembro</option>
     </select></label>
-    <label>Ano<input type="number" id="ano" value="2026" min="2024" max="2035"></label>
+    <label>Ano<input type="text" inputmode="numeric" id="ano" data-qv-kind="integer" data-qv-min="2024" data-qv-max="2035" value="2026"></label>
   </div>
 
   <div class="seg" role="tablist" aria-label="Tipo de investimento">
@@ -82,10 +82,10 @@
     <p class="paneltitle">Mercado comum <button type="button" class="info" aria-expanded="false" aria-controls="tip-acoes" aria-label="Informação sobre ações">i</button></p>
     <p class="tip" id="tip-acoes" hidden>Prejuízo com sinal de menos. Vendas até R$ 20 mil isentam o lucro das ações. Uma perda nesse mês não entra no saldo: a Receita não confirmou essa compensação.</p>
     <div class="fields">
-      <label>Vendas no mês<input type="number" id="acoesVendas" value="60000" min="0" step="0.01"></label>
-      <label>Lucro ou prejuízo<input type="number" id="acoesResultado" value="9967" step="0.01"></label>
-      <label>Prejuízo acumulado<input type="number" id="acoesPrejuizo" value="0" min="0" step="0.01"></label>
-      <label>IRRF retido<input type="number" id="acoesIrrf" value="3" min="0" step="0.01"></label>
+      <label>Vendas no mês<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="acoesVendas" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="60000"></span></label>
+      <label>Lucro ou prejuízo<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="acoesResultado" data-qv-kind="money" data-qv-decimals="2" data-qv-allow-negative="1" value="9967"></span></label>
+      <label>Prejuízo acumulado<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="acoesPrejuizo" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>IRRF retido<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="acoesIrrf" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="3"></span></label>
     </div>
     <p class="hint">Não confirmado: se as vendas de ações do mês ficam até R$ 20 mil, a calculadora não soma uma perda desse mês ao saldo dos meses seguintes. A página de compensações da Receita não trata esse caso.</p>
   </div>
@@ -94,10 +94,10 @@
     <p class="paneltitle">Day trade <button type="button" class="info" aria-expanded="false" aria-controls="tip-day" aria-label="Informação sobre day trade">i</button></p>
     <p class="tip" id="tip-day" hidden>Compra e venda no mesmo dia. Não tem isenção de R$ 20 mil. O prejuízo só abate day trade.</p>
     <div class="fields">
-      <label>Vendas no mês<input type="number" id="dayVendas" value="0" min="0" step="0.01"></label>
-      <label>Lucro ou prejuízo<input type="number" id="dayResultado" value="0" step="0.01"></label>
-      <label>Prejuízo acumulado<input type="number" id="dayPrejuizo" value="0" min="0" step="0.01"></label>
-      <label>IRRF retido<input type="number" id="dayIrrf" value="0" min="0" step="0.01"></label>
+      <label>Vendas no mês<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="dayVendas" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Lucro ou prejuízo<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="dayResultado" data-qv-kind="money" data-qv-decimals="2" data-qv-allow-negative="1" value="0"></span></label>
+      <label>Prejuízo acumulado<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="dayPrejuizo" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>IRRF retido<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="dayIrrf" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
     </div>
   </div>
 
@@ -105,15 +105,15 @@
     <p class="paneltitle">ETF de ações <button type="button" class="info" aria-expanded="false" aria-controls="tip-etf" aria-label="Informação sobre ETF de ações">i</button></p>
     <p class="tip" id="tip-etf" hidden>ETF de ações não tem a isenção de R$ 20 mil. O prejuízo compensa ações, e o contrário também.</p>
     <div class="fields">
-      <label>Vendas no mês<input type="number" id="etfVendas" value="0" min="0" step="0.01"></label>
-      <label>Lucro ou prejuízo<input type="number" id="etfResultado" value="0" step="0.01"></label>
-      <label>Prejuízo acumulado<input type="number" id="etfPrejuizo" value="0" min="0" step="0.01"></label>
-      <label>IRRF retido<input type="number" id="etfIrrf" value="0" min="0" step="0.01"></label>
+      <label>Vendas no mês<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="etfVendas" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Lucro ou prejuízo<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="etfResultado" data-qv-kind="money" data-qv-decimals="2" data-qv-allow-negative="1" value="0"></span></label>
+      <label>Prejuízo acumulado<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="etfPrejuizo" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>IRRF retido<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="etfIrrf" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
     </div>
     <p class="paneltitle">ETF de renda fixa <button type="button" class="info" aria-expanded="false" aria-controls="tip-etfrf" aria-label="Informação sobre ETF de renda fixa">i</button></p>
     <p class="tip" id="tip-etfrf" hidden>Esse imposto é retido na fonte: 25% até 180 dias, 20% até 720 e 15% acima disso. Sem o prazo, a conta não escolhe a alíquota.</p>
     <div class="fields">
-      <label>Lucro no resgate<input type="number" id="etfRfResultado" value="0" step="0.01"></label>
+      <label>Lucro no resgate<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="etfRfResultado" data-qv-kind="money" data-qv-decimals="2" data-qv-allow-negative="1" value="0"></span></label>
       <label>Prazo do índice<select id="etfRfPrazo">
         <option value="" selected>Não sei</option>
         <option value="ate180">Até 180 dias</option>
@@ -127,15 +127,15 @@
     <p class="paneltitle">Venda de cotas <button type="button" class="info" aria-expanded="false" aria-controls="tip-fii" aria-label="Informação sobre venda de FII">i</button></p>
     <p class="tip" id="tip-fii" hidden>É o ganho na venda da cota, não o rendimento mensal do fundo. O prejuízo só abate outro FII.</p>
     <div class="fields">
-      <label>Vendas no mês<input type="number" id="fiiVendas" value="0" min="0" step="0.01"></label>
-      <label>Lucro ou prejuízo<input type="number" id="fiiResultado" value="0" step="0.01"></label>
-      <label>Prejuízo acumulado<input type="number" id="fiiPrejuizo" value="0" min="0" step="0.01"></label>
-      <label>IRRF retido<input type="number" id="fiiIrrf" value="0" min="0" step="0.01"></label>
+      <label>Vendas no mês<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="fiiVendas" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Lucro ou prejuízo<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="fiiResultado" data-qv-kind="money" data-qv-decimals="2" data-qv-allow-negative="1" value="0"></span></label>
+      <label>Prejuízo acumulado<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="fiiPrejuizo" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>IRRF retido<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="fiiIrrf" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
     </div>
     <p class="paneltitle">Rendimentos <button type="button" class="info" aria-expanded="false" aria-controls="tip-fiirend" aria-label="Informação sobre rendimentos de FII">i</button></p>
     <p class="tip" id="tip-fiirend" hidden>Fiagro segue a mesma regra. A isenção pede 100 cotistas ou mais, cotas em bolsa e menos de 10% na sua mão. Se não cumprir, os 20% ficam com o administrador, fora do DARF.</p>
     <div class="fields">
-      <label>Pago no mês<input type="number" id="fiiRendValor" value="0" min="0" step="0.01"></label>
+      <label>Pago no mês<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="fiiRendValor" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
       <label>Isenção do fundo<select id="fiiRendEnq">
         <option value="isento" selected>Sim, isento</option>
         <option value="tributado">Não cumpre</option>
@@ -152,9 +152,9 @@
         <option value="brasil" selected>No Brasil</option>
         <option value="exterior">No exterior</option>
       </select></label>
-      <label>Vendido no mês<input type="number" id="criptoVendas" value="0" min="0" step="0.01"></label>
-      <label>Lucro ou prejuízo<input type="number" id="criptoResultado" value="0" step="0.01"></label>
-      <label>Prejuízo acumulado<input type="number" id="criptoPrejuizo" value="0" min="0" step="0.01"></label>
+      <label>Vendido no mês<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="criptoVendas" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Lucro ou prejuízo<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="criptoResultado" data-qv-kind="money" data-qv-decimals="2" data-qv-allow-negative="1" value="0"></span></label>
+      <label>Prejuízo acumulado<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="criptoPrejuizo" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
     </div>
   </div>
 
@@ -162,13 +162,13 @@
     <p class="paneltitle">Aplicações no exterior <button type="button" class="info" aria-expanded="false" aria-controls="tip-ext" aria-label="Informação sobre investimentos no exterior">i</button></p>
     <p class="tip" id="tip-ext" hidden>Entra na declaração do ano seguinte, a 15%. Não é DARF mensal. Cada rendimento leva o imposto pago sobre ele. O crédito não passa do IR brasileiro daquele rendimento.</p>
     <div class="fields">
-      <label>Rendimento 1<input type="number" id="extRend1" value="0" min="0" step="0.01"></label>
-      <label>Imposto pago no rendimento 1<input type="number" id="extPago1" value="0" min="0" step="0.01"></label>
-      <label>Rendimento 2<input type="number" id="extRend2" value="0" min="0" step="0.01"></label>
-      <label>Imposto pago no rendimento 2<input type="number" id="extPago2" value="0" min="0" step="0.01"></label>
-      <label>Rendimento 3<input type="number" id="extRend3" value="0" min="0" step="0.01"></label>
-      <label>Imposto pago no rendimento 3<input type="number" id="extPago3" value="0" min="0" step="0.01"></label>
-      <label>Perdas a compensar<input type="number" id="extPrejuizo" value="0" min="0" step="0.01"></label>
+      <label>Rendimento 1<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="extRend1" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Imposto pago no rendimento 1<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="extPago1" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Rendimento 2<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="extRend2" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Imposto pago no rendimento 2<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="extPago2" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Rendimento 3<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="extRend3" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Imposto pago no rendimento 3<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="extPago3" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
+      <label>Perdas a compensar<span class="qv-input qv-input--money"><span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span><input type="text" inputmode="decimal" id="extPrejuizo" data-qv-kind="money" data-qv-decimals="2" data-qv-min="0" value="0"></span></label>
       <label class="check span2"><input type="checkbox" id="extAcordo"> Há acordo contra bitributação ou reciprocidade</label>
     </div>
   </div>
@@ -177,8 +177,8 @@
     <summary>Se o pagamento atrasar</summary>
     <p class="hint">A multa é 0,33% ao dia, no máximo 20%. Os juros pedem a Selic, que não está gravada aqui.</p>
     <div class="fields">
-      <label>Dias de atraso<input type="number" id="atrasoDias" value="0" min="0" step="1"></label>
-      <label>Selic acumulada (%)<input type="number" id="atrasoSelic" value="" step="0.01" placeholder="em branco se não souber"></label>
+      <label>Dias de atraso<input type="text" inputmode="numeric" id="atrasoDias" data-qv-kind="integer" data-qv-min="0" value="0"></label>
+      <label>Selic acumulada (%)<span class="qv-input qv-input--percent"><input type="text" inputmode="decimal" id="atrasoSelic" data-qv-kind="percent" data-qv-decimals="2" value="" placeholder="em branco se não souber"><span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span></span></label>
       <label class="check span2"><input type="checkbox" id="atrasoMesPosterior" checked> O pagamento é num mês depois do vencimento</label>
     </div>
   </details>
@@ -274,6 +274,7 @@
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
 <script src="/assets/ir.js" defer></script>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/ir-params.js" defer></script>
 <script src="/ir-investimentos/app.js" defer></script>
 </body>

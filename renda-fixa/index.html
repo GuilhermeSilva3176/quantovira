@@ -50,11 +50,31 @@
 <div class="grid formwide">
 <form id="f" class="card">
   <h2>Investimento</h2>
-  <label>Valor aplicado (R$)<input type="number" id="valor" value="50000" min="0" step="1000"></label>
-  <label>Prazo (dias)<input type="number" id="dias" value="400" min="1" max="3650" step="1"></label>
-  <label>CDB (% do CDI)<input type="number" id="pctCdiCdb" value="100" min="0" max="200" step="1"></label>
-  <label>LCI/LCA (% do CDI)<input type="number" id="pctCdiLci" value="90" min="0" max="200" step="1"></label>
-  <label>Tesouro (% ao ano)<input type="number" id="tesouroAa" value="11" min="0" max="30" step="0.1"></label>
+  <label>Valor aplicado
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="valor" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="50000">
+    </span>
+  </label>
+  <label>Prazo (dias)<input type="text" inputmode="numeric" id="dias" data-qv-kind="integer" data-qv-min="1" data-qv-max="3650" value="400"></label>
+  <label>CDB (% do CDI)
+    <span class="qv-input qv-input--percent">
+      <input type="text" inputmode="decimal" id="pctCdiCdb" data-qv-kind="percent" data-qv-min="0" data-qv-max="200" data-qv-step="1" data-qv-decimals="0" value="100">
+      <span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span>
+    </span>
+  </label>
+  <label>LCI/LCA (% do CDI)
+    <span class="qv-input qv-input--percent">
+      <input type="text" inputmode="decimal" id="pctCdiLci" data-qv-kind="percent" data-qv-min="0" data-qv-max="200" data-qv-step="1" data-qv-decimals="0" value="90">
+      <span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span>
+    </span>
+  </label>
+  <label>Tesouro (% ao ano)
+    <span class="qv-input qv-input--percent">
+      <input type="text" inputmode="decimal" id="tesouroAa" data-qv-kind="percent" data-qv-min="0" data-qv-max="30" data-qv-step="0.1" data-qv-decimals="1" value="11">
+      <span class="qv-input-affix qv-input-affix--suffix" aria-hidden="true">%</span>
+    </span>
+  </label>
   <p class="hint" id="taxasHint">Carregando taxas de referência…</p>
   <button type="submit">Comparar</button>
   <button type="button" id="copy" class="sec">Copiar link</button>
@@ -94,6 +114,7 @@
 </article>
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/tool-params.js" defer></script>
 <script src="/assets/ferramentas.js" defer></script>
 <script src="/renda-fixa/app.js" defer></script>

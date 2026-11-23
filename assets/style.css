@@ -693,6 +693,59 @@ input[type='range'] {
   accent-color: var(--acc);
 }
 
+.qv-input {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 11px 12px;
+  border: 1px solid var(--br);
+  border-radius: 8px;
+  font-size: 16px;
+  background: #fff;
+  min-height: 44px;
+}
+
+.qv-input:focus-within {
+  outline: 2px solid var(--acc);
+  outline-offset: 1px;
+  border-color: var(--acc);
+}
+
+.qv-input-affix {
+  flex-shrink: 0;
+  color: var(--mut);
+  font-size: 0.95rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+.qv-input-affix--suffix {
+  margin-left: auto;
+}
+
+.qv-input input {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  min-height: auto;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.qv-input input:focus {
+  outline: none;
+}
+
+label > input[data-qv-kind] {
+  margin-top: 4px;
+}
+
 button {
   margin-top: 14px;
   width: 100%;

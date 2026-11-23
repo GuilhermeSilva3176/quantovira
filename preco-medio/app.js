@@ -14,11 +14,14 @@
     var stored = null;
     try { stored = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
     var p = P.merge(stored, P.decode(location.search));
-    IDS.forEach(function (k) { el(k).value = p[k]; });
+    IDS.forEach(function (k) { QvMoneyInput.setInputValue(el(k), p[k]); });
   }
   function read() {
     var p = {};
-    IDS.forEach(function (k) { p[k] = parseFloat(el(k).value) || 0; });
+    IDS.forEach(function (k) {
+      var v = QvMoneyInput.readInput(el(k));
+      p[k] = isFinite(v) ? v : 0;
+    });
     return p;
   }
   function persist(p) {

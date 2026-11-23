@@ -10,12 +10,12 @@
     var stored = null;
     try { stored = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
     var p = P.merge(stored, P.decode(location.search));
-    el('taxaEntrada').value = p.taxaEntrada;
+    QvMoneyInput.setInputValue(el('taxaEntrada'), p.taxaEntrada);
     el('modo').value = p.modo;
   }
   function read() {
     return {
-      taxaEntrada: parseFloat(el('taxaEntrada').value),
+      taxaEntrada: QvMoneyInput.readInput(el('taxaEntrada')),
       modo: el('modo').value
     };
   }

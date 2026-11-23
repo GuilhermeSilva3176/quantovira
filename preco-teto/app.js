@@ -18,13 +18,13 @@
     try { stored = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
     var p = P.merge(stored, P.decode(location.search));
     Object.keys(FIELDS).forEach(function (k) {
-      if (p[k] || k === 'precoAtual') el(k).value = p[k] || '';
+      if (p[k] || k === 'precoAtual') QvMoneyInput.setInputValue(el(k), p[k] || '');
     });
   }
   function read() {
     var p = {};
     Object.keys(FIELDS).forEach(function (k) {
-      var v = parseFloat(el(k).value);
+      var v = QvMoneyInput.readInput(el(k));
       p[k] = isFinite(v) ? v : 0;
     });
     return p;

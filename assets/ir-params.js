@@ -1,5 +1,14 @@
 /* Codifica os campos do IR de investimentos (URL e localStorage). Navegador e Node. */
 (function (root) {
+  var _mi;
+  try {
+    if (typeof require !== 'undefined') _mi = require('./money-input.js');
+  } catch (e) {}
+  function paramNumber(raw) {
+    if (typeof QvMoneyInput !== 'undefined') return QvMoneyInput.parseParamNumber(raw);
+    if (_mi) return _mi.parseParamNumber(raw);
+    return Number(raw);
+  }
   var ABAS = ['acoes', 'day', 'etf', 'fii', 'cripto', 'exterior'];
   var NUM = {
     mes: { min: 1, max: 12, def: 2 },
@@ -51,7 +60,7 @@
     var f = NUM[key];
     if (!f) return undefined;
     if (raw === null || raw === undefined || raw === '') return f.vazio ? null : undefined;
-    var v = Number(raw);
+    var v = paramNumber(raw);
     if (!isFinite(v)) return undefined;
     return Math.min(f.max, Math.max(f.min, v));
   }

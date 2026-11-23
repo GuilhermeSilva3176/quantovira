@@ -50,8 +50,18 @@
 <div class="grid">
 <form id="f" class="card">
   <h2>Dados</h2>
-  <label>Dividendos pagos no ano por ação (R$)<input type="number" id="dividendoAnual" value="1.5" min="0" step="0.01"></label>
-  <label>Preço da ação (R$)<input type="number" id="preco" value="30" min="0.01" step="0.01"></label>
+  <label>Dividendos pagos no ano por ação
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="dividendoAnual" data-qv-kind="money" data-qv-min="0" data-qv-decimals="2" value="1.5">
+    </span>
+  </label>
+  <label>Preço da ação
+    <span class="qv-input qv-input--money">
+      <span class="qv-input-affix qv-input-affix--prefix" aria-hidden="true">R$</span>
+      <input type="text" inputmode="decimal" id="preco" data-qv-kind="money" data-qv-min="0.01" data-qv-decimals="2" value="30">
+    </span>
+  </label>
   <button type="submit">Calcular</button>
   <button type="button" id="copy" class="sec">Copiar link</button>
   <p class="hint" id="copyMsg" aria-live="polite"></p>
@@ -86,6 +96,7 @@
 </article>
 </main>
 <footer class="wrap foot">© Quanto Vira · <a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/privacidade/">Privacidade</a> · <a href="/fontes/">Fontes</a> · Sem cadastro · dados das calculadoras ficam no seu navegador.</footer>
+<script src="/assets/money-input.js" defer></script>
 <script src="/assets/tool-params.js" defer></script>
 <script src="/assets/ferramentas.js" defer></script>
 <script src="/dividend-yield/app.js" defer></script>
