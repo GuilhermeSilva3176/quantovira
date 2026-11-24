@@ -14,7 +14,7 @@ t('sitemap com páginas esperadas', () => {
   assert.ok(paths.includes('/'));
   assert.ok(paths.includes('/juros-compostos/'));
   assert.ok(paths.includes('/privacidade/'));
-  assert.strictEqual(paths.length, 34, '34 URLs no sitemap');
+  assert.strictEqual(paths.length, 35, '35 URLs no sitemap');
 });
 
 t('drawer no viewport + 360px e 412px sem overflow (sitemap)', () => {

@@ -134,5 +134,9 @@
   "https://quantovira.com.br/artigos/tabela-regressiva-ir-renda-fixa/": {
     "rel": "assets/og-pages/artigos/tabela-regressiva-ir-renda-fixa.png",
     "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/tabela-regressiva-ir-renda-fixa.png"
+  },
+  "https://quantovira.com.br/artigos/taxa-equivalente-mensal-anual/": {
+    "rel": "assets/og-pages/artigos/taxa-equivalente-mensal-anual.png",
+    "ogUrl": "https://quantovira.com.br/assets/og-pages/artigos/taxa-equivalente-mensal-anual.png"
   }
 }
