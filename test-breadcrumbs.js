@@ -76,7 +76,7 @@ t('idempotência do inject de trilha', () => {
 
 const sitemap = sitemapLocs();
 const { publicados } = buildArtigos.lerArtigos(root);
-assert.strictEqual(publicados.length, 17, '17 artigos publicados');
+assert.strictEqual(publicados.length, 18, '18 artigos publicados');
 
 lib.SLUGS.forEach(function (slug) {
   t('trilha na calculadora ' + slug, () => {
@@ -141,14 +141,14 @@ t('hub ferramentas: trilha, CollectionPage e sem WebApplication', () => {
   assert.strictEqual(blocks.filter(function (o) { return o['@type'] === 'WebApplication'; }).length, 0);
 });
 
-t('hub artigos: trilha e CollectionPage com 17 itens', () => {
+t('hub artigos: trilha e CollectionPage com 18 itens', () => {
   const html = fs.readFileSync(path.join(root, 'artigos', 'index.html'), 'utf8');
   const visible = lib.extractVisibleTrail(html);
   assert.deepStrictEqual(visible, ['Início', 'Artigos']);
   const blocks = parseAllLdJson(html);
   const col = findCollectionPage(blocks);
   assert.strictEqual(col.length, 1);
-  assert.strictEqual(col[0].mainEntity.itemListElement.length, 17);
+  assert.strictEqual(col[0].mainEntity.itemListElement.length, 18);
 });
 
 t('home sem trilha', () => {

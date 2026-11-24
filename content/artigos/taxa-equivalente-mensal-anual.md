@@ -4,7 +4,7 @@ description: "1% ao mês não é 12% ao ano. Veja como converter taxa mensal e a
 date: 2026-11-23
 updated: 2026-11-23
 author: Equipe Quanto Vira
-calculadora: ir-investimentos
+calculadora: taxa-equivalente
 fontes:
   - nome: Banco Central do Brasil — Remuneração dos Depósitos de Poupança
     url: https://www.bcb.gov.br/pec/poupanca/poupanca.asp?frame=1
