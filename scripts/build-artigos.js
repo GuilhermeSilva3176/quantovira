@@ -16,7 +16,8 @@ const CALCULADORAS = {
   'poupanca': { href: '/poupanca/', nome: 'Simulador de poupança' },
   'taxa-equivalente': { href: '/taxa-equivalente/', nome: 'Taxa equivalente' },
   'rentabilidade-real': { href: '/rentabilidade-real/', nome: 'Rentabilidade real' },
-  'renda-fixa': { href: '/renda-fixa/', nome: 'Comparador de renda fixa' }
+  'renda-fixa': { href: '/renda-fixa/', nome: 'Comparador de renda fixa' },
+  'preco-medio': { href: '/preco-medio/', nome: 'Preço médio de compras' }
 };
 const PAGINAS_FIXAS = [
   '/',
