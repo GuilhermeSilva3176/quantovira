@@ -4,7 +4,7 @@ description: "A poupança é isenta de IR; CDB e Tesouro Selic pagam de 22,5% a 
 date: 2026-11-23
 updated: 2026-11-23
 author: Equipe Quanto Vira
-calculadora: ir-investimentos
+calculadora: poupanca
 fontes:
   - nome: Lei nº 12.703, de 7 de agosto de 2012
     url: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12703.htm

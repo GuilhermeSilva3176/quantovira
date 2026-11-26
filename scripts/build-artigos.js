@@ -12,7 +12,13 @@ const ARTIGOS_RELACIONADOS_CALC = 6;
 const CALCULADORAS = {
   'simulador-fire': { href: '/simulador-fire/', nome: 'Simulador FIRE' },
   'pj-vs-clt': { href: '/pj-vs-clt/', nome: 'PJ x CLT' },
-  'ir-investimentos': { href: '/ir-investimentos/', nome: 'IR de investimentos' }
+  'ir-investimentos': { href: '/ir-investimentos/', nome: 'IR de investimentos' },
+  'poupanca': { href: '/poupanca/', nome: 'Simulador de poupança' },
+  'taxa-equivalente': { href: '/taxa-equivalente/', nome: 'Taxa equivalente' },
+  'rentabilidade-real': { href: '/rentabilidade-real/', nome: 'Rentabilidade real' },
+  'renda-fixa': { href: '/renda-fixa/', nome: 'Comparador de renda fixa' },
+  'preco-medio': { href: '/preco-medio/', nome: 'Preço médio de compras' },
+  'dividend-yield': { href: '/dividend-yield/', nome: 'Dividend yield' }
 };
 const PAGINAS_FIXAS = [
   '/',
@@ -274,7 +280,7 @@ function validar(slug, data) {
   const updated = data.updated || data.date;
   if (!dataValida(updated)) throw new Error(slug + ': updated precisa ser AAAA-MM-DD');
   if (!CALCULADORAS[data.calculadora]) {
-    throw new Error(slug + ': calculadora precisa ser simulador-fire, pj-vs-clt ou ir-investimentos');
+    throw new Error(slug + ': calculadora precisa ser ' + Object.keys(CALCULADORAS).join(', '));
   }
   if (!Array.isArray(data.fontes) || data.fontes.length === 0) throw new Error(slug + ': falta a lista fontes');
   data.fontes.forEach(function (f, idx) {
