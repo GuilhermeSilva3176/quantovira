@@ -17,7 +17,8 @@ const CALCULADORAS = {
   'taxa-equivalente': { href: '/taxa-equivalente/', nome: 'Taxa equivalente' },
   'rentabilidade-real': { href: '/rentabilidade-real/', nome: 'Rentabilidade real' },
   'renda-fixa': { href: '/renda-fixa/', nome: 'Comparador de renda fixa' },
-  'preco-medio': { href: '/preco-medio/', nome: 'Preço médio de compras' }
+  'preco-medio': { href: '/preco-medio/', nome: 'Preço médio de compras' },
+  'dividend-yield': { href: '/dividend-yield/', nome: 'Dividend yield' }
 };
 const PAGINAS_FIXAS = [
   '/',

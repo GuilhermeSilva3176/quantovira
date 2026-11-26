@@ -135,9 +135,9 @@ t('artigo sem fonte ou com calculadora errada falha', () => {
   assert.throws(() => B.validar('index', { title: 'A', description: 'B', date: '2026-01-01', calculadora: 'pj-vs-clt', fontes: [{ nome: 'Z', url: 'https://z.dev' }] }), /slug/);
 });
 
-t('chaves poupanca, taxa-equivalente, rentabilidade-real, renda-fixa e preco-medio são aceitas', () => {
+t('chaves poupanca, taxa-equivalente, rentabilidade-real, renda-fixa, preco-medio e dividend-yield são aceitas', () => {
   const base = { title: 'A', description: 'B', date: '2026-01-01', fontes: [{ nome: 'Z', url: 'https://z.dev' }] };
-  ['poupanca', 'taxa-equivalente', 'rentabilidade-real', 'renda-fixa', 'preco-medio'].forEach(function (chave) {
+  ['poupanca', 'taxa-equivalente', 'rentabilidade-real', 'renda-fixa', 'preco-medio', 'dividend-yield'].forEach(function (chave) {
     assert.strictEqual(B.validar('teste-' + chave, Object.assign({ calculadora: chave }, base)).calculadora, chave);
   });
 });
